@@ -1,0 +1,18 @@
+# Initial requirements traceability
+
+This is the initial audit slice. “Observed” means verified in the local checkout; “gap” means not found in the inspected code, not a claim that no remote work exists.
+
+| Requirement | Design evidence | Current implementation evidence | Gap / contradiction | Initial ticket | Verification target |
+|---|---|---|---|---|---|
+| OTP auth with expiry, attempts, session invalidation | LLD §5.1, §7.1; `auth_otp_verified.svg` | Backend users routes, Redis/session middleware, OTP tests; router registers users | Integration coverage and end-to-end evidence are limited | AUTH-001 | API integration tests + seeded demo login |
+| Onboarding and presigned uploads | LLD §5.1/§5.8; `onboarding.svg`, `presigned_upload.svg` | Backend onboarding/upload handlers and migrations are wired | Provider callbacks, admin review, and full persona evidence incomplete | AUTH-002 | upload/mock callback and rejection/resubmit tests |
+| Profile and address CRUD | LLD §5.1; `profile.svg`, `address_crud.svg` | Backend routes/business/repository code and migrations exist | No browser journey evidence; schema/contract drift must be checked | CUST-001 | API + browser journey, IDOR/soft-delete tests |
+| Restaurant discovery and menu | LLD §5.2; `restaurant_discovery.svg`, `menu_management.svg` | Backend restaurant package is a one-line scaffold; routes not registered | Public discovery/menu and owner menu management are absent from runtime | VERT-001 | endpoint contract tests and seeded Shamgarh data |
+| Cart | LLD §5.3; `cart.svg` | Backend cart package has scaffold files; routes not registered | HMAC cart, server pricing, restaurant mismatch, and persistence are not runtime behavior | VERT-002 | concurrency/negative API tests |
+| Place order and server-side quote | LLD §5.4; `place_order.svg`; DB §9 APIs 29–30 | Separate order service has stub methods; backend has gRPC client seam | No working order placement path; current schema uses decimal money and partitioned composite keys | ORDER-001, DATA-001 | idempotency/price race/integration tests |
+| Payment adapter and verification | LLD §5.5; `payment.svg` | Payment package scaffold only; DB payment migration exists | No explicit mock/real provider abstraction or runtime route | ORDER-002 | mock failure/success and clear real-mode failure |
+| Backend-controlled 600s simulated delivery | Master prompt §10; LLD §5.7; assignment/tracking SVGs | Delivery package is scaffold only; no provider config or worker found | Entire provider abstraction, persisted timing, restart recovery, and events are missing | DELIVERY-001 | accelerated-clock test plus one real 10-minute run |
+| Notifications | LLD §5.6; `notifications.svg` | Notification package scaffold; NATS exists in backend | No runtime routes/consumer behavior verified | OPS-001 | event delivery and read-state tests |
+| Customer/restaurant/driver/admin journeys | LLD §2; frontend source tree | Frontend has landing/auth/onboarding/profile only | Discovery, checkout, tracking, restaurant, driver, and ops UI absent | FRONT-001 | responsive browser persona matrix |
+| Database design alignment | DB design §§1–10; `er_diagram.svg` | Backend has 22 up migrations | Current migrations use several VARCHAR/TEXT fields and reduced columns vs DB v2.0; exact compatibility plan missing | DATA-001 | schema diff + reviewed forward migration |
+| CI/development infrastructure | Master prompt §11; infra README | Backend/frontend workflows and Terraform exist; Terraform validates | Secrets, reachable deployment, backup/restore, monitoring and cost evidence not verified | INFRA-001 | CI artifacts + dev environment checklist |
