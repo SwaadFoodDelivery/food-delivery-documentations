@@ -91,3 +91,10 @@
 - Backend `go test -race ./...`, `go vet ./...`, and `git diff --check` pass; Docker rebuilt and live registration shows the owner lookup route, with `/api/v1/health` returning 200 and unauthenticated owner lookup returning 401.
 - Frontend lint, 51 unit tests, and production build pass. Existing Sass/PostCSS and vendor-size build warnings remain nonblocking.
 - The next implementation slice is driver availability/assignment/pickup against the mock provider, then operations visibility. BLOCKER-003 remains limited to browser persona evidence, scheduler capability, and quota telemetry; real delivery remains intentionally de-scoped.
+
+## 2026-09-09 — mock driver workflow checkpoint
+
+- Added driver-only `GET /api/v1/driver/delivery` and `PATCH /api/v1/driver/delivery/status`; valid sequential actions update delivery/order actors and let the existing mock worker retain due-time fallback. Busy fictional drivers are excluded from new assignments. Backend commit `b658177` is pushed to PR #11.
+- Added frontend `/driver` with role guard, availability/city controls, active-assignment empty state, and one-step progression actions. Frontend commit `ea7770f` is pushed to PR #3.
+- Backend race tests, vet, diff checks, Docker build/start, health, and route registration pass. Frontend lint, 53 unit tests, and production build pass; existing Sass/PostCSS/vendor-size warnings remain nonblocking.
+- The next implementation slice is operations visibility. Real delivery remains intentionally de-scoped. BLOCKER-003 still affects only browser persona evidence, scheduler capability, and quota telemetry.

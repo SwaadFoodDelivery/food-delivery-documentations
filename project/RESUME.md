@@ -18,15 +18,17 @@ Last checkpoint: 2026-09-09, restaurant-owner order queue checkpoint.
 - Backend PR #11 at `684d50a` adds owner-scoped restaurant order list/status routes: `GET /api/v1/restaurants/:restaurantId/orders` and `PATCH /api/v1/restaurants/:restaurantId/orders/:orderId/status`, with valid transition checks and audit rows.
 - Backend PR #11 now includes `82a25b6`, a protected owner restaurant lookup at `GET /api/v1/owner/restaurant`, so the UI does not hardcode seeded restaurant IDs.
 - Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `4da4d2d`, a role-guarded `/restaurant/orders` queue with owner-scoped loading and accept/reject/prepare/ready actions; frontend tests now total 51.
+- Backend PR #11 now includes `b658177`: driver-only current-delivery/status APIs, busy-driver exclusion during mock assignment, persisted driver/order actors, and valid sequential transitions.
+- Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `ea7770f`: role-guarded `/driver` dashboard for availability, city, current assignment, and manual progression; frontend tests now total 53.
 
 ## Active ticket and gate
 
-`PERSONA-001` / phase 4 persona completeness. Gate: mock demo checkpoint. The customer discovery → tracking vertical and restaurant-owner order queue are implemented against local APIs. Driver workflow, operations UI, and browser persona evidence remain follow-up scope.
+`PERSONA-001` / phase 4 persona completeness. Gate: mock demo checkpoint. The customer discovery → tracking vertical, restaurant-owner order queue, and driver workflow are implemented against local APIs. Operations UI and browser persona evidence remain follow-up scope.
 
 ## Next exact action
 
-1. Add driver availability/assignment/pickup workflow against the mock delivery provider.
-2. Add operations visibility for demo orders, drivers, and delivery state.
+1. Add operations visibility for demo orders, drivers, and delivery state.
+2. Run final source/CI handoff checks and record the remaining browser/scheduler/quota limitations.
 3. Run authenticated customer/owner/driver browser journeys when a reachable environment is available; keep four-hour continuation scheduling gated on setup availability.
 
 ## Evidence and limitations
