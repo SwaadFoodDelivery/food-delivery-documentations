@@ -1,6 +1,6 @@
 # Resume Swaad
 
-Last checkpoint: 2026-09-08, ORDER-001 implementation and live smoke-test checkpoint.
+Last checkpoint: 2026-09-08, GitHub synchronization and demo delivery-partner seed checkpoint.
 
 ## Completed
 
@@ -9,6 +9,8 @@ Last checkpoint: 2026-09-08, ORDER-001 implementation and live smoke-test checkp
 - All 16 flowchart SVG source-label/dimension checks.
 - Baseline backend, frontend, and Terraform checks.
 - Durable audit state, traceability, backlog, and blockers created locally.
+- Two fictional Shamgarh driver accounts were added to the backend demo seed; they are development fixtures, not a real delivery-provider integration.
+- Backend branch is pushed in [PR #11](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/11); documentation checkpoint is pushed in [PR #1](https://github.com/SwaadFoodDelivery/food-delivery-documentations/pull/1). Backend CI is green at `85b55011d87b13801c808045b040f7113fd6d040`.
 
 ## Active ticket and gate
 
@@ -24,4 +26,4 @@ Last checkpoint: 2026-09-08, ORDER-001 implementation and live smoke-test checkp
 
 - Baseline commands and results are in `SESSION_LOG.md`.
 - Current dirty work is listed in `SOURCE_INVENTORY.md`; do not reset or overwrite it.
-- Browser persona, reachable dev deployment, real delivery, scheduler, quota percentage, and GitHub sync are not evidenced.
+- Browser persona, reachable dev deployment, real delivery, scheduler, and quota percentage remain unevidenced. GitHub synchronization is now evidenced through `gh` and the two open PRs above.

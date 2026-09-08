@@ -47,3 +47,10 @@
 
 - Independent reviewer approved backend HEAD `7f3073036bb16114a5a0a3476bde619fa84a650a` after verifying the final lock ordering, stale-restaurant fix, expiry handling, radius/DB error classification, arbitrary idempotency keys, and customisation persistence.
 - No P1/P2 implementation blockers remain. A dedicated concurrent SQL integration test remains desirable coverage, but is not a release blocker for this local checkpoint.
+
+## 2026-09-08 — synchronization and demo delivery-partner checkpoint
+
+- Used authenticated `gh` to push backend branch `codex/vert-001-catalog` and open [SwaadFoodDelivery/food-delivery-backend#11](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/11). The branch contains backend commits through `85b55011d87b13801c808045b040f7113fd6d040`; Go formatting, vet, tests, and Docker build passed in GitHub Actions.
+- Added two fictional, repeatable Shamgarh driver fixtures to `scripts/seed_demo.sql`: `Swaad Demo Driver 1` and `Swaad Demo Driver 2`. Their document bytes are placeholders for local development only.
+- Pushed the documentation checkpoint on `codex/docs-checkpoint` and opened [SwaadFoodDelivery/food-delivery-documentations#1](https://github.com/SwaadFoodDelivery/food-delivery-documentations/pull/1).
+- The GitHub connector can read the backend repository, but `gh` remains the verified path for writes. No browser, supported scheduler, or quota telemetry capability is exposed in this session.

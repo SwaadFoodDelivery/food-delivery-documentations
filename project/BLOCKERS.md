@@ -1,10 +1,10 @@
 # Blockers and user-owned setup
 
-## BLOCKER-001 — GitHub connector is not connected
+## BLOCKER-001 — GitHub synchronization
 
-- Status: resolved for CLI-based synchronization; the in-product GitHub connector remains unavailable.
-- Evidence: `gh auth status` and `gh api user` verified account `RishabhM2506`; `gh api user/orgs` returned `SwaadFoodDelivery`; `gh repo list` showed all six core repositories with `ADMIN` permission on 2026-09-08.
-- Impact: GitHub CLI can be used for authenticated remote reads and writes. The connector-specific tools still return no installations/accounts/orgs, so connector-only Project/issue workflows remain unavailable.
+- Status: resolved for the requested GitHub work.
+- Evidence: `gh auth status` verified `RishabhM2506`; `gh repo view` verified admin access; authenticated `gh` pushed the backend branch and opened PR #11. The in-product GitHub fetch tool also reads the repository and reports push permission.
+- Impact: `gh` supports the required branch, commit, PR, and CI workflow. Connector-only Project/issue workflows were not needed and remain unverified.
 - Can proceed: authenticated `gh` synchronization, branch/PR operations, remote checks, and local tickets/state.
 - User action: none for CLI work. Do not paste tokens into chat.
 
@@ -13,7 +13,7 @@
 - Status: open; affects DELIVERY-001 and release claims.
 - Evidence: no delivery provider configuration or adapter was found in the backend; delivery package is scaffold-only.
 - Impact: only an explicit backend mock adapter can be implemented locally. `real` mode must remain failing/blocked until a provider, credentials, commercial onboarding, and workflow are approved.
-- Can proceed: mock-provider abstraction, persisted schedule, development controls, and tests.
+- Can proceed: fictional seeded partners, mock-provider abstraction, persisted schedule, development controls, and tests. Two Shamgarh demo drivers were added to `scripts/seed_demo.sql`; they are not real couriers.
 
 ## BLOCKER-003 — Browser/scheduler/quota capabilities are unverified
 

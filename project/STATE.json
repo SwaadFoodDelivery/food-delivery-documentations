@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-08T18:00:00+05:30",
+  "updated_at": "2026-09-08T23:25:00+05:30",
   "timezone": "Asia/Kolkata",
   "phase": "first_vertical_journey",
   "active_ticket": "ORDER-001",
   "gate": "independently_approved_local_checkpoint",
   "repositories": [
-    {"name":"food-delivery-documentations","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-documentations","remote":"https://github.com/SwaadFoodDelivery/food-delivery-documentations.git","branch":"main","sha":"c87bba6884321b8432aa0afda20b6d7fda5fb3d0","dirty":false},
-    {"name":"food-delivery-backend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-backend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-backend.git","branch":"codex/vert-001-catalog","sha":"7f3073036bb16114a5a0a3476bde619fa84a650a","base_sha":"766394291771ed5f6564d4f0cd35a7269b01d949","dirty":true},
+    {"name":"food-delivery-documentations","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-documentations","remote":"https://github.com/SwaadFoodDelivery/food-delivery-documentations.git","branch":"codex/docs-checkpoint","sha":"43743e665a909d3813ff640aa24dcbedacbe4d05","dirty":false},
+    {"name":"food-delivery-backend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-backend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-backend.git","branch":"codex/vert-001-catalog","sha":"85b55011d87b13801c808045b040f7113fd6d040","base_sha":"766394291771ed5f6564d4f0cd35a7269b01d949","dirty":true},
     {"name":"order-service","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/order-service","remote":"https://github.com/RishabhM2506/order-service.git","branch":"main","sha":"ce30cf2b07962e96447c330f650e96b8393a4771","dirty":false},
     {"name":"proto","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/proto","remote":"https://github.com/RishabhM2506/proto.git","branch":"main","sha":"c26b9ac16fbda449d38416ceb4aa75e00e59b10b","dirty":false},
     {"name":"food-delivery-frontend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-frontend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-frontend.git","branch":"main","sha":"8aea5fd13a335b1c347151f1394d8f65cab09cd5","dirty":true},
@@ -37,7 +37,10 @@
     "ORDER-001_live_quote_place_replay",
     "owner_menu_mutation_live_audit_check",
     "backend_committed_72e003e05089eadb5472f148565cb459a5678db7",
-    "independent_review_approved_7f3073036bb16114a5a0a3476bde619fa84a650a"
+    "independent_review_approved_7f3073036bb16114a5a0a3476bde619fa84a650a",
+    "demo_delivery_partners_seeded_069f630a4249fd5e6c632ed1ef40aae0e2a8e369",
+    "backend_ci_green_85b55011d87b13801c808045b040f7113fd6d040",
+    "github_prs_pushed_11_and_docs_1"
   ],
   "pending_actions": [
     "reconcile_db_and_api_contracts",
@@ -56,7 +59,7 @@
   "known_failures": [],
   "blockers": ["BLOCKER-002", "BLOCKER-003"],
   "next_exact_action": "Continue payment mock/real-mode contract work and frontend integration; keep real delivery-provider and browser/scheduler work gated on setup availability.",
-  "synchronization": {"github": "gh_authenticated_RishabhM2506_org_SwaadFoodDelivery_admin", "connector": "unavailable_no_installation", "local_checkpoint": "written"},
+  "synchronization": {"github": "gh_authenticated_RishabhM2506_org_SwaadFoodDelivery_admin_prs_11_and_docs_1", "connector": "repository_read_reachable_project_issue_workflows_unverified", "local_checkpoint": "written"},
   "scheduler": {"status": "unverified", "task_id": null, "cadence": null, "timezone": "Asia/Kolkata"},
   "quota_visibility": "quota visibility unavailable"
 }
