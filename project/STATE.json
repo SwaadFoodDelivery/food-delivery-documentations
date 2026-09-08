@@ -3,7 +3,7 @@
   "updated_at": "2026-09-09T00:30:00+05:30",
   "timezone": "Asia/Kolkata",
   "phase": "first_vertical_journey",
-  "active_ticket": "DELIVERY-001",
+  "active_ticket": "FRONT-001",
   "gate": "mock_demo_checkpoint",
   "repositories": [
     {"name":"food-delivery-documentations","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-documentations","remote":"https://github.com/SwaadFoodDelivery/food-delivery-documentations.git","branch":"codex/docs-checkpoint","sha":"db42f67000aea1b6a63bc44e1a2ac0f322e19cce","dirty":true},
