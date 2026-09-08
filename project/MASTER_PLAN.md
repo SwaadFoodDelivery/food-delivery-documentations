@@ -6,7 +6,7 @@ Status: audit complete for the initial baseline; implementation planning is acti
 
 The local workspace is a macOS Darwin arm64 machine at `/Users/rishabhjain/Documents/food-delivery/food-delivery-app`. Six repositories are now present locally, with the documentation repository freshly cloned because it was absent. The expected GitHub organization is not connected to the GitHub app in this session: the connector returned no installed accounts, installations, organizations, or repositories. Public Git fetch/clone works; push and issue/project permissions remain unverified.
 
-The backend is a Go/Gin monolith with Postgres, Redis, NATS, and gRPC seams. User authentication, onboarding, profile, address, and upload routes are wired. Restaurant, cart, payment, notification, and delivery packages contain scaffolding but are not wired into the router. The separate order service and its gRPC registration/business/repository implementation are stubs. The frontend currently contains landing, auth, onboarding, and profile journeys. Infrastructure is Terraform-managed and validates locally, but cloud credentials and deployment reachability were not tested.
+The backend is a Go/Gin monolith with Postgres, Redis, NATS, and gRPC seams. User authentication, onboarding, profile, address, upload, catalog, cart, order, mock payment, and mock delivery routes are wired. The notification package and separate order service gRPC implementation remain stubs. The frontend currently contains landing, auth, onboarding, profile, and mock delivery tracking; customer discovery/menu/cart/checkout UI is the next implementation slice. Infrastructure is Terraform-managed and validates locally, but cloud credentials and deployment reachability were not tested.
 
 ## Delivery phases
 

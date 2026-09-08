@@ -69,3 +69,10 @@
 - The view renders the simulated delivery label, fictional partner contact, and the six backend states; polling stops after `delivered`.
 - Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) contains commits `3c7cb9c` and `f264472`; GitHub Actions build, lint, unit-tests, and production-audit all pass. The lockfile refresh removed the production `nanoid` audit finding.
 - Existing frontend user edits in `.github/workflows/frontend-ci.yml` and `README.md` remain unstaged. Browser deployment/persona validation, scheduler capability, and quota visibility remain the only recorded setup limitations.
+
+## 2026-09-09 — mock payment checkpoint
+
+- Implemented `ORDER-002` on backend commit `df1a960`: migration 27, `PAYMENT_PROVIDER=mock`, authenticated idempotent payment route, persisted success/decline outcomes, and deterministic `mock_fail`/`decline` sentinels.
+- Added user-ownership verification before idempotency replay lookup, rejected payment for cash-on-delivery/cancelled/rejected/delivered orders, and made unsupported real mode fail clearly at startup.
+- Backend `go test ./...`, `go test -race ./...`, `go vet ./...`, `git diff --check`, Docker build, migration application, health, route registration, and GitHub Actions all passed.
+- The next ready implementation slice is the frontend customer discovery → menu → cart → checkout UI against the existing backend APIs. Browser deployment/persona validation, scheduler capability, and quota visibility remain setup limitations only.
