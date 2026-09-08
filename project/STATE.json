@@ -68,8 +68,8 @@
     "frontend: npm run build PASS",
     "frontend: GitHub Actions build, lint, unit-tests, and production-audit PASS at f264472",
     "backend: migration 27, mock payment success/decline/idempotency tests, and Docker route registration PASS at df1a960",
-    "backend: restaurant owner and driver transition tests, owner/driver route registration, Docker route registration, and CI pending at b658177",
-    "frontend: customer/owner/driver service tests, 53 unit tests, lint, build, and production-audit pending at ea7770f",
+    "backend: restaurant owner and driver transition tests, owner/driver route registration, Docker route registration, and CI PASS at b658177",
+    "frontend: customer/owner/driver service tests, 53 unit tests, lint, build, and production-audit PASS at ea7770f",
     "infra: terraform fmt -check, init -backend=false -input=false, validate PASS"
   ],
   "known_failures": [],
