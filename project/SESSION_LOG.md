@@ -34,3 +34,11 @@
 - Added atomic Postgres add/delete/clear operations and unit/handler/HMAC tests. Fixed nullable empty-cart reads by separating cart metadata and item queries.
 - Rebuilt the local backend image and ran an authenticated live flow: add/read subtotal `43800`, forged token `401`, restaurant mismatch `409`, clear `200`, empty read with zero items, and cross-user read `401`.
 - `go test -race ./...`, `go vet ./...`, and `git diff --check` pass. VERT-002 remains review-pending and is not claimed Done.
+
+## 2026-09-08 — review fixes and ORDER-001 checkpoint
+
+- Independent review found P1/P2 issues: nonexistent menus returned 200, non-finite discovery coordinates were accepted, expired carts could mutate, owner menu mutation was absent, and cart conversion could break idempotent order replay. Fixed all implementation findings in backend commit `72e003e05089eadb5472f148565cb459a5678db7`.
+- Added owner-scoped menu-item create/update/soft-delete routes under `JWTAuth + restaurant_owner`, database owner/path checks, and transactional audit rows. Live positive smoke test returned success for all three mutations and recorded three audit rows; non-owner access returned 404.
+- Added ORDER-001 quote/place routes with address ownership/serviceability, server-side menu price checks, INR minor-unit totals, order-item snapshots, cart conversion, and UUID idempotency replay. Live authenticated flow passed quote, placement, and replay with the same order ID; the replay did not read the converted cart.
+- Migration `000024` adds order instructions. A partitioned-table unique-index attempt was removed after live PostgreSQL rejected it; transaction-scoped advisory locking plus lookup now provides the idempotency guard. Database was repaired from dirty version 24 and is now version 24 clean.
+- Final checks: `go test ./...`, `go test -race ./...`, `go vet ./...`, `git diff --check`, Docker build/start, migration guard, and health endpoint pass. Pre-existing `.env.development`, CI, README, Postman, and `.DS_Store` changes remain unstaged.

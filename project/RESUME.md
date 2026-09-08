@@ -1,6 +1,6 @@
 # Resume Swaad
 
-Last checkpoint: 2026-09-08, initial recovery audit.
+Last checkpoint: 2026-09-08, ORDER-001 implementation and live smoke-test checkpoint.
 
 ## Completed
 
@@ -12,13 +12,13 @@ Last checkpoint: 2026-09-08, initial recovery audit.
 
 ## Active ticket and gate
 
-`VERT-002` / phase 3 customer foundation. Gate: staff review evidence pending. Catalog implementation and focused QA are complete on backend commit `21db2b5a6aa95bf416f4e6260d1f67f522b972ab`; the authenticated cart slice is committed on top at `afe2e4348143a915d1ffd7168309a6eae44898b1`, but both checkpoints still need independent review evidence. Owner menu mutation, order, payment, delivery, and frontend integration remain separate follow-up work.
+`ORDER-001` / phase 3 first vertical journey. Gate: staff review evidence pending. Catalog, authenticated cart, owner menu mutation, and customer quote/place order slices are implemented on backend commit `72e003e05089eadb5472f148565cb459a5678db7`. Live Docker checks covered quote, placement, idempotent replay, owner create/update/soft-delete, and audit logging. Independent review approval and frontend integration remain pending.
 
 ## Next exact action
 
-1. Perform or collect independent staff reviews for VERT-001 and VERT-002 and resolve any blocking findings.
-2. Commit the cart feature without staging the pre-existing dirty files.
-3. Begin ORDER-001 only after the review gate is recorded.
+1. Perform or collect independent staff approval for VERT-001, VERT-002, and ORDER-001 against commit `72e003e05089eadb5472f148565cb459a5678db7`.
+2. Continue with payment mock/real-mode contract work and frontend integration.
+3. Keep real delivery-provider and browser/scheduler work explicitly gated on setup availability.
 
 ## Evidence and limitations
 

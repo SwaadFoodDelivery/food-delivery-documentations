@@ -22,16 +22,16 @@
 - Impact: browser screenshots, visual persona acceptance, and automated four-hour continuation cannot be claimed yet.
 - Can proceed: source-level work, API tests, documentation, and local builds.
 
-## BLOCKER-004 — VERT-001 independent staff review not completed
+## BLOCKER-004 — VERT-001 independent staff approval pending
 
 - Status: open; affects VERT-001 Done gate.
-- Evidence: a bounded staff-review subagent was started against commit `21db2b5a6aa95bf416f4e6260d1f67f522b972ab`, but returned no review packet before timeout and was shut down.
-- Impact: implementation and focused QA evidence exist, but no independent approval or actionable review findings are available. The feature is not represented as fully Done.
-- Next action: perform an independent review in a future run or have an authorized human review the commit, then rerun any affected checks after fixes.
+- Evidence: independent review found and the implementation fixed the nonexistent-menu 200 response, non-finite coordinate acceptance, and missing owner menu mutation. The owner mutation now has owner checks and audit rows. Independent approval after the fixes is still not recorded.
+- Impact: implementation and QA evidence exist, but VERT-001 cannot be marked fully Done without review sign-off.
+- Next action: rerun the independent review or have an authorized human review commit `72e003e05089eadb5472f148565cb459a5678db7`.
 
-## BLOCKER-005 — VERT-002 independent staff review not completed
+## BLOCKER-005 — VERT-002 independent staff approval pending
 
 - Status: open; affects the Done gate for the cart checkpoint.
-- Evidence: cart implementation and focused QA are complete locally, but no independent review packet has been recorded.
-- Impact: the cart slice is not represented as fully Done and the order slice should wait for review evidence.
-- Next action: review the cart diff and record approval/findings, then rerun affected checks after any fixes.
+- Evidence: independent review found expired-cart mutation and order-replay risks; both were fixed and covered by the final code/tests/live flow. Independent approval after the fixes is still not recorded.
+- Impact: the cart slice is not represented as fully Done.
+- Next action: rerun the independent review or have an authorized human review commit `72e003e05089eadb5472f148565cb459a5678db7`.
