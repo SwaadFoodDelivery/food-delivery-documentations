@@ -6,7 +6,7 @@ Historical design inputs remain at the repository root. Current project state, s
 
 ## Current status
 
-The recovery audit started on 2026-09-08 from a local macOS checkout. The demo backend delivery simulation, mock payment boundary, and authenticated frontend tracking slice are implemented and pass CI; customer discovery/menu/cart/checkout UI, real providers, and browser persona evidence remain outside the current checkpoint. See [`project/RESUME.md`](project/RESUME.md) and [`project/STATE.json`](project/STATE.json).
+The recovery audit started on 2026-09-08 from a local macOS checkout. The customer discovery→menu→cart→checkout→mock payment→tracking path and backend owner order API are implemented and pass CI; restaurant-owner, driver, and operations UIs, real providers, and browser persona evidence remain outside the current checkpoint. See [`project/RESUME.md`](project/RESUME.md) and [`project/STATE.json`](project/STATE.json).
 
 ## Historical inputs
 

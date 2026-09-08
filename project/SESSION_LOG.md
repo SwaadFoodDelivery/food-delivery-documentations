@@ -76,3 +76,10 @@
 - Added user-ownership verification before idempotency replay lookup, rejected payment for cash-on-delivery/cancelled/rejected/delivered orders, and made unsupported real mode fail clearly at startup.
 - Backend `go test ./...`, `go test -race ./...`, `go vet ./...`, `git diff --check`, Docker build, migration application, health, route registration, and GitHub Actions all passed.
 - The next ready implementation slice is the frontend customer discovery → menu → cart → checkout UI against the existing backend APIs. Browser deployment/persona validation, scheduler capability, and quota visibility remain setup limitations only.
+
+## 2026-09-09 — customer vertical and restaurant owner API checkpoint
+
+- Frontend commit `f1e4178` completed the source-level customer discovery → menu → cart → checkout → mock payment → tracking flow. It uses seeded Shamgarh coordinates, server-side cart/quote/order/payment APIs, address creation, and hands successful orders to tracking.
+- Frontend lint, 49 unit tests, production build, and production dependency audit passed in GitHub Actions. Build warnings remain limited to existing Sass/PostCSS compatibility and vendor bundle-size advisories.
+- Backend commit `684d50a` added owner-scoped restaurant order list/status routes with transition validation, `updated_by`, order history trigger compatibility, and audit rows. Full race tests, vet, Docker build, migration 27 state, health, route registration, and GitHub Actions passed.
+- Phase 3 is complete for source/CI scope. Active ticket is now `PERSONA-001`; the next implementation slice is the restaurant-owner order queue UI, followed by driver availability/assignment/pickup and operations views. Browser deployment/persona validation, scheduler capability, and quota visibility remain setup limitations only.
