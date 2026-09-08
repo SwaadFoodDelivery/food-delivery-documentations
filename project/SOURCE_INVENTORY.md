@@ -4,7 +4,7 @@ Initial audit date: 2026-09-08 (Asia/Kolkata). Evidence is from local Git checko
 
 | Source | Local path | Commit / version | Review status | Evidence |
 |---|---|---|---|---|
-| Documentation repository | `food-delivery-documentations` | `8de2f251eba2e9c67237ac8d6659b5a6e6cc7cf2` (`main`) | Reviewed | Both PDFs text-extracted page by page; all 16 SVG files inspected for source labels/dimensions |
+| Documentation repository | `food-delivery-documentations` | `aeaa1550e71ccbca7f694be34949ce800ca6cfac` (`main`) | Reviewed + current checkpoint | Both PDFs text-extracted page by page; all 16 SVG files inspected for source labels/dimensions; durable state updated |
 | LLD | `FoodDelivery_LLD_Final _review.pdf` | v2.0, 33 pages | Reviewed | Sections 2–8; 49 API endpoint contract; pages 1–33 |
 | DB design | `food_delivery_app_db_design_final_review .pdf` | v2.0, 1029 extracted lines | Reviewed | Sections 1–10; 29-table model, Redis, partitions, API mapping, DB security |
 | Flowcharts | `flowcharts/*.svg` | 16 SVGs | Reviewed | Auth, onboarding, profile, address, discovery, menu, cart, place/cancel order, payment, assignment, tracking, notifications, uploads, driver, ER diagram |
