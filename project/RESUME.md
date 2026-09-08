@@ -10,7 +10,7 @@ Last checkpoint: 2026-09-08, persisted mock delivery simulation checkpoint.
 - Baseline backend, frontend, and Terraform checks.
 - Durable audit state, traceability, backlog, and blockers created locally.
 - Two fictional Shamgarh driver accounts were added to the backend demo seed; they are development fixtures, not a real delivery-provider integration.
-- Backend branch is pushed in [PR #11](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/11); documentation checkpoint is pushed in [PR #1](https://github.com/SwaadFoodDelivery/food-delivery-documentations/pull/1). Backend CI is green at `85b55011d87b13801c808045b040f7113fd6d040`.
+- Backend branch is pushed in [PR #11](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/11); documentation checkpoint is pushed in [PR #1](https://github.com/SwaadFoodDelivery/food-delivery-documentations/pull/1). Backend CI is green at `7f1ddab7ee51206c2b0a38ccfe58ab3a958ea1d8`.
 - The demo delivery journey is implemented at backend commit `7f1ddab7ee51206c2b0a38ccfe58ab3a958ea1d8`: order placement assigns a fictional driver, a persisted worker advances five delivery states over 600 seconds, and the customer can read status through `GET /api/v1/orders/:orderId/delivery`.
 
 ## Active ticket and gate

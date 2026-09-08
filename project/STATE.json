@@ -41,7 +41,8 @@
     "demo_delivery_partners_seeded_069f630a4249fd5e6c632ed1ef40aae0e2a8e369",
     "backend_ci_green_85b55011d87b13801c808045b040f7113fd6d040",
     "github_prs_pushed_11_and_docs_1",
-    "DELIVERY-001_mock_provider_implemented_7f1ddab7ee51206c2b0a38ccfe58ab3a958ea1d8"
+    "DELIVERY-001_mock_provider_implemented_7f1ddab7ee51206c2b0a38ccfe58ab3a958ea1d8",
+    "backend_ci_green_7f1ddab7ee51206c2b0a38ccfe58ab3a958ea1d8"
   ],
   "pending_actions": [
     "reconcile_db_and_api_contracts",
