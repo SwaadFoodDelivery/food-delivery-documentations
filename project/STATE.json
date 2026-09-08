@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-08T16:15:00+05:30",
+  "updated_at": "2026-09-08T17:03:00+05:30",
   "timezone": "Asia/Kolkata",
   "phase": "first_vertical_journey",
-  "active_ticket": "VERT-001",
+  "active_ticket": "VERT-002",
   "gate": "staff_review_evidence_pending",
   "repositories": [
     {"name":"food-delivery-documentations","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-documentations","remote":"https://github.com/SwaadFoodDelivery/food-delivery-documentations.git","branch":"main","sha":"8de2f251eba2e9c67237ac8d6659b5a6e6cc7cf2","dirty":false},
@@ -27,10 +27,13 @@
     "VERT-001_implementation",
     "VERT-001_focused_qa",
     "VERT-001_live_postgis_check",
-    "VERT-001_committed_21db2b5a6aa95bf416f4e6260d1f67f522b972ab"
+    "VERT-001_committed_21db2b5a6aa95bf416f4e6260d1f67f522b972ab",
+    "VERT-002_implementation",
+    "VERT-002_focused_qa",
+    "VERT-002_live_authenticated_cart_flow"
   ],
   "pending_actions": [
-    "verify_github_permissions",
+    "verify_github_connector_permissions",
     "reconcile_db_and_api_contracts",
     "implement_first_customer_vertical",
     "create_mock_delivery_provider",
@@ -46,9 +49,9 @@
     "infra: terraform fmt -check, init -backend=false -input=false, validate PASS"
   ],
   "known_failures": [],
-  "blockers": ["BLOCKER-001", "BLOCKER-002", "BLOCKER-003", "BLOCKER-004"],
-  "next_exact_action": "Perform or collect an independent staff review for VERT-001 commit 21db2b5a6aa95bf416f4e6260d1f67f522b972ab; do not start the next gated feature until the review evidence is recorded.",
-  "synchronization": {"github": "blocked_no_connected_account", "local_checkpoint": "written"},
+  "blockers": ["BLOCKER-002", "BLOCKER-003", "BLOCKER-004", "BLOCKER-005"],
+  "next_exact_action": "Perform or collect independent staff review for VERT-001 and VERT-002 before starting ORDER-001; record findings and rerun affected checks.",
+  "synchronization": {"github": "gh_authenticated_RishabhM2506_org_SwaadFoodDelivery_admin", "connector": "unavailable_no_installation", "local_checkpoint": "written"},
   "scheduler": {"status": "unverified", "task_id": null, "cadence": null, "timezone": "Asia/Kolkata"},
   "quota_visibility": "quota visibility unavailable"
 }

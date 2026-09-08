@@ -12,13 +12,13 @@ Last checkpoint: 2026-09-08, initial recovery audit.
 
 ## Active ticket and gate
 
-`VERT-001` / phase 3 customer foundation. Gate: staff review evidence pending. Implementation and focused QA are complete on backend commit `21db2b5a6aa95bf416f4e6260d1f67f522b972ab` on branch `codex/vert-001-catalog`; the bounded independent review returned no packet before timeout. Owner menu mutation, cart, order, payment, and frontend integration are separate follow-up work.
+`VERT-002` / phase 3 customer foundation. Gate: staff review evidence pending. Catalog implementation and focused QA are complete on backend commit `21db2b5a6aa95bf416f4e6260d1f67f522b972ab`; the authenticated cart slice is implemented locally on top of that branch, but both the catalog and cart checkpoints still need independent review evidence. Owner menu mutation, order, payment, delivery, and frontend integration remain separate follow-up work.
 
 ## Next exact action
 
-1. Perform or collect an independent VERT-001 staff review and resolve any blocking findings.
-2. Commit the backend feature without staging the pre-existing dirty files.
-3. Re-check GitHub connector visibility; if still unavailable, preserve the local commit and continue with `VERT-002` cart on a separate bounded packet.
+1. Perform or collect independent staff reviews for VERT-001 and VERT-002 and resolve any blocking findings.
+2. Commit the cart feature without staging the pre-existing dirty files.
+3. Begin ORDER-001 only after the review gate is recorded.
 
 ## Evidence and limitations
 

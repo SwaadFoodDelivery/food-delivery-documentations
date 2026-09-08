@@ -2,11 +2,11 @@
 
 ## BLOCKER-001 — GitHub connector is not connected
 
-- Status: open; affects ACCESS-001 and all remote issue/Project/PR synchronization.
-- Evidence: GitHub connector returned empty `installations`, `accounts`, `orgs`, and `repositories` on 2026-09-08.
-- Impact: pull/push permission, issue permission, Project permission, branch protection, and remote ticket duplication cannot be verified. No remote mutation was attempted.
-- Can proceed: local audit, code changes, tests, local tickets/state, and draft patches.
-- User action: connect/install the GitHub app for the relevant account or organization, then resume with the short prompt. Do not paste tokens into chat.
+- Status: resolved for CLI-based synchronization; the in-product GitHub connector remains unavailable.
+- Evidence: `gh auth status` and `gh api user` verified account `RishabhM2506`; `gh api user/orgs` returned `SwaadFoodDelivery`; `gh repo list` showed all six core repositories with `ADMIN` permission on 2026-09-08.
+- Impact: GitHub CLI can be used for authenticated remote reads and writes. The connector-specific tools still return no installations/accounts/orgs, so connector-only Project/issue workflows remain unavailable.
+- Can proceed: authenticated `gh` synchronization, branch/PR operations, remote checks, and local tickets/state.
+- User action: none for CLI work. Do not paste tokens into chat.
 
 ## BLOCKER-002 — Real delivery provider is not selected/configured
 
@@ -28,3 +28,10 @@
 - Evidence: a bounded staff-review subagent was started against commit `21db2b5a6aa95bf416f4e6260d1f67f522b972ab`, but returned no review packet before timeout and was shut down.
 - Impact: implementation and focused QA evidence exist, but no independent approval or actionable review findings are available. The feature is not represented as fully Done.
 - Next action: perform an independent review in a future run or have an authorized human review the commit, then rerun any affected checks after fixes.
+
+## BLOCKER-005 — VERT-002 independent staff review not completed
+
+- Status: open; affects the Done gate for the cart checkpoint.
+- Evidence: cart implementation and focused QA are complete locally, but no independent review packet has been recorded.
+- Impact: the cart slice is not represented as fully Done and the order slice should wait for review evidence.
+- Next action: review the cart diff and record approval/findings, then rerun affected checks after any fixes.
