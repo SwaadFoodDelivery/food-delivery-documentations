@@ -12,7 +12,7 @@ Last checkpoint: 2026-09-08, initial recovery audit.
 
 ## Active ticket and gate
 
-`VERT-002` / phase 3 customer foundation. Gate: staff review evidence pending. Catalog implementation and focused QA are complete on backend commit `21db2b5a6aa95bf416f4e6260d1f67f522b972ab`; the authenticated cart slice is implemented locally on top of that branch, but both the catalog and cart checkpoints still need independent review evidence. Owner menu mutation, order, payment, delivery, and frontend integration remain separate follow-up work.
+`VERT-002` / phase 3 customer foundation. Gate: staff review evidence pending. Catalog implementation and focused QA are complete on backend commit `21db2b5a6aa95bf416f4e6260d1f67f522b972ab`; the authenticated cart slice is committed on top at `afe2e4348143a915d1ffd7168309a6eae44898b1`, but both checkpoints still need independent review evidence. Owner menu mutation, order, payment, delivery, and frontend integration remain separate follow-up work.
 
 ## Next exact action
 

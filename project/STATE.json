@@ -7,7 +7,7 @@
   "gate": "staff_review_evidence_pending",
   "repositories": [
     {"name":"food-delivery-documentations","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-documentations","remote":"https://github.com/SwaadFoodDelivery/food-delivery-documentations.git","branch":"main","sha":"8de2f251eba2e9c67237ac8d6659b5a6e6cc7cf2","dirty":false},
-    {"name":"food-delivery-backend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-backend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-backend.git","branch":"codex/vert-001-catalog","sha":"21db2b5a6aa95bf416f4e6260d1f67f522b972ab","base_sha":"766394291771ed5f6564d4f0cd35a7269b01d949","dirty":true},
+    {"name":"food-delivery-backend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-backend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-backend.git","branch":"codex/vert-001-catalog","sha":"afe2e4348143a915d1ffd7168309a6eae44898b1","base_sha":"766394291771ed5f6564d4f0cd35a7269b01d949","dirty":true},
     {"name":"order-service","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/order-service","remote":"https://github.com/RishabhM2506/order-service.git","branch":"main","sha":"ce30cf2b07962e96447c330f650e96b8393a4771","dirty":false},
     {"name":"proto","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/proto","remote":"https://github.com/RishabhM2506/proto.git","branch":"main","sha":"c26b9ac16fbda449d38416ceb4aa75e00e59b10b","dirty":false},
     {"name":"food-delivery-frontend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-frontend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-frontend.git","branch":"main","sha":"8aea5fd13a335b1c347151f1394d8f65cab09cd5","dirty":true},
@@ -30,7 +30,8 @@
     "VERT-001_committed_21db2b5a6aa95bf416f4e6260d1f67f522b972ab",
     "VERT-002_implementation",
     "VERT-002_focused_qa",
-    "VERT-002_live_authenticated_cart_flow"
+    "VERT-002_live_authenticated_cart_flow",
+    "VERT-002_committed_afe2e4348143a915d1ffd7168309a6eae44898b1"
   ],
   "pending_actions": [
     "verify_github_connector_permissions",
