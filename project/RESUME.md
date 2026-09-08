@@ -12,7 +12,7 @@ Last checkpoint: 2026-09-08, ORDER-001 implementation and live smoke-test checkp
 
 ## Active ticket and gate
 
-`ORDER-001` / phase 3 first vertical journey. Gate: staff review evidence pending. Catalog, authenticated cart, owner menu mutation, and customer quote/place order slices are implemented on backend commit `72e003e05089eadb5472f148565cb459a5678db7`. Live Docker checks covered quote, placement, idempotent replay, owner create/update/soft-delete, and audit logging. Independent review approval and frontend integration remain pending.
+`ORDER-001` / phase 3 first vertical journey. Gate: independently approved for the local backend checkpoint. Catalog, authenticated cart, owner menu mutation, and customer quote/place order slices are implemented on backend commit `7f3073036bb16114a5a0a3476bde619fa84a650a`. Live Docker checks covered quote, placement, idempotent replay, owner create/update/soft-delete, audit logging, and customisation persistence. Frontend integration remains pending.
 
 ## Next exact action
 

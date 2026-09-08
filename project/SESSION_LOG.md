@@ -42,3 +42,8 @@
 - Added ORDER-001 quote/place routes with address ownership/serviceability, server-side menu price checks, INR minor-unit totals, order-item snapshots, cart conversion, and UUID idempotency replay. Live authenticated flow passed quote, placement, and replay with the same order ID; the replay did not read the converted cart.
 - Migration `000024` adds order instructions. A partitioned-table unique-index attempt was removed after live PostgreSQL rejected it; transaction-scoped advisory locking plus lookup now provides the idempotency guard. Database was repaired from dirty version 24 and is now version 24 clean.
 - Final checks: `go test ./...`, `go test -race ./...`, `go vet ./...`, `git diff --check`, Docker build/start, migration guard, and health endpoint pass. Pre-existing `.env.development`, CI, README, Postman, and `.DS_Store` changes remain unstaged.
+
+## 2026-09-08 — final independent approval
+
+- Independent reviewer approved backend HEAD `7f3073036bb16114a5a0a3476bde619fa84a650a` after verifying the final lock ordering, stale-restaurant fix, expiry handling, radius/DB error classification, arbitrary idempotency keys, and customisation persistence.
+- No P1/P2 implementation blockers remain. A dedicated concurrent SQL integration test remains desirable coverage, but is not a release blocker for this local checkpoint.

@@ -22,16 +22,16 @@
 - Impact: browser screenshots, visual persona acceptance, and automated four-hour continuation cannot be claimed yet.
 - Can proceed: source-level work, API tests, documentation, and local builds.
 
-## BLOCKER-004 — VERT-001 independent staff approval pending
+## BLOCKER-004 — VERT-001 independent staff approval
 
-- Status: open; affects VERT-001 Done gate.
+- Status: resolved on 2026-09-08.
 - Evidence: independent review found and the implementation fixed the nonexistent-menu 200 response, non-finite coordinate acceptance, and missing owner menu mutation. The owner mutation now has owner checks and audit rows. Independent approval after the fixes is still not recorded.
-- Impact: implementation and QA evidence exist, but VERT-001 cannot be marked fully Done without review sign-off.
-- Next action: rerun the independent review or have an authorized human review commit `72e003e05089eadb5472f148565cb459a5678db7`.
+- Impact: no remaining review gate for the catalog slice.
+- Resolution: independent reviewer approved final backend HEAD `7f3073036bb16114a5a0a3476bde619fa84a650a`.
 
-## BLOCKER-005 — VERT-002 independent staff approval pending
+## BLOCKER-005 — VERT-002 independent staff approval
 
-- Status: open; affects the Done gate for the cart checkpoint.
+- Status: resolved on 2026-09-08.
 - Evidence: independent review found expired-cart mutation and order-replay risks; both were fixed and covered by the final code/tests/live flow. Independent approval after the fixes is still not recorded.
-- Impact: the cart slice is not represented as fully Done.
-- Next action: rerun the independent review or have an authorized human review commit `72e003e05089eadb5472f148565cb459a5678db7`.
+- Impact: no remaining review gate for the cart slice.
+- Resolution: independent reviewer approved final backend HEAD `7f3073036bb16114a5a0a3476bde619fa84a650a`.
