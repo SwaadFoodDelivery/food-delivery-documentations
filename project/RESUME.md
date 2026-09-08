@@ -1,6 +1,6 @@
 # Resume Swaad
 
-Last checkpoint: 2026-09-09, frontend mock delivery tracking checkpoint.
+Last checkpoint: 2026-09-09, restaurant-owner order queue checkpoint.
 
 ## Completed
 
@@ -16,15 +16,17 @@ Last checkpoint: 2026-09-09, frontend mock delivery tracking checkpoint.
 - Backend PR [#11](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/11) now also contains the demo payment boundary at `df1a960`: `POST /api/v1/orders/:orderId/payment` persists idempotent mock success/decline outcomes, accepts `mock_fail` as the deterministic decline sentinel, and rejects unsupported real mode at startup.
 - Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes the customer discovery → menu → cart → checkout → mock payment → tracking path at `f1e4178`; frontend CI passes with 49 unit tests.
 - Backend PR #11 at `684d50a` adds owner-scoped restaurant order list/status routes: `GET /api/v1/restaurants/:restaurantId/orders` and `PATCH /api/v1/restaurants/:restaurantId/orders/:orderId/status`, with valid transition checks and audit rows.
+- Backend PR #11 now includes `82a25b6`, a protected owner restaurant lookup at `GET /api/v1/owner/restaurant`, so the UI does not hardcode seeded restaurant IDs.
+- Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `4da4d2d`, a role-guarded `/restaurant/orders` queue with owner-scoped loading and accept/reject/prepare/ready actions; frontend tests now total 51.
 
 ## Active ticket and gate
 
-`PERSONA-001` / phase 4 persona completeness. Gate: mock demo checkpoint. The customer discovery → tracking vertical is implemented against local APIs; restaurant-owner order APIs are ready. Owner UI, driver workflow, operations UI, and browser persona evidence remain follow-up scope.
+`PERSONA-001` / phase 4 persona completeness. Gate: mock demo checkpoint. The customer discovery → tracking vertical and restaurant-owner order queue are implemented against local APIs. Driver workflow, operations UI, and browser persona evidence remain follow-up scope.
 
 ## Next exact action
 
-1. Implement the restaurant-owner order queue UI against the owner order APIs.
-2. Add driver availability/assignment/pickup workflow, then operations visibility.
+1. Add driver availability/assignment/pickup workflow against the mock delivery provider.
+2. Add operations visibility for demo orders, drivers, and delivery state.
 3. Run authenticated customer/owner/driver browser journeys when a reachable environment is available; keep four-hour continuation scheduling gated on setup availability.
 
 ## Evidence and limitations

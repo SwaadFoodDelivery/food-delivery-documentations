@@ -83,3 +83,11 @@
 - Frontend lint, 49 unit tests, production build, and production dependency audit passed in GitHub Actions. Build warnings remain limited to existing Sass/PostCSS compatibility and vendor bundle-size advisories.
 - Backend commit `684d50a` added owner-scoped restaurant order list/status routes with transition validation, `updated_by`, order history trigger compatibility, and audit rows. Full race tests, vet, Docker build, migration 27 state, health, route registration, and GitHub Actions passed.
 - Phase 3 is complete for source/CI scope. Active ticket is now `PERSONA-001`; the next implementation slice is the restaurant-owner order queue UI, followed by driver availability/assignment/pickup and operations views. Browser deployment/persona validation, scheduler capability, and quota visibility remain setup limitations only.
+
+## 2026-09-09 — restaurant-owner order queue checkpoint
+
+- Added protected backend `GET /api/v1/owner/restaurant` so an authenticated owner resolves the active restaurant without frontend hardcoded seed IDs. Backend commit `82a25b6` is pushed to PR #11.
+- Added frontend `/restaurant/orders`, role routing for `restaurant_owner`, owner queue loading, status chips, and valid accept/reject/prepare/ready actions. Frontend commit `4da4d2d` is pushed to PR #3.
+- Backend `go test -race ./...`, `go vet ./...`, and `git diff --check` pass; Docker rebuilt and live registration shows the owner lookup route, with `/api/v1/health` returning 200 and unauthenticated owner lookup returning 401.
+- Frontend lint, 51 unit tests, and production build pass. Existing Sass/PostCSS and vendor-size build warnings remain nonblocking.
+- The next implementation slice is driver availability/assignment/pickup against the mock provider, then operations visibility. BLOCKER-003 remains limited to browser persona evidence, scheduler capability, and quota telemetry; real delivery remains intentionally de-scoped.
