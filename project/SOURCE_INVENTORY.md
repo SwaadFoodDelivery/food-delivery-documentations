@@ -8,7 +8,7 @@ Initial audit date: 2026-09-08 (Asia/Kolkata). Evidence is from local Git checko
 | LLD | `FoodDelivery_LLD_Final _review.pdf` | v2.0, 33 pages | Reviewed | Sections 2–8; 49 API endpoint contract; pages 1–33 |
 | DB design | `food_delivery_app_db_design_final_review .pdf` | v2.0, 1029 extracted lines | Reviewed | Sections 1–10; 29-table model, Redis, partitions, API mapping, DB security |
 | Flowcharts | `flowcharts/*.svg` | 16 SVGs | Reviewed | Auth, onboarding, profile, address, discovery, menu, cart, place/cancel order, payment, assignment, tracking, notifications, uploads, driver, ER diagram |
-| Main backend | `food-delivery-backend` | `766394291771ed5f6564d4f0cd35a7269b01d949` (`main`) | Audited | README, Go module, router, config, migrations, service tree, baseline tests |
+| Main backend | `food-delivery-backend` | `21db2b5a6aa95bf416f4e6260d1f67f522b972ab` (`codex/vert-001-catalog`), base `766394291771ed5f6564d4f0cd35a7269b01d949` | Audited + VERT-001 implemented | README, Go module, router, config, migrations, service tree, baseline and VERT-001 checks |
 | Order service | `order-service` | `ce30cf2b07962e96447c330f650e96b8393a4771` (`main`) | Audited | Proto seam, gRPC registration, order business/repository stubs, module/config |
 | Shared proto | `proto` | `c26b9ac16fbda449d38416ceb4aa75e00e59b10b` (`main`) | Audited | `order/order.proto` |
 | Frontend | `food-delivery-frontend` | `8aea5fd13a335b1c347151f1394d8f65cab09cd5` (`main`) | Audited | README, package, route/view/service tree, baseline checks |

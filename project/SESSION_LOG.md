@@ -10,3 +10,12 @@
 - Observed main gap: only users/common backend routes are registered; restaurant/cart/payment/notification/delivery code and order-service gRPC implementation are scaffolds.
 - Preserved existing user changes in backend and frontend; no application files were edited.
 - Checkpoint: audit state written to `project/` in this local documentation checkout. It is not synchronized remotely because GitHub push permission is unavailable.
+
+## 2026-09-08 — VERT-001 implementation checkpoint
+
+- Added migration `000023_add_catalog_fields`, public restaurant discovery/detail/menu routes, PostGIS radius filtering, bounded cursor pagination, and INR minor-unit menu output.
+- Added deterministic fictional Shamgarh seed data for five restaurants, five owners, and six menu items with `make seed-demo`; two consecutive runs remained idempotent.
+- Added focused cursor, bounds, and malformed-request tests. `go test -race ./...`, `go vet ./...`, and `git diff --check` pass.
+- Rebuilt and recreated the local backend container; migration reached version 23. Live calls to discovery and menu returned five restaurants and the seeded menu. Validation with latitude 99 returned HTTP 400.
+- Backend changes are on local branch `codex/vert-001-catalog`. Pre-existing dirty files remain unstaged. Independent staff review is active; owner mutations, cache, frontend, and downstream ordering are not part of this checkpoint.
+- Commit checkpoint: `21db2b5a6aa95bf416f4e6260d1f67f522b972ab` (`feat: add restaurant discovery and seeded catalog`).

@@ -12,13 +12,13 @@ Last checkpoint: 2026-09-08, initial recovery audit.
 
 ## Active ticket and gate
 
-`ACCESS-001` / recovery foundation. Gate: access verification and backlog synchronization. No implementation ticket has been started.
+`VERT-001` / phase 3 customer foundation. Gate: staff review. Implementation and focused QA are complete on backend commit `21db2b5a6aa95bf416f4e6260d1f67f522b972ab` on branch `codex/vert-001-catalog`; independent staff review is pending. Owner menu mutation, cart, order, payment, and frontend integration are separate follow-up work.
 
 ## Next exact action
 
-1. Re-check GitHub connector visibility and permissions.
-2. If still unavailable, checkpoint local docs and begin `DATA-001` or `VERT-001` on a dedicated local branch without touching unrelated dirty files.
-3. Before implementation, inspect the exact restaurant/cart repository interfaces and write a bounded handoff with acceptance tests.
+1. Collect the independent VERT-001 staff review and resolve any blocking findings.
+2. Commit the backend feature without staging the pre-existing dirty files.
+3. Re-check GitHub connector visibility; if still unavailable, preserve the local commit and continue with `VERT-002` cart on a separate bounded packet.
 
 ## Evidence and limitations
 

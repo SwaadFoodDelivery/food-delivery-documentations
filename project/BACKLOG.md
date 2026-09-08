@@ -7,7 +7,7 @@ Stable local IDs are used until GitHub is connected. Each item is intentionally 
 | AUTH-001 | 2 | P1 | M | Backend | backend, frontend | Ready | OTP/session contract is integration-tested against explicit mock behavior and documents dev credentials/limitations |
 | AUTH-002 | 2 | P1 | M | Backend | backend, frontend | Ready | Onboarding upload/submit/reject/resubmit paths have contract tests and safe mock storage callback behavior |
 | CUST-001 | 3 | P1 | M | Backend | backend, frontend | Ready | Profile/address flows pass API and browser IDOR/soft-delete scenarios |
-| VERT-001 | 3 | P1 | L | Backend | backend | Ready | Seeded Shamgarh restaurants are discoverable and menus are readable; owner menu mutation is scoped and audited |
+| VERT-001 | 3 | P1 | L | Backend | backend | Staff Review | Seeded Shamgarh restaurants are discoverable and menus are readable; owner menu mutation is scoped and audited |
 | VERT-002 | 3 | P1 | L | Backend | backend | Blocked by VERT-001 | Cart token, restaurant binding, availability, persistence, and server-side subtotal work with negative tests |
 | ORDER-001 | 3 | P1 | L | Backend | backend, order-service, proto | Blocked by VERT-002 | Quote/place/get/list/cancel use versioned contract, idempotency, server prices, and valid transitions |
 | ORDER-002 | 3 | P1 | M | Backend | backend, order-service | Blocked by ORDER-001 | Explicit mock payment succeeds/fails; real mode fails clearly without an implemented adapter |
