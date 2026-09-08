@@ -62,3 +62,10 @@
 - Added `GET /api/v1/orders/:orderId/delivery`, duplicate-safe assignment, due-time catch-up after restart, cancellation/rejection guards, and a visible simulated-delivery label.
 - Live Docker validation applied migration 26 and advanced a persisted due delivery to `delivered` with `Swaad Demo Driver 1`. `go test -race ./...`, `go vet ./...`, and `git diff --check` passed.
 - Real courier credentials and onboarding are no longer required for this learning/demo scope. Browser validation, reachable deployment, scheduler capability, and quota visibility remain the only recorded setup limitations.
+
+## 2026-09-09 — frontend mock tracking checkpoint
+
+- Added frontend route `/orders/:orderId/tracking` and `deliveryService.getDeliveryStatus`, using authenticated polling against `GET /api/v1/orders/:orderId/delivery`.
+- The view renders the simulated delivery label, fictional partner contact, and the six backend states; polling stops after `delivered`.
+- Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) contains commits `3c7cb9c` and `f264472`; GitHub Actions build, lint, unit-tests, and production-audit all pass. The lockfile refresh removed the production `nanoid` audit finding.
+- Existing frontend user edits in `.github/workflows/frontend-ci.yml` and `README.md` remain unstaged. Browser deployment/persona validation, scheduler capability, and quota visibility remain the only recorded setup limitations.

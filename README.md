@@ -6,7 +6,7 @@ Historical design inputs remain at the repository root. Current project state, s
 
 ## Current status
 
-The recovery audit started on 2026-09-08 from a local macOS checkout. Baseline checks for the currently implemented scope pass, but the customer ordering vertical journey is not yet implemented end to end. See [`project/RESUME.md`](project/RESUME.md) and [`project/STATE.json`](project/STATE.json).
+The recovery audit started on 2026-09-08 from a local macOS checkout. The demo backend delivery simulation and authenticated frontend tracking slice are implemented and pass CI; discovery, checkout, real providers, and browser persona evidence remain outside the current demo checkpoint. See [`project/RESUME.md`](project/RESUME.md) and [`project/STATE.json`](project/STATE.json).
 
 ## Historical inputs
 
