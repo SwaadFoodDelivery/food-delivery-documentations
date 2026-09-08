@@ -8,16 +8,16 @@
 - Can proceed: authenticated `gh` synchronization, branch/PR operations, remote checks, and local tickets/state.
 - User action: none for CLI work. Do not paste tokens into chat.
 
-## BLOCKER-002 — Real delivery provider is not selected/configured
+## BLOCKER-002 — Real delivery provider (de-scoped for demo)
 
-- Status: open; affects DELIVERY-001 and release claims.
-- Evidence: no delivery provider configuration or adapter was found in the backend; delivery package is scaffold-only.
-- Impact: only an explicit backend mock adapter can be implemented locally. `real` mode must remain failing/blocked until a provider, credentials, commercial onboarding, and workflow are approved.
-- Can proceed: fictional seeded partners, mock-provider abstraction, persisted schedule, development controls, and tests. Two Shamgarh demo drivers were added to `scripts/seed_demo.sql`; they are not real couriers.
+- Status: closed for the demonstration/learning scope; real-provider integration is intentionally out of scope.
+- Evidence: backend commit `7f1ddab` adds `DELIVERY_PROVIDER=mock`, persisted mock delivery timing, a restart-safe worker, seeded fictional drivers, and `GET /api/v1/orders/:orderId/delivery`.
+- Impact: the app demonstrates the complete delivery journey without claiming live courier dispatch, GPS, or commercial delivery coverage.
+- Future option: a real adapter can be added later behind the same provider boundary if the product scope changes.
 
 ## BLOCKER-003 — Browser/scheduler/quota capabilities are unverified
 
-- Status: open; affects persona evidence and continuation scheduling.
+- Status: open; affects browser persona evidence and continuation scheduling only.
 - Evidence: Chromium/Mermaid CLI binaries were not found; quota visibility unavailable; no scheduler capability was confirmed in this session.
 - Impact: browser screenshots, visual persona acceptance, and automated four-hour continuation cannot be claimed yet.
 - Can proceed: source-level work, API tests, documentation, and local builds.

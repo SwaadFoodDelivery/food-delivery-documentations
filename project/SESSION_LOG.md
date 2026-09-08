@@ -54,3 +54,11 @@
 - Added two fictional, repeatable Shamgarh driver fixtures to `scripts/seed_demo.sql`: `Swaad Demo Driver 1` and `Swaad Demo Driver 2`. Their document bytes are placeholders for local development only.
 - Pushed the documentation checkpoint on `codex/docs-checkpoint` and opened [SwaadFoodDelivery/food-delivery-documentations#1](https://github.com/SwaadFoodDelivery/food-delivery-documentations/pull/1).
 - The GitHub connector can read the backend repository, but `gh` remains the verified path for writes. No browser, supported scheduler, or quota telemetry capability is exposed in this session.
+
+## 2026-09-08 — mock delivery simulation checkpoint
+
+- Replaced the real-provider release blocker with an explicit demonstration boundary: `DELIVERY_PROVIDER=mock` and `MOCK_DELIVERY_DURATION_SECONDS=600`.
+- Added migration `000026` for provider identity, persisted next-transition timestamps, and status-update actors. Order placement assigns an available fictional driver; a backend worker advances `assigned → en_route_to_restaurant → arrived_at_restaurant → picked_up → out_for_delivery → delivered`.
+- Added `GET /api/v1/orders/:orderId/delivery`, duplicate-safe assignment, due-time catch-up after restart, cancellation/rejection guards, and a visible simulated-delivery label.
+- Live Docker validation applied migration 26 and advanced a persisted due delivery to `delivered` with `Swaad Demo Driver 1`. `go test -race ./...`, `go vet ./...`, and `git diff --check` passed.
+- Real courier credentials and onboarding are no longer required for this learning/demo scope. Browser validation, reachable deployment, scheduler capability, and quota visibility remain the only recorded setup limitations.

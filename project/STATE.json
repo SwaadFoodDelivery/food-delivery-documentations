@@ -1,13 +1,13 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-08T23:25:00+05:30",
+  "updated_at": "2026-09-08T23:45:00+05:30",
   "timezone": "Asia/Kolkata",
   "phase": "first_vertical_journey",
-  "active_ticket": "ORDER-001",
-  "gate": "independently_approved_local_checkpoint",
+  "active_ticket": "DELIVERY-001",
+  "gate": "mock_demo_checkpoint",
   "repositories": [
     {"name":"food-delivery-documentations","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-documentations","remote":"https://github.com/SwaadFoodDelivery/food-delivery-documentations.git","branch":"codex/docs-checkpoint","sha":"43743e665a909d3813ff640aa24dcbedacbe4d05","dirty":false},
-    {"name":"food-delivery-backend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-backend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-backend.git","branch":"codex/vert-001-catalog","sha":"85b55011d87b13801c808045b040f7113fd6d040","base_sha":"766394291771ed5f6564d4f0cd35a7269b01d949","dirty":true},
+    {"name":"food-delivery-backend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-backend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-backend.git","branch":"codex/vert-001-catalog","sha":"7f1ddab7ee51206c2b0a38ccfe58ab3a958ea1d8","base_sha":"766394291771ed5f6564d4f0cd35a7269b01d949","dirty":true},
     {"name":"order-service","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/order-service","remote":"https://github.com/RishabhM2506/order-service.git","branch":"main","sha":"ce30cf2b07962e96447c330f650e96b8393a4771","dirty":false},
     {"name":"proto","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/proto","remote":"https://github.com/RishabhM2506/proto.git","branch":"main","sha":"c26b9ac16fbda449d38416ceb4aa75e00e59b10b","dirty":false},
     {"name":"food-delivery-frontend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-frontend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-frontend.git","branch":"main","sha":"8aea5fd13a335b1c347151f1394d8f65cab09cd5","dirty":true},
@@ -40,25 +40,27 @@
     "independent_review_approved_7f3073036bb16114a5a0a3476bde619fa84a650a",
     "demo_delivery_partners_seeded_069f630a4249fd5e6c632ed1ef40aae0e2a8e369",
     "backend_ci_green_85b55011d87b13801c808045b040f7113fd6d040",
-    "github_prs_pushed_11_and_docs_1"
+    "github_prs_pushed_11_and_docs_1",
+    "DELIVERY-001_mock_provider_implemented_7f1ddab7ee51206c2b0a38ccfe58ab3a958ea1d8"
   ],
   "pending_actions": [
     "reconcile_db_and_api_contracts",
-    "create_mock_delivery_provider",
     "browser_persona_validation",
     "verify_scheduler_or_record_unavailability"
   ],
   "test_evidence": [
     "backend: go test ./... PASS",
     "backend: go vet ./... PASS",
+    "backend: go test -race ./... PASS",
+    "backend: migration 26 and persisted mock delivery advanced to delivered in live Docker validation",
     "frontend: npm run lint PASS",
     "frontend: npm test -- --watch=false PASS",
     "frontend: npm run build PASS",
     "infra: terraform fmt -check, init -backend=false -input=false, validate PASS"
   ],
   "known_failures": [],
-  "blockers": ["BLOCKER-002", "BLOCKER-003"],
-  "next_exact_action": "Continue payment mock/real-mode contract work and frontend integration; keep real delivery-provider and browser/scheduler work gated on setup availability.",
+  "blockers": ["BLOCKER-003"],
+  "next_exact_action": "Integrate the frontend tracking view against GET /api/v1/orders/:orderId/delivery; browser validation remains gated on a reachable frontend deployment and browser capability.",
   "synchronization": {"github": "gh_authenticated_RishabhM2506_org_SwaadFoodDelivery_admin_prs_11_and_docs_1", "connector": "repository_read_reachable_project_issue_workflows_unverified", "local_checkpoint": "written"},
   "scheduler": {"status": "unverified", "task_id": null, "cadence": null, "timezone": "Asia/Kolkata"},
   "quota_visibility": "quota visibility unavailable"

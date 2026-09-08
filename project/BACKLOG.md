@@ -11,7 +11,7 @@ Stable local IDs are used until GitHub is connected. Each item is intentionally 
 | VERT-002 | 3 | P1 | L | Backend | backend | Done — independently approved | Cart token, restaurant binding, availability, persistence, and server-side subtotal work with negative tests |
 | ORDER-001 | 3 | P1 | L | Backend | backend, order-service, proto | Done locally — independently approved | Quote/place use server-side prices, address serviceability, idempotency, and converted-cart transition |
 | ORDER-002 | 3 | P1 | M | Backend | backend, order-service | Blocked by ORDER-001 | Explicit mock payment succeeds/fails; real mode fails clearly without an implemented adapter |
-| DELIVERY-001 | 3 | P1 | L | Backend | backend, order-service, proto | Blocked by ORDER-001 | Persisted backend mock provider advances a successful order across documented states over 600s with restart/duplicate/cancel safety |
+| DELIVERY-001 | 3 | P1 | L | Backend | backend | Implemented for demo — optional wall-clock run remains | Persisted backend mock provider advances a successful order across documented states over 600s with restart-safe due timestamps, duplicate-safe assignment, and cancellation guards |
 | FRONT-001 | 3 | P1 | L | Frontend | frontend, backend | Blocked by frontend implementation | Customer discovery→tracking journey is responsive, accessible, and works with real local APIs |
 | PERSONA-001 | 4 | P1 | L | Frontend/Backend | all app repos | Pending | Restaurant, driver, and operations journeys work against integrated services |
 | DATA-001 | 2 | P1 | M | Architect/Backend | backend, order-service, proto, docs | Ready | Schema/contract differences from DB v2.0 are documented with compatible migration/rollback decisions |
