@@ -19,3 +19,4 @@
 - Rebuilt and recreated the local backend container; migration reached version 23. Live calls to discovery and menu returned five restaurants and the seeded menu. Validation with latitude 99 returned HTTP 400.
 - Backend changes are on local branch `codex/vert-001-catalog`. Pre-existing dirty files remain unstaged. Independent staff review is active; owner mutations, cache, frontend, and downstream ordering are not part of this checkpoint.
 - Commit checkpoint: `21db2b5a6aa95bf416f4e6260d1f67f522b972ab` (`feat: add restaurant discovery and seeded catalog`).
+- Staff-review checkpoint: independent reviewer returned no packet within the bounded wait and was shut down; VERT-001 remains at staff-review evidence pending and is not claimed Done.

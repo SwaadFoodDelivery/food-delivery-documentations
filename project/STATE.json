@@ -4,7 +4,7 @@
   "timezone": "Asia/Kolkata",
   "phase": "first_vertical_journey",
   "active_ticket": "VERT-001",
-  "gate": "staff_review",
+  "gate": "staff_review_evidence_pending",
   "repositories": [
     {"name":"food-delivery-documentations","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-documentations","remote":"https://github.com/SwaadFoodDelivery/food-delivery-documentations.git","branch":"main","sha":"8de2f251eba2e9c67237ac8d6659b5a6e6cc7cf2","dirty":false},
     {"name":"food-delivery-backend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-backend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-backend.git","branch":"codex/vert-001-catalog","sha":"21db2b5a6aa95bf416f4e6260d1f67f522b972ab","base_sha":"766394291771ed5f6564d4f0cd35a7269b01d949","dirty":true},
@@ -46,8 +46,8 @@
     "infra: terraform fmt -check, init -backend=false -input=false, validate PASS"
   ],
   "known_failures": [],
-  "blockers": ["BLOCKER-001", "BLOCKER-002", "BLOCKER-003"],
-  "next_exact_action": "Collect and resolve independent staff review for VERT-001, then commit the feature without staging pre-existing dirty files.",
+  "blockers": ["BLOCKER-001", "BLOCKER-002", "BLOCKER-003", "BLOCKER-004"],
+  "next_exact_action": "Perform or collect an independent staff review for VERT-001 commit 21db2b5a6aa95bf416f4e6260d1f67f522b972ab; do not start the next gated feature until the review evidence is recorded.",
   "synchronization": {"github": "blocked_no_connected_account", "local_checkpoint": "written"},
   "scheduler": {"status": "unverified", "task_id": null, "cadence": null, "timezone": "Asia/Kolkata"},
   "quota_visibility": "quota visibility unavailable"

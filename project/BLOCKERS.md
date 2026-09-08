@@ -21,3 +21,10 @@
 - Evidence: Chromium/Mermaid CLI binaries were not found; quota visibility unavailable; no scheduler capability was confirmed in this session.
 - Impact: browser screenshots, visual persona acceptance, and automated four-hour continuation cannot be claimed yet.
 - Can proceed: source-level work, API tests, documentation, and local builds.
+
+## BLOCKER-004 — VERT-001 independent staff review not completed
+
+- Status: open; affects VERT-001 Done gate.
+- Evidence: a bounded staff-review subagent was started against commit `21db2b5a6aa95bf416f4e6260d1f67f522b972ab`, but returned no review packet before timeout and was shut down.
+- Impact: implementation and focused QA evidence exist, but no independent approval or actionable review findings are available. The feature is not represented as fully Done.
+- Next action: perform an independent review in a future run or have an authorized human review the commit, then rerun any affected checks after fixes.
