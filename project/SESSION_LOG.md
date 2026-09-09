@@ -99,3 +99,11 @@
 - Backend race tests, vet, diff checks, Docker build/start, health, and route registration pass. Frontend lint, 53 unit tests, and production build pass; existing Sass/PostCSS/vendor-size warnings remain nonblocking.
 - The next implementation slice is operations visibility. Real delivery remains intentionally de-scoped. BLOCKER-003 still affects only browser persona evidence, scheduler capability, and quota telemetry.
 - GitHub Actions completed successfully for backend `b658177` and frontend `ea7770f`; PR #11 checks are green (`go-checks`, `docker-build`) and PR #3 checks are green (`lint`, `unit-tests`, `production-audit`, `build`).
+
+## 2026-09-09 — operations manager workspace checkpoint
+
+- Added backend operations package at `c6eb552`: manager-only `GET /api/v1/operations/overview` with status filtering, order/customer/restaurant/delivery context, fictional driver availability/assignments, and `PATCH /api/v1/operations/orders/:orderId/cancel` for active demo orders.
+- Cancellation uses a transaction, clears pending delivery transitions, updates actor fields, and writes an `ops_order_cancelled` audit row. Seeded operations manager fixture: `9000000021` / `Swaad Demo Operations`.
+- Added frontend operations route `/operations` at `1f67d5f`, role guarded for `restaurant_manager`, with summary cards, order intervention, filters, empty/loading/error states, responsive layout, and service tests.
+- Backend full tests, race tests, vet, diff checks, Docker rebuild, health, seed, and unauthenticated operations guard passed. Local legacy Vue Jest/build processes stalled under Node 25; frontend source syntax/diff checks passed and pushed-branch CI is pending.
+- Operations scope is complete for the mock demo. Next implementation slice: notification/read-state and failure/reconciliation hardening. BLOCKER-003 remains the only open setup limitation.

@@ -1,6 +1,6 @@
 # Resume Swaad
 
-Last checkpoint: 2026-09-09, restaurant-owner order queue checkpoint.
+Last checkpoint: 2026-09-09, operations manager workspace checkpoint.
 
 ## Completed
 
@@ -20,16 +20,18 @@ Last checkpoint: 2026-09-09, restaurant-owner order queue checkpoint.
 - Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `4da4d2d`, a role-guarded `/restaurant/orders` queue with owner-scoped loading and accept/reject/prepare/ready actions; frontend tests now total 51.
 - Backend PR #11 now includes `b658177`: driver-only current-delivery/status APIs, busy-driver exclusion during mock assignment, persisted driver/order actors, and valid sequential transitions.
 - Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `ea7770f`: role-guarded `/driver` dashboard for availability, city, current assignment, and manual progression; frontend tests now total 53.
+- Backend PR [#11](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/11) now includes `c6eb552`: manager-only operations overview and audited cancellation intervention, with order filters, delivery state, and fictional driver coverage.
+- Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `1f67d5f`: role-guarded `/operations` workspace with summary metrics, status filtering, active-order cancellation, and driver assignment visibility.
 
 ## Active ticket and gate
 
-`PERSONA-001` / phase 4 persona completeness. Gate: mock demo checkpoint. The customer discovery → tracking vertical, restaurant-owner order queue, and driver workflow are implemented against local APIs. Operations UI and browser persona evidence remain follow-up scope.
+`PERSONA-001` / phase 4 persona completeness. Gate: mock demo checkpoint. Customer, restaurant-owner, driver, and operations journeys are implemented against local mock APIs. Browser persona evidence remains follow-up scope.
 
 ## Next exact action
 
-1. Add operations visibility for demo orders, drivers, and delivery state.
+1. Implement notification/read-state and failure/reconciliation hardening for the mock demo.
 2. Run final source/CI handoff checks and record the remaining browser/scheduler/quota limitations.
-3. Run authenticated customer/owner/driver browser journeys when a reachable environment is available; keep four-hour continuation scheduling gated on setup availability.
+3. Run authenticated customer/owner/driver/operations browser journeys when a reachable environment is available; keep four-hour continuation scheduling gated on setup availability.
 
 ## Evidence and limitations
 
