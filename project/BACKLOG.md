@@ -20,3 +20,4 @@ Stable local IDs are used until GitHub is connected. Each item is intentionally 
 | SCHED-001 | 1/7 | P2 | S | Orchestrator | docs | Blocked | Supported local scheduler is verified and an idempotent 4-hour task is created or documented as unavailable |
 
 | OPS-001 | 5 | P1 | M | Backend/Frontend | backend, frontend, docs | Done for mock demo — browser evidence remains | Recipient-scoped notifications, order lifecycle events, customer history/cancellation, payment outcome notifications, and operations failure/stall counters are implemented |
+| OPS-002 | 5/6 | P1 | M | Backend/Frontend | backend, frontend, docs | Done for mock demo — browser evidence remains | Restaurant-manager onboarding queue can list pending applicants, approve/reject with feedback, update access state, notify the applicant, and audit the decision |

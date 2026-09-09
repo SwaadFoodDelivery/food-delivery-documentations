@@ -134,3 +134,10 @@
 - Frontend commit `8fae408` adds a CSS-based 3D food/platter moment to customer discovery. It uses no external asset or paid service, has a semantic label, responsive layout, and a reduced-motion/static fallback. Frontend CI run `34312927639` passed lint, unit tests, build, and production audit.
 - Added `project/RELEASE_MANIFEST.json` with tested compatibility commits, mock/provider boundaries, rollback notes, and explicit unreleased capabilities. Added `project/CAPACITY_AND_COST.md` separating registered users, daily activity, concurrency, order rate, tracking connections, cost assumptions, and the one-million-registration growth path.
 - Phase 6 source refinement and Phase 7 local mock-demo handover are complete. The only open setup limitations are browser/deployment persona evidence, scheduler capability, and quota telemetry; no paid resource or real provider is required for the learning scope.
+
+## 2026-09-09 — authorized onboarding review checkpoint
+
+- Backend commit `a47f5b4` adds manager-only `GET /api/v1/operations/onboarding` and `PATCH /api/v1/operations/onboarding/:id`. Decisions are transactional: the onboarding status and user access flag change together, the applicant receives an in-app notification, and an audit row records the before/after state.
+- Frontend commit `f8179e1` adds the operations review queue with pending/approved/rejected filters, document completion counts, rejection feedback, and accessible loading/error/empty states.
+- `scripts/seed_demo.sql` now includes a fictional complete pending driver application (`Demo Pending Driver`) so the learning workflow is visible immediately after seeding. No real identity document or delivery provider is involved.
+- Backend local tests pass and frontend service tests/lint pass; pushed frontend CI is green. Backend CI is rerunning after a formatting-only follow-up commit. Remaining setup limitations are unchanged: browser persona evidence, reachable deployment, scheduler capability, and quota telemetry.

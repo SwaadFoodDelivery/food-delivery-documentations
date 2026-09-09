@@ -1,6 +1,6 @@
 # Resume Swaad
 
-Last checkpoint: 2026-09-09, operations manager workspace checkpoint.
+Last checkpoint: 2026-09-09, authorized onboarding review checkpoint.
 
 ## Completed
 
@@ -29,6 +29,8 @@ Last checkpoint: 2026-09-09, operations manager workspace checkpoint.
 - Backend PR [#11](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/11) now includes `71e6cf5`: operations summary counters for failed mock payments and due stalled deliveries.
 - Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `30d99a3`: operations summary cards for reconciliation signals.
 - Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `8fae408`: the discovery view has a lightweight CSS 3D food hero with a semantic image label, mobile layout, and reduced-motion/static behavior; CI run `34312927639` is green.
+- Backend PR [#11](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/11) now includes `a47f5b4`: manager-only onboarding review list/decision endpoints, transactional approval/rejection, applicant notifications/audit records, and a fictional pending driver seed.
+- Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `f8179e1`: operations onboarding queue with filters, document counts, rejection feedback, and approve/reject actions; CI run `34314261401` is green.
 
 ## Active ticket and gate
 
@@ -38,8 +40,7 @@ Last checkpoint: 2026-09-09, operations manager workspace checkpoint.
 
 1. Complete the release handoff records and use the saved manifest for the next session.
 2. If a reachable deployment/browser becomes available, run authenticated customer, owner, driver, and operations persona journeys with screenshots.
-2. Run final source/CI handoff checks and record the remaining browser/scheduler/quota limitations.
-3. Run authenticated customer/owner/driver/operations browser journeys when a reachable environment is available; keep four-hour continuation scheduling gated on setup availability.
+3. Keep four-hour continuation scheduling gated on setup availability.
 
 ## Evidence and limitations
 

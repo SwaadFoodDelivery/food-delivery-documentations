@@ -1,24 +1,24 @@
 {
   "schema_version": 1,
   "status": "local_mock_demo_handover_ready",
-  "updated_at": "2026-09-09T03:30:00+05:30",
+  "updated_at": "2026-09-09T11:00:00+05:30",
   "tested_compatibility": {
     "backend": {
       "repository": "SwaadFoodDelivery/food-delivery-backend",
       "branch": "codex/vert-001-catalog",
-      "commit": "71e6cf5",
-      "ci_run": "34298207221"
+      "commit": "a47f5b4",
+      "ci_run": "34314313521"
     },
     "frontend": {
       "repository": "SwaadFoodDelivery/food-delivery-frontend",
       "branch": "codex/mock-delivery-tracking",
-      "commit": "8fae408",
-      "ci_run": "34312927639"
+      "commit": "f8179e1",
+      "ci_run": "34314261401"
     },
     "documentation": {
       "repository": "SwaadFoodDelivery/food-delivery-documentations",
       "branch": "codex/docs-checkpoint",
-      "commit": "e6c0c90"
+      "commit": "pending"
     },
     "infra": {
       "repository": "SwaadFoodDelivery/food-delivery-infra",
@@ -39,7 +39,8 @@
     "customer discovery, menu, cart, checkout, mock payment, tracking, notifications, order history, cancellation",
     "restaurant owner order queue and status transitions",
     "driver availability, current assignment, and sequential delivery actions",
-    "operations manager order visibility, audited intervention, driver coverage, failed-payment and stalled-delivery counters"
+    "operations manager order visibility, audited intervention, driver coverage, failed-payment and stalled-delivery counters",
+    "operations manager onboarding review queue with applicant feedback, access-state changes, notifications, and audit history"
   ],
   "explicit_mocks": [
     "OTP and email providers",

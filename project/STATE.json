@@ -7,10 +7,10 @@
   "gate": "mock_demo_checkpoint",
   "repositories": [
     {"name":"food-delivery-documentations","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-documentations","remote":"https://github.com/SwaadFoodDelivery/food-delivery-documentations.git","branch":"codex/docs-checkpoint","sha":"5e565f1","dirty":true},
-    {"name":"food-delivery-backend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-backend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-backend.git","branch":"codex/vert-001-catalog","sha":"71e6cf5","base_sha":"766394291771ed5f6564d4f0cd35a7269b01d949","dirty":true},
+    {"name":"food-delivery-backend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-backend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-backend.git","branch":"codex/vert-001-catalog","sha":"a47f5b4","base_sha":"766394291771ed5f6564d4f0cd35a7269b01d949","dirty":true},
     {"name":"order-service","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/order-service","remote":"https://github.com/RishabhM2506/order-service.git","branch":"main","sha":"ce30cf2b07962e96447c330f650e96b8393a4771","dirty":false},
     {"name":"proto","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/proto","remote":"https://github.com/RishabhM2506/proto.git","branch":"main","sha":"c26b9ac16fbda449d38416ceb4aa75e00e59b10b","dirty":false},
-    {"name":"food-delivery-frontend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-frontend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-frontend.git","branch":"codex/mock-delivery-tracking","sha":"8fae408","dirty":true},
+    {"name":"food-delivery-frontend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-frontend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-frontend.git","branch":"codex/mock-delivery-tracking","sha":"f8179e1","dirty":true},
     {"name":"food-delivery-infra","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-infra","remote":"https://github.com/SwaadFoodDelivery/food-delivery-infra.git","branch":"alignment_with_backend_and_frontend","sha":"6b75b4f10fe20db9cf1fbb8376e09beef0991887","dirty":false}
   ],
   "uncommitted_work": [
@@ -55,15 +55,12 @@
     "OPS-001_notification_center_0cfc3a2_6ff8236",
     "ORDER-003_history_cancel_notifications_b1f90cb_5134e71",
     "OPS-001_payment_delivery_reconciliation_71e6cf5_30d99a3",
-    "PHASE-006_css_3d_accessibility_8fae408"
+    "PHASE-006_css_3d_accessibility_8fae408",
+    "OPS-002_authorized_onboarding_review_a47f5b4_f8179e1"
   ],
   "pending_actions": [
-    "reconcile_db_and_api_contracts",
     "browser_persona_validation",
     "reachable_dev_release_handover",
-    "verify_scheduler_or_record_unavailability",
-    "browser_persona_validation",
-    "browser_persona_validation",
     "verify_scheduler_or_record_unavailability"
   ],
   "test_evidence": [
@@ -87,6 +84,8 @@
     "backend: operations reconciliation counters for failed payments and due stalled deliveries, full Go tests/race/vet, Docker build, health, route guard, and direct SQL counter validation PASS at 71e6cf5",
     "frontend: operations reconciliation metrics, lint, unit-tests, build, and production-audit PASS at 30d99a3 (CI run 34298214906)",
     "frontend: lightweight CSS 3D food hero with semantic label, responsive fallback, and reduced-motion behavior PASS at 8fae408 (CI run 34312927639)",
+    "backend: manager-only onboarding review list/decision transaction, user access-state flip, notification/audit events, and deterministic pending applicant seed PASS locally and in CI at a47f5b4 (CI run 34314313521)",
+    "frontend: operations onboarding review queue, approve/reject controls, service contract test, lint, and GitHub CI PASS at f8179e1 (CI run 34314261401)",
     "infra: terraform fmt -check, init -backend=false -input=false, validate PASS"
   ],
   "known_failures": [],
