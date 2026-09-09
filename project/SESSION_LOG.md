@@ -114,3 +114,10 @@
 - Frontend commit `6ff8236` adds authenticated `/notifications`, unread styling, individual/read-all actions, mobile layout, and service tests. Seeded operations and driver notifications are deterministic in `scripts/seed_demo.sql`.
 - Backend full tests/race/vet, Docker rebuild, seed, health, and unauthenticated route guard passed. Backend CI run `34297278804` passed; frontend CI run `34297287313` passed all jobs.
 - Event generation and NATS consumer delivery remain intentionally deferred to the next failure/reconciliation slice. BLOCKER-003 remains the only open setup limitation.
+
+## 2026-09-09 — customer order history and cancellation checkpoint
+
+- Backend commit `b1f90cb` adds recipient-scoped `GET /api/v1/orders`, `GET /api/v1/orders/:orderId/history`, and guarded `PATCH /api/v1/orders/:orderId/cancel`. Cancellation locks the user's order, rejects terminal states, clears pending mock delivery transitions, writes the order/audit history, and emits an in-app notification.
+- New order placement emits a mock in-app notification in the same transaction. No external email/SMS or NATS delivery claim is made.
+- Frontend commit `5134e71` adds `/orders/history`, current status and delivery labels, persisted status timeline display, and active demo-order cancellation. Frontend CI run `34297966805` passed; backend CI for the preceding history commit passed and the notification follow-up is running.
+- Next implementation slice is payment/delivery failure notifications and reconciliation visibility. BLOCKER-003 remains the only setup limitation.

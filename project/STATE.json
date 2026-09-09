@@ -1,16 +1,16 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-09T02:15:00+05:30",
+  "updated_at": "2026-09-09T02:45:00+05:30",
   "timezone": "Asia/Kolkata",
   "phase": "first_vertical_journey",
   "active_ticket": "PERSONA-001",
   "gate": "mock_demo_checkpoint",
   "repositories": [
     {"name":"food-delivery-documentations","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-documentations","remote":"https://github.com/SwaadFoodDelivery/food-delivery-documentations.git","branch":"codex/docs-checkpoint","sha":"db42f67000aea1b6a63bc44e1a2ac0f322e19cce","dirty":true},
-    {"name":"food-delivery-backend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-backend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-backend.git","branch":"codex/vert-001-catalog","sha":"0cfc3a2","base_sha":"766394291771ed5f6564d4f0cd35a7269b01d949","dirty":true},
+    {"name":"food-delivery-backend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-backend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-backend.git","branch":"codex/vert-001-catalog","sha":"b1f90cb","base_sha":"766394291771ed5f6564d4f0cd35a7269b01d949","dirty":true},
     {"name":"order-service","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/order-service","remote":"https://github.com/RishabhM2506/order-service.git","branch":"main","sha":"ce30cf2b07962e96447c330f650e96b8393a4771","dirty":false},
     {"name":"proto","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/proto","remote":"https://github.com/RishabhM2506/proto.git","branch":"main","sha":"c26b9ac16fbda449d38416ceb4aa75e00e59b10b","dirty":false},
-    {"name":"food-delivery-frontend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-frontend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-frontend.git","branch":"codex/mock-delivery-tracking","sha":"6ff8236","dirty":true},
+    {"name":"food-delivery-frontend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-frontend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-frontend.git","branch":"codex/mock-delivery-tracking","sha":"5134e71","dirty":true},
     {"name":"food-delivery-infra","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-infra","remote":"https://github.com/SwaadFoodDelivery/food-delivery-infra.git","branch":"alignment_with_backend_and_frontend","sha":"6b75b4f10fe20db9cf1fbb8376e09beef0991887","dirty":false}
   ],
   "uncommitted_work": [
@@ -52,13 +52,14 @@
     "PERSONA-001_owner_lookup_api_82a25b6",
     "PERSONA-001_mock_driver_workflow_b658177_ea7770f",
     "PERSONA-001_operations_workspace_c6eb552_1f67d5f",
-    "OPS-001_notification_center_0cfc3a2_6ff8236"
+    "OPS-001_notification_center_0cfc3a2_6ff8236",
+    "ORDER-003_history_cancel_notifications_b1f90cb_5134e71"
   ],
   "pending_actions": [
     "reconcile_db_and_api_contracts",
     "browser_persona_validation",
     "verify_scheduler_or_record_unavailability",
-    "failure_reconciliation_and_order_history_hardening",
+    "payment_delivery_failure_notifications",
     "browser_persona_validation",
     "verify_scheduler_or_record_unavailability"
   ],
@@ -78,11 +79,13 @@
     "frontend: operations service syntax and diff checks PASS at 1f67d5f; local legacy Vue Jest/build processes stalled under Node 25, so GitHub CI remains the authoritative frontend verification",
     "backend: recipient-scoped notification list/read/read-all APIs, repeatable fixtures, full Go tests/race/vet, Docker rebuild, seed, health, and unauthenticated route guard PASS at 0cfc3a2",
     "frontend: notification service/view syntax and diff checks PASS at 6ff8236; GitHub Actions lint, unit-tests, build, and production-audit PASS",
+    "backend: customer order list/timeline/cancellation, transactional delivery cleanup, audit row, mock notifications, full Go tests/race/vet PASS at b1f90cb; CI pending",
+    "frontend: customer order history/timeline/cancellation view, service tests, lint, unit-tests, build, and production-audit PASS at 5134e71",
     "infra: terraform fmt -check, init -backend=false -input=false, validate PASS"
   ],
   "known_failures": [],
   "blockers": ["BLOCKER-003"],
-  "next_exact_action": "Implement failure/reconciliation and customer order-history visibility, then run CI and update the demo walkthroughs.",
+  "next_exact_action": "Add mock payment/delivery failure notifications and reconciliation visibility, then run the final source/CI handoff.",
   "synchronization": {"github": "gh_authenticated_RishabhM2506_org_SwaadFoodDelivery_admin_prs_11_and_docs_1", "connector": "repository_read_reachable_project_issue_workflows_unverified", "local_checkpoint": "written"},
   "scheduler": {"status": "unverified", "task_id": null, "cadence": null, "timezone": "Asia/Kolkata"},
   "quota_visibility": "quota visibility unavailable"
