@@ -121,3 +121,10 @@
 - New order placement emits a mock in-app notification in the same transaction. No external email/SMS or NATS delivery claim is made.
 - Frontend commit `5134e71` adds `/orders/history`, current status and delivery labels, persisted status timeline display, and active demo-order cancellation. Frontend CI run `34297966805` passed; backend CI for the preceding history commit passed and the notification follow-up is running.
 - Next implementation slice is payment/delivery failure notifications and reconciliation visibility. BLOCKER-003 remains the only setup limitation.
+
+## 2026-09-09 — failure notification and reconciliation checkpoint
+
+- Backend commit `3bf9522` emits recipient-scoped in-app notifications for mock payment success and deterministic decline outcomes, preserving idempotent payment replay behavior.
+- Backend commit `71e6cf5` adds `failed_payments` and `stalled_deliveries` counters to the manager operations overview. Stalled means a non-terminal mock delivery has a due transition timestamp; direct Postgres counter queries returned zero/zero on the clean demo database.
+- Frontend commit `30d99a3` renders both reconciliation counters in the operations summary. Backend full tests/race/vet, Docker build/start, health, route guards, and direct SQL checks passed. Backend CI run `34298207221` and frontend CI run `34298214906` passed all jobs.
+- The mock demo product scope is now source-complete for customer, restaurant owner, driver, operations, notification, order history/cancellation, payment outcomes, and reconciliation visibility. BLOCKER-003 remains the only open setup limitation.

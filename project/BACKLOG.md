@@ -19,4 +19,4 @@ Stable local IDs are used until GitHub is connected. Each item is intentionally 
 | ACCESS-001 | 1 | P0 | S | Orchestrator | GitHub/docs | Resolved via `gh`; connector pending | GitHub CLI access exposes the six repositories and confirms organisation/repository permissions; connector-specific installation is still unavailable |
 | SCHED-001 | 1/7 | P2 | S | Orchestrator | docs | Blocked | Supported local scheduler is verified and an idempotent 4-hour task is created or documented as unavailable |
 
-| OPS-001 | 5 | P1 | M | Backend/Frontend | backend, frontend, docs | In progress — notification center and order cancellation done | Recipient-scoped notifications, customer order history, and cancellation are implemented; payment/delivery failure event generation and reconciliation remain |
+| OPS-001 | 5 | P1 | M | Backend/Frontend | backend, frontend, docs | Done for mock demo — browser evidence remains | Recipient-scoped notifications, order lifecycle events, customer history/cancellation, payment outcome notifications, and operations failure/stall counters are implemented |
