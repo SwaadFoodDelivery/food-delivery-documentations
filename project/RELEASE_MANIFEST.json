@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "local_mock_demo_handover_ready",
+  "updated_at": "2026-09-09T03:30:00+05:30",
+  "tested_compatibility": {
+    "backend": {
+      "repository": "SwaadFoodDelivery/food-delivery-backend",
+      "branch": "codex/vert-001-catalog",
+      "commit": "71e6cf5",
+      "ci_run": "34298207221"
+    },
+    "frontend": {
+      "repository": "SwaadFoodDelivery/food-delivery-frontend",
+      "branch": "codex/mock-delivery-tracking",
+      "commit": "8fae408",
+      "ci_run": "34312927639"
+    },
+    "documentation": {
+      "repository": "SwaadFoodDelivery/food-delivery-documentations",
+      "branch": "codex/docs-checkpoint",
+      "commit": "pending"
+    },
+    "infra": {
+      "repository": "SwaadFoodDelivery/food-delivery-infra",
+      "branch": "alignment_with_backend_and_frontend",
+      "commit": "6b75b4f",
+      "verification": "terraform fmt -check, init -backend=false -input=false, validate passed"
+    },
+    "order_service": {
+      "repository": "SwaadFoodDelivery/order-service",
+      "commit": "ce30cf2"
+    },
+    "proto": {
+      "repository": "SwaadFoodDelivery/proto",
+      "commit": "c26b9ac"
+    }
+  },
+  "implemented_journeys": [
+    "customer discovery, menu, cart, checkout, mock payment, tracking, notifications, order history, cancellation",
+    "restaurant owner order queue and status transitions",
+    "driver availability, current assignment, and sequential delivery actions",
+    "operations manager order visibility, audited intervention, driver coverage, failed-payment and stalled-delivery counters"
+  ],
+  "explicit_mocks": [
+    "OTP and email providers",
+    "payment provider",
+    "delivery provider and synthetic driver progression",
+    "in-app notification fixtures and event persistence"
+  ],
+  "not_released_or_not_verified": [
+    "real delivery adapter and courier onboarding",
+    "reachable shared development deployment",
+    "authenticated browser screenshots/persona acceptance",
+    "supported four-hour scheduler task",
+    "programmatic quota telemetry",
+    "external email/SMS/NATS consumer delivery"
+  ],
+  "rollback": {
+    "application": "Revert the feature branch commits through the PR after review; do not reset local dirty work.",
+    "database": "No new migration was added for the final notification/history/reconciliation slices; existing migrations remain forward-compatible.",
+    "provider": "Keep DELIVERY_PROVIDER=mock and PAYMENT_PROVIDER=mock for this demo; real mode is intentionally not enabled."
+  }
+}

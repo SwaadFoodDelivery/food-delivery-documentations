@@ -28,6 +28,7 @@ Last checkpoint: 2026-09-09, operations manager workspace checkpoint.
 - Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `5134e71`: authenticated `/orders/history` with status timeline and active demo-order cancellation.
 - Backend PR [#11](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/11) now includes `71e6cf5`: operations summary counters for failed mock payments and due stalled deliveries.
 - Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `30d99a3`: operations summary cards for reconciliation signals.
+- Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `8fae408`: the discovery view has a lightweight CSS 3D food hero with a semantic image label, mobile layout, and reduced-motion/static behavior; CI run `34312927639` is green.
 
 ## Active ticket and gate
 
@@ -35,7 +36,8 @@ Last checkpoint: 2026-09-09, operations manager workspace checkpoint.
 
 ## Next exact action
 
-1. Run final source/CI handoff checks, then validate authenticated customer, owner, driver, and operations journeys when a reachable browser deployment exists.
+1. Complete the release handoff records and use the saved manifest for the next session.
+2. If a reachable deployment/browser becomes available, run authenticated customer, owner, driver, and operations persona journeys with screenshots.
 2. Run final source/CI handoff checks and record the remaining browser/scheduler/quota limitations.
 3. Run authenticated customer/owner/driver/operations browser journeys when a reachable environment is available; keep four-hour continuation scheduling gated on setup availability.
 
@@ -44,3 +46,4 @@ Last checkpoint: 2026-09-09, operations manager workspace checkpoint.
 - Baseline commands and results are in `SESSION_LOG.md`.
 - Current dirty work is listed in `SOURCE_INVENTORY.md`; do not reset or overwrite it.
 - Browser persona, reachable dev deployment, scheduler, and quota percentage remain unevidenced. Real delivery is intentionally out of scope for this demo. GitHub synchronization is evidenced through `gh` and the two open PRs above.
+- The local mock-demo release manifest, capacity/cost assumptions, provider matrix, and rollback boundaries are in [`project/RELEASE_MANIFEST.json`](RELEASE_MANIFEST.json) and [`project/CAPACITY_AND_COST.md`](CAPACITY_AND_COST.md).

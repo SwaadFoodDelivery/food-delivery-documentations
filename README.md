@@ -6,7 +6,7 @@ Historical design inputs remain at the repository root. Current project state, s
 
 ## Current status
 
-The recovery audit started on 2026-09-08 from a local macOS checkout. The customer discovery→menu→cart→checkout→mock payment→tracking path and backend owner order API are implemented and pass CI; restaurant-owner, driver, and operations UIs, real providers, and browser persona evidence remain outside the current checkpoint. See [`project/RESUME.md`](project/RESUME.md) and [`project/STATE.json`](project/STATE.json).
+The recovery audit started on 2026-09-08 from a local macOS checkout. The customer, restaurant-owner, driver, operations, notification, order-history, cancellation, mock payment, and simulated tracking journeys are implemented and pass CI. The current mock-demo handover includes the Phase 6 CSS 3D discovery hero and Phase 7 release/capacity records; reachable browser persona evidence, scheduler capability, quota telemetry, and real providers remain outside the local release. See [`project/RESUME.md`](project/RESUME.md), [`project/STATE.json`](project/STATE.json), [`project/RELEASE_MANIFEST.json`](project/RELEASE_MANIFEST.json), and [`project/CAPACITY_AND_COST.md`](project/CAPACITY_AND_COST.md).
 
 ## Historical inputs
 
@@ -22,3 +22,5 @@ The recovery audit started on 2026-09-08 from a local macOS checkout. The custom
 - [`BACKLOG.md`](project/BACKLOG.md)
 - [`BLOCKERS.md`](project/BLOCKERS.md)
 - [`SESSION_LOG.md`](project/SESSION_LOG.md)
+- [`RELEASE_MANIFEST.json`](project/RELEASE_MANIFEST.json)
+- [`CAPACITY_AND_COST.md`](project/CAPACITY_AND_COST.md)

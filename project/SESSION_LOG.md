@@ -128,3 +128,9 @@
 - Backend commit `71e6cf5` adds `failed_payments` and `stalled_deliveries` counters to the manager operations overview. Stalled means a non-terminal mock delivery has a due transition timestamp; direct Postgres counter queries returned zero/zero on the clean demo database.
 - Frontend commit `30d99a3` renders both reconciliation counters in the operations summary. Backend full tests/race/vet, Docker build/start, health, route guards, and direct SQL checks passed. Backend CI run `34298207221` and frontend CI run `34298214906` passed all jobs.
 - The mock demo product scope is now source-complete for customer, restaurant owner, driver, operations, notification, order history/cancellation, payment outcomes, and reconciliation visibility. BLOCKER-003 remains the only open setup limitation.
+
+## 2026-09-09 — Phase 6 experience and Phase 7 handover checkpoint
+
+- Frontend commit `8fae408` adds a CSS-based 3D food/platter moment to customer discovery. It uses no external asset or paid service, has a semantic label, responsive layout, and a reduced-motion/static fallback. Frontend CI run `34312927639` passed lint, unit tests, build, and production audit.
+- Added `project/RELEASE_MANIFEST.json` with tested compatibility commits, mock/provider boundaries, rollback notes, and explicit unreleased capabilities. Added `project/CAPACITY_AND_COST.md` separating registered users, daily activity, concurrency, order rate, tracking connections, cost assumptions, and the one-million-registration growth path.
+- Phase 6 source refinement and Phase 7 local mock-demo handover are complete. The only open setup limitations are browser/deployment persona evidence, scheduler capability, and quota telemetry; no paid resource or real provider is required for the learning scope.
