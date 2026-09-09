@@ -6,7 +6,7 @@
   "active_ticket": "PERSONA-001",
   "gate": "mock_demo_checkpoint",
   "repositories": [
-    {"name":"food-delivery-documentations","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-documentations","remote":"https://github.com/SwaadFoodDelivery/food-delivery-documentations.git","branch":"codex/docs-checkpoint","sha":"db42f67000aea1b6a63bc44e1a2ac0f322e19cce","dirty":true},
+    {"name":"food-delivery-documentations","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-documentations","remote":"https://github.com/SwaadFoodDelivery/food-delivery-documentations.git","branch":"codex/docs-checkpoint","sha":"e6c0c90","dirty":true},
     {"name":"food-delivery-backend","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/food-delivery-backend","remote":"https://github.com/SwaadFoodDelivery/food-delivery-backend.git","branch":"codex/vert-001-catalog","sha":"71e6cf5","base_sha":"766394291771ed5f6564d4f0cd35a7269b01d949","dirty":true},
     {"name":"order-service","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/order-service","remote":"https://github.com/RishabhM2506/order-service.git","branch":"main","sha":"ce30cf2b07962e96447c330f650e96b8393a4771","dirty":false},
     {"name":"proto","path":"/Users/rishabhjain/Documents/food-delivery/food-delivery-app/proto","remote":"https://github.com/RishabhM2506/proto.git","branch":"main","sha":"c26b9ac16fbda449d38416ceb4aa75e00e59b10b","dirty":false},
