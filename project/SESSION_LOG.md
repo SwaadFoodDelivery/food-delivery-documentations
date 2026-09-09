@@ -107,3 +107,10 @@
 - Added frontend operations route `/operations` at `1f67d5f`, role guarded for `restaurant_manager`, with summary cards, order intervention, filters, empty/loading/error states, responsive layout, and service tests.
 - Backend full tests, race tests, vet, diff checks, Docker rebuild, health, seed, and unauthenticated operations guard passed. Local legacy Vue Jest/build processes stalled under Node 25; frontend source syntax/diff checks passed and pushed-branch CI is pending.
 - Operations scope is complete for the mock demo. Next implementation slice: notification/read-state and failure/reconciliation hardening. BLOCKER-003 remains the only open setup limitation.
+
+## 2026-09-09 — mock notification center checkpoint
+
+- Backend commit `0cfc3a2` adds protected `GET /api/v1/notifications`, `PATCH /api/v1/notifications/:notificationId/read`, and `POST /api/v1/notifications/read-all`. Queries are recipient-scoped, unread counts are returned with list results, and read mutations are idempotent.
+- Frontend commit `6ff8236` adds authenticated `/notifications`, unread styling, individual/read-all actions, mobile layout, and service tests. Seeded operations and driver notifications are deterministic in `scripts/seed_demo.sql`.
+- Backend full tests/race/vet, Docker rebuild, seed, health, and unauthenticated route guard passed. Backend CI run `34297278804` passed; frontend CI run `34297287313` passed all jobs.
+- Event generation and NATS consumer delivery remain intentionally deferred to the next failure/reconciliation slice. BLOCKER-003 remains the only open setup limitation.

@@ -22,6 +22,8 @@ Last checkpoint: 2026-09-09, operations manager workspace checkpoint.
 - Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `ea7770f`: role-guarded `/driver` dashboard for availability, city, current assignment, and manual progression; frontend tests now total 53.
 - Backend PR [#11](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/11) now includes `c6eb552`: manager-only operations overview and audited cancellation intervention, with order filters, delivery state, and fictional driver coverage.
 - Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `1f67d5f`: role-guarded `/operations` workspace with summary metrics, status filtering, active-order cancellation, and driver assignment visibility.
+- Backend PR [#11](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/11) now includes `0cfc3a2`: recipient-scoped notification list/read/read-all APIs and repeatable fixtures for the demo operations and driver accounts.
+- Frontend PR [#3](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/3) now includes `6ff8236`: authenticated `/notifications` center with unread count, individual read, and read-all actions.
 
 ## Active ticket and gate
 
@@ -29,7 +31,7 @@ Last checkpoint: 2026-09-09, operations manager workspace checkpoint.
 
 ## Next exact action
 
-1. Implement notification/read-state and failure/reconciliation hardening for the mock demo.
+1. Implement failure/reconciliation and customer order-history visibility for the mock demo.
 2. Run final source/CI handoff checks and record the remaining browser/scheduler/quota limitations.
 3. Run authenticated customer/owner/driver/operations browser journeys when a reachable environment is available; keep four-hour continuation scheduling gated on setup availability.
 
