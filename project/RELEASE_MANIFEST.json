@@ -18,7 +18,7 @@
     "documentation": {
       "repository": "SwaadFoodDelivery/food-delivery-documentations",
       "branch": "codex/docs-checkpoint",
-      "commit": "pending"
+      "commit": "d4d3844"
     },
     "infra": {
       "repository": "SwaadFoodDelivery/food-delivery-infra",
