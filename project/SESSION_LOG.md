@@ -141,3 +141,9 @@
 - Frontend commit `f8179e1` adds the operations review queue with pending/approved/rejected filters, document completion counts, rejection feedback, and accessible loading/error/empty states.
 - `scripts/seed_demo.sql` now includes a fictional complete pending driver application (`Demo Pending Driver`) so the learning workflow is visible immediately after seeding. No real identity document or delivery provider is involved.
 - Backend local tests pass and frontend service tests/lint pass; pushed frontend CI is green. Backend CI is rerunning after a formatting-only follow-up commit. Remaining setup limitations are unchanged: browser persona evidence, reachable deployment, scheduler capability, and quota telemetry.
+
+## 2026-09-09 — operations audit visibility checkpoint
+
+- Backend commit `ac237de` adds manager-only `GET /api/v1/operations/audit` with action/entity filters and a bounded `limit` (1–100). It reads the existing immutable audit trail without exposing write or delete access.
+- Frontend commit `45b52ce` adds filtered audit events to the operations workspace, including actor, entity, timestamp, and expandable before/after state payloads. The service contract test covers query serialization.
+- Backend CI run `34316756425` and frontend CI run `34316843986` passed. Local Vue CLI remains slow in this environment, but the pushed build, lint, unit-tests, and production audit are green. Remaining setup limitations are unchanged: browser persona evidence, reachable deployment, scheduler capability, and quota telemetry.

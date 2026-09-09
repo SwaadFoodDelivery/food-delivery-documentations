@@ -21,3 +21,4 @@ Stable local IDs are used until GitHub is connected. Each item is intentionally 
 
 | OPS-001 | 5 | P1 | M | Backend/Frontend | backend, frontend, docs | Done for mock demo — browser evidence remains | Recipient-scoped notifications, order lifecycle events, customer history/cancellation, payment outcome notifications, and operations failure/stall counters are implemented |
 | OPS-002 | 5/6 | P1 | M | Backend/Frontend | backend, frontend, docs | Done for mock demo — browser evidence remains | Restaurant-manager onboarding queue can list pending applicants, approve/reject with feedback, update access state, notify the applicant, and audit the decision |
+| OPS-003 | 5/6 | P1 | S | Backend/Frontend | backend, frontend, docs | Done for mock demo — browser evidence remains | Restaurant-manager workspace can filter and inspect recent audit events, including before/after state payloads and bounded pagination |

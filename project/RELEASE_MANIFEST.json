@@ -6,14 +6,14 @@
     "backend": {
       "repository": "SwaadFoodDelivery/food-delivery-backend",
       "branch": "codex/vert-001-catalog",
-      "commit": "a47f5b4",
-      "ci_run": "34314313521"
+      "commit": "ac237de",
+      "ci_run": "34316756425"
     },
     "frontend": {
       "repository": "SwaadFoodDelivery/food-delivery-frontend",
       "branch": "codex/mock-delivery-tracking",
-      "commit": "f8179e1",
-      "ci_run": "34314261401"
+      "commit": "45b52ce",
+      "ci_run": "34316843986"
     },
     "documentation": {
       "repository": "SwaadFoodDelivery/food-delivery-documentations",
@@ -40,7 +40,7 @@
     "restaurant owner order queue and status transitions",
     "driver availability, current assignment, and sequential delivery actions",
     "operations manager order visibility, audited intervention, driver coverage, failed-payment and stalled-delivery counters",
-    "operations manager onboarding review queue with applicant feedback, access-state changes, notifications, and audit history"
+    "operations manager onboarding review queue with applicant feedback, access-state changes, notifications, audit history, and audit visibility"
   ],
   "explicit_mocks": [
     "OTP and email providers",
