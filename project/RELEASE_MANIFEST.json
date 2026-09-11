@@ -1,24 +1,25 @@
 {
   "schema_version": 1,
-  "status": "local_mock_demo_handover_ready",
-  "updated_at": "2026-09-09T11:00:00+05:30",
+  "status": "local_demo_persona_acceptance_and_CI_passed_unmerged",
+  "updated_at": "2026-09-11T22:43:00+05:30",
+  "current_checkpoint": "project/checkpoints/2026-09-11-persona-handoff.md",
   "tested_compatibility": {
     "backend": {
       "repository": "SwaadFoodDelivery/food-delivery-backend",
-      "branch": "codex/vert-001-catalog",
-      "commit": "ac237de",
-      "ci_run": "34316756425"
+      "branch": "codex/operations-query-repair",
+      "commit": "d17c155",
+      "ci_run": "34626348649"
     },
     "frontend": {
       "repository": "SwaadFoodDelivery/food-delivery-frontend",
-      "branch": "codex/mock-delivery-tracking",
-      "commit": "45b52ce",
-      "ci_run": "34316843986"
+      "branch": "codex/persona-browser-acceptance",
+      "commit": "2782bc4",
+      "ci_run": "34626351667"
     },
     "documentation": {
       "repository": "SwaadFoodDelivery/food-delivery-documentations",
       "branch": "codex/docs-checkpoint",
-      "commit": "d4d3844"
+      "checkpoint": "project/checkpoints/2026-09-11-persona-handoff.md"
     },
     "infra": {
       "repository": "SwaadFoodDelivery/food-delivery-infra",
@@ -51,14 +52,15 @@
   "not_released_or_not_verified": [
     "real delivery adapter and courier onboarding",
     "reachable shared development deployment",
-    "authenticated browser screenshots/persona acceptance",
+    "browser OTP/login and actual document upload/reject/resubmit (current tests seed prerequisites)",
+    "formal protected-main approval and merged release",
     "supported four-hour scheduler task",
     "programmatic quota telemetry",
     "external email/SMS/NATS consumer delivery"
   ],
   "rollback": {
     "application": "Revert the feature branch commits through the PR after review; do not reset local dirty work.",
-    "database": "No new migration was added for the final notification/history/reconciliation slices; existing migrations remain forward-compatible.",
+    "database": "Schema 29 required. Migration 29 down removes its history triggers but preserves histories. Migration 28 down intentionally does not regrant legacy unapproved access.",
     "provider": "Keep DELIVERY_PROVIDER=mock and PAYMENT_PROVIDER=mock for this demo; real mode is intentionally not enabled."
   }
 }

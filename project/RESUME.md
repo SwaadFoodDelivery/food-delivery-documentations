@@ -1,13 +1,15 @@
 # Resume Swaad
 
-Last checkpoint: 2026-09-11, onboarding P1 fixes pushed and browser acceptance in progress.
+Last checkpoint: 2026-09-11, payment recovery, history and operations fixes pushed;
+integrated persona acceptance and CI pass (5 real browser scenarios, 16 mocked,
+110 frontend unit tests, real PostGIS regressions).
 
-Read [the current checkpoint](checkpoints/2026-09-11-onboarding-browser.md) first.
-It supersedes the historical status below. Backend PR #11 now has verified
-approval/owned-upload fixes at `7cccda8`, green CI, and is integrated into #12
-at `5f253ed`. Frontend feature PR #5 (`cd21694`) and browser PR #6 (`65ab83f`)
-are pushed. Browser execution and payment/delivery follow-up remain active;
-do not claim release, merged status, or independent approvals.
+Read [the current checkpoint](checkpoints/2026-09-11-persona-handoff.md) first.
+It supersedes the historical entries below. Latest backend is PR #16
+`codex/operations-query-repair` / `d17c155`; latest frontend is PR #8
+`codex/persona-browser-acceptance` / `2782bc4`. PRs are stacked and unmerged.
+GitHub CLI and real local Chromium work. No real provider credentials are needed.
+Do not claim separate human/agent approvals or bypass main protection.
 
 ## Completed
 
@@ -45,13 +47,13 @@ do not claim release, merged status, or independent approvals.
 
 ## Next exact action
 
-1. Complete the release handoff records and use the saved manifest for the next session.
-2. If a reachable deployment/browser becomes available, run authenticated customer, owner, driver, and operations persona journeys with screenshots.
-3. Keep four-hour continuation scheduling gated on setup availability.
+1. Read the current checkpoint's final test/CI evidence and preserve the listed branches.
+2. Next feature: browser OTP/login and actual document upload/reject/resubmit; current role tests seed authentication/document preconditions explicitly.
+3. Keep final independent review and protected-main approval distinct from test evidence. Scheduling/quota telemetry remains optional and unverified.
 
 ## Evidence and limitations
 
 - Baseline commands and results are in `SESSION_LOG.md`.
 - Current dirty work is listed in `SOURCE_INVENTORY.md`; do not reset or overwrite it.
-- Browser persona, reachable dev deployment, scheduler, and quota percentage remain unevidenced. Real delivery is intentionally out of scope for this demo. GitHub synchronization is evidenced through `gh` and the two open PRs above.
+- Browser capability is now verified locally; consult the current checkpoint for exact persona results. Shared deployment, scheduler and quota percentage remain unverified optional capabilities. Real delivery stays out of scope. The earlier two-PR inventory above is historical; current PRs are linked in the checkpoint.
 - The local mock-demo release manifest, capacity/cost assumptions, provider matrix, and rollback boundaries are in [`project/RELEASE_MANIFEST.json`](RELEASE_MANIFEST.json) and [`project/CAPACITY_AND_COST.md`](CAPACITY_AND_COST.md).

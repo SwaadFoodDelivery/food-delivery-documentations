@@ -1,5 +1,37 @@
 # Session log
 
+## 2026-09-11 — integrated persona acceptance and durable recovery
+
+Recovered quota-interrupted work without altering original user changes. Published
+separate backend PRs 13 (payment/delivery), 14 (onboarding serialization), 15
+(history triggers/current status), 16 (operations SQL/audit repairs); frontend
+PRs 5 (onboarding), 6 (browser harness), 7 (payment recovery), 8 (persona browser).
+See `checkpoints/2026-09-11-persona-handoff.md` for the complete dependency stack.
+
+Final compatible heads: backend d17c155 and frontend 2782bc4. Five real Chromium
+customer/persona scenarios pass in 53.4s, with four inspected screenshots. Final
+frontend CI 34626351667 passes 16 mocked browser tests, 110 unit tests, lint,
+production audit and build. Backend CI 34626348649 passes race/vet, actual
+PostGIS migration/onboarding/serviceability/payment/delivery/operations tests,
+and Docker build. Real MinIO upload verification is in the earlier checkpoint.
+
+Live browser testing found missing history triggers and broken operations query
+bindings/mappings that unit tests had missed; these were fixed and covered by
+database regressions. It also exposed shared test-customer rate exhaustion;
+local tests now seed separate customers. Combined personas use an explicitly
+documented bounded 300/min global loopback limit, with app defaults and user
+limits untouched. Login and document metadata remain seeded preconditions.
+
+Independent agent review found three P2 recovery bugs, all subsequently fixed.
+The agent authored the onboarding fix and then hit quota before final rereview;
+do not call that final independent approval. All PRs remain unmerged. Both main
+branches enforce one authorized approval, including admins. No fake identities,
+protection bypasses, real providers, paid services or destructive resets were used.
+
+Next scope: browser OTP/login plus actual upload/rejection/resubmission in a new
+feature PR. Scheduler/quota telemetry is optional and unverified, not a blocker
+to the local learning application.
+
 ## 2026-09-08 — initial recovery audit
 
 - Confirmed local host is macOS/Darwin arm64 at `/Users/rishabhjain/Documents/food-delivery/food-delivery-app`.

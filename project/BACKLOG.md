@@ -1,6 +1,20 @@
 # Initial backlog
 
-Stable local IDs are used until GitHub is connected. Each item is intentionally bounded to S/M/L and names its primary repository.
+Stable local IDs remain the planning reference; GitHub PRs are connected through
+`gh`. The current checkpoint supersedes historical status wording in this table.
+
+## 2026-09-11 acceptance updates
+
+| ID | Outcome | PRs / next scope |
+| --- | --- | --- |
+| PAYMENT-RECOVERY | Implemented/tested; unmerged | Backend 13; frontend 7/8; payment gate, same-order retry and interrupted mock recovery |
+| AUTH-SERIALIZATION | Implemented/PostGIS concurrency-tested; unmerged | Backend 14; stale applications cannot revoke newer approval |
+| HISTORY-029 | Implemented/transaction-tested; unmerged | Backend 15; actual history emitters/current state |
+| OPS-READ-REPAIR | Implemented/real-browser-tested; unmerged | Backend 16; overview and audit SQL repairs |
+| PERSONA-001 | Local happy-path acceptance passed; unmerged | Frontend 8: owner, driver, manager, pending/approved applicant; customer cases also pass |
+| AUTH-BROWSER-002 | Next | Actual OTP/login and document upload/reject/resubmit; current persona tests seed these preconditions |
+
+## Historical feature inventory
 
 | ID | Phase | Priority | Size | Owner | Repositories | Status | Acceptance summary |
 |---|---|---:|:---:|---|---|---|---|

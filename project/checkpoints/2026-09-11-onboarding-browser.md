@@ -1,5 +1,8 @@
 # Recovery checkpoint — 11 September 2026
 
+Historical checkpoint. Superseded by [the integrated persona handoff](2026-09-11-persona-handoff.md),
+which records payment/history/operations fixes and successful real browser runs.
+
 ## What happened to the developed parts
 
 Agent usage limits interrupted work before commits. The orchestrator recovered

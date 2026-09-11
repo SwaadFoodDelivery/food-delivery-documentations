@@ -15,12 +15,18 @@
 - Impact: the app demonstrates the complete delivery journey without claiming live courier dispatch, GPS, or commercial delivery coverage.
 - Future option: a real adapter can be added later behind the same provider boundary if the product scope changes.
 
-## BLOCKER-003 — Browser/scheduler/quota capabilities are unverified
+## BLOCKER-003 — Browser resolved; scheduler/quota optional
 
-- Status: open; affects browser persona evidence and continuation scheduling only.
-- Evidence: Chromium/Mermaid CLI binaries were not found; quota visibility unavailable; no scheduler capability was confirmed in this session.
-- Impact: browser screenshots, visual persona acceptance, and automated four-hour continuation cannot be claimed yet.
-- Can proceed: source-level work, API tests, documentation, and local builds.
+- Status: browser capability resolved on 2026-09-11. Chromium runs real local customer and persona scenarios; see the current checkpoint for exact results.
+- Scheduler/quota telemetry: unverified; agents returned quota-limit errors. No quota percentage or automatic restart is claimed.
+- Impact: no blocker to local demo development. Shared deployment and automatic four-hour continuation remain optional follow-ups.
+- Can proceed: feature PRs, actual PostGIS/MinIO checks, local Chromium validation, documentation and builds.
+
+## Protected-main approval
+
+- Both app repositories require one authorized approval and enforce this for admins (verified by GitHub API on 2026-09-11).
+- Agent-role comments are not separate GitHub identities or formal approvals. The connected author account cannot supply its own required independent approval.
+- Feature branches and testing can proceed. Main merges must wait for a permitted reviewer; no protection changes or bypass were attempted.
 
 ## BLOCKER-004 — VERT-001 independent staff approval
 
