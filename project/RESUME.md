@@ -1,6 +1,13 @@
 # Resume Swaad
 
-Last checkpoint: 2026-09-09, authorized onboarding review checkpoint.
+Last checkpoint: 2026-09-11, onboarding P1 fixes pushed and browser acceptance in progress.
+
+Read [the current checkpoint](checkpoints/2026-09-11-onboarding-browser.md) first.
+It supersedes the historical status below. Backend PR #11 now has verified
+approval/owned-upload fixes at `7cccda8`, green CI, and is integrated into #12
+at `5f253ed`. Frontend feature PR #5 (`cd21694`) and browser PR #6 (`65ab83f`)
+are pushed. Browser execution and payment/delivery follow-up remain active;
+do not claim release, merged status, or independent approvals.
 
 ## Completed
 
