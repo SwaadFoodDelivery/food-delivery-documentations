@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "local_demo_persona_acceptance_and_CI_passed_unmerged",
+  "updated_at": "2026-09-11T22:43:00+05:30",
+  "current_checkpoint": "project/checkpoints/2026-09-11-persona-handoff.md",
+  "tested_compatibility": {
+    "backend": {
+      "repository": "SwaadFoodDelivery/food-delivery-backend",
+      "branch": "codex/operations-query-repair",
+      "commit": "d17c155",
+      "ci_run": "34626348649"
+    },
+    "frontend": {
+      "repository": "SwaadFoodDelivery/food-delivery-frontend",
+      "branch": "codex/persona-browser-acceptance",
+      "commit": "2782bc4",
+      "ci_run": "34626351667"
+    },
+    "documentation": {
+      "repository": "SwaadFoodDelivery/food-delivery-documentations",
+      "branch": "codex/docs-checkpoint",
+      "checkpoint": "project/checkpoints/2026-09-11-persona-handoff.md"
+    },
+    "infra": {
+      "repository": "SwaadFoodDelivery/food-delivery-infra",
+      "branch": "alignment_with_backend_and_frontend",
+      "commit": "6b75b4f",
+      "verification": "terraform fmt -check, init -backend=false -input=false, validate passed"
+    },
+    "order_service": {
+      "repository": "SwaadFoodDelivery/order-service",
+      "commit": "ce30cf2"
+    },
+    "proto": {
+      "repository": "SwaadFoodDelivery/proto",
+      "commit": "c26b9ac"
+    }
+  },
+  "implemented_journeys": [
+    "customer discovery, menu, cart, checkout, mock payment, tracking, notifications, order history, cancellation",
+    "restaurant owner order queue and status transitions",
+    "driver availability, current assignment, and sequential delivery actions",
+    "operations manager order visibility, audited intervention, driver coverage, failed-payment and stalled-delivery counters",
+    "operations manager onboarding review queue with applicant feedback, access-state changes, notifications, audit history, and audit visibility"
+  ],
+  "explicit_mocks": [
+    "OTP and email providers",
+    "payment provider",
+    "delivery provider and synthetic driver progression",
+    "in-app notification fixtures and event persistence"
+  ],
+  "not_released_or_not_verified": [
+    "real delivery adapter and courier onboarding",
+    "reachable shared development deployment",
+    "browser OTP/login and actual document upload/reject/resubmit (current tests seed prerequisites)",
+    "formal protected-main approval and merged release",
+    "supported four-hour scheduler task",
+    "programmatic quota telemetry",
+    "external email/SMS/NATS consumer delivery"
+  ],
+  "rollback": {
+    "application": "Revert the feature branch commits through the PR after review; do not reset local dirty work.",
+    "database": "Schema 29 required. Migration 29 down removes its history triggers but preserves histories. Migration 28 down intentionally does not regrant legacy unapproved access.",
+    "provider": "Keep DELIVERY_PROVIDER=mock and PAYMENT_PROVIDER=mock for this demo; real mode is intentionally not enabled."
+  }
+}
