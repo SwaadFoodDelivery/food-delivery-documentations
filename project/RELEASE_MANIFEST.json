@@ -1,25 +1,27 @@
 {
   "schema_version": 1,
-  "status": "local_demo_persona_acceptance_and_CI_passed_unmerged",
-  "updated_at": "2026-09-11T22:43:00+05:30",
-  "current_checkpoint": "project/checkpoints/2026-09-11-persona-handoff.md",
+  "status": "auth_browser_passed_independent_review_pending_unmerged",
+  "updated_at": "2026-09-12T14:15:00+05:30",
+  "current_checkpoint": "project/checkpoints/2026-09-12-auth-onboarding.md",
   "tested_compatibility": {
     "backend": {
       "repository": "SwaadFoodDelivery/food-delivery-backend",
-      "branch": "codex/operations-query-repair",
-      "commit": "d17c155",
-      "ci_run": "34626348649"
+      "branch": "codex/mock-otp-outbox",
+      "commit": "e7aa016",
+      "documentation_only_head": "214b4f6",
+      "ci_run": "34683579267"
     },
     "frontend": {
       "repository": "SwaadFoodDelivery/food-delivery-frontend",
-      "branch": "codex/persona-browser-acceptance",
-      "commit": "2782bc4",
-      "ci_run": "34626351667"
+      "branch": "codex/auth-onboarding-browser",
+      "commit": "f376818",
+      "documentation_only_head": "ca48c0c",
+      "ci_run": "34683628795"
     },
     "documentation": {
       "repository": "SwaadFoodDelivery/food-delivery-documentations",
       "branch": "codex/docs-checkpoint",
-      "checkpoint": "project/checkpoints/2026-09-11-persona-handoff.md"
+      "checkpoint": "project/checkpoints/2026-09-12-auth-onboarding.md"
     },
     "infra": {
       "repository": "SwaadFoodDelivery/food-delivery-infra",
@@ -37,6 +39,7 @@
     }
   },
   "implemented_journeys": [
+    "actual browser OTP login via private mock SMS, real MinIO document upload, reject/replace/resubmit/approve and driver access",
     "customer discovery, menu, cart, checkout, mock payment, tracking, notifications, order history, cancellation",
     "restaurant owner order queue and status transitions",
     "driver availability, current assignment, and sequential delivery actions",
@@ -52,7 +55,7 @@
   "not_released_or_not_verified": [
     "real delivery adapter and courier onboarding",
     "reachable shared development deployment",
-    "browser OTP/login and actual document upload/reject/resubmit (current tests seed prerequisites)",
+    "browser registration, email verification, OTP expiry/resend, logout/session renewal/expired-session recovery",
     "formal protected-main approval and merged release",
     "supported four-hour scheduler task",
     "programmatic quota telemetry",

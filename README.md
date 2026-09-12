@@ -6,7 +6,7 @@ Historical design inputs remain at the repository root. Current project state, s
 
 ## Current status
 
-The recovery audit started on 2026-09-08 from a local macOS checkout. The customer, restaurant-owner, driver, operations, notification, order-history, cancellation, mock payment, and simulated tracking journeys are implemented and pass CI. The current mock-demo handover includes the Phase 6 CSS 3D discovery hero and Phase 7 release/capacity records; reachable browser persona evidence, scheduler capability, quota telemetry, and real providers remain outside the local release. See [`project/RESUME.md`](project/RESUME.md), [`project/STATE.json`](project/STATE.json), [`project/RELEASE_MANIFEST.json`](project/RELEASE_MANIFEST.json), and [`project/CAPACITY_AND_COST.md`](project/CAPACITY_AND_COST.md).
+The customer, restaurant-owner, driver and operations demo journeys have local browser and CI evidence. The September 12 checkpoint adds actual OTP login through a private mock SMS transport and real MinIO document upload/rejection/replacement/resubmission/approval. Feature PRs are pushed but unmerged; do not equate implemented scope with a released application. Shared deployment, scheduler/quota telemetry and real providers remain unverified or deliberately out of demo scope. See [`project/RESUME.md`](project/RESUME.md), [`project/STATE.json`](project/STATE.json), [`project/RELEASE_MANIFEST.json`](project/RELEASE_MANIFEST.json), and [`project/CAPACITY_AND_COST.md`](project/CAPACITY_AND_COST.md).
 
 ## Historical inputs
 

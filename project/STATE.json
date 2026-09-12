@@ -1,22 +1,24 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-11T22:43:00+05:30",
+  "updated_at": "2026-09-12T14:15:00+05:30",
   "timezone": "Asia/Kolkata",
   "phase": "first_vertical_journey",
-  "active_ticket": "PERSONA-001",
-  "gate": "local_demo_persona_acceptance_and_CI_passed_unmerged",
-  "current_checkpoint": "project/checkpoints/2026-09-11-persona-handoff.md",
+  "active_ticket": "AUTH-BROWSER-002",
+  "gate": "browser_and_implementation_CI_passed_independent_review_pending",
+  "current_checkpoint": "project/checkpoints/2026-09-12-auth-onboarding.md",
   "active_checkouts": [
     {"name":"backend-parent","path":"../.worktrees/dependency-backend-pr11","branch":"codex/vert-001-catalog","sha":"7cccda8","pr":11,"pushed":true},
     {"name":"backend-serviceability-parent","branch":"codex/serviceability-policy","sha":"5f253ed","pr":12,"pushed":true},
     {"name":"backend-payment","branch":"codex/payment-delivery-gate","sha":"c113d3f","pr":13,"pushed":true},
     {"name":"backend-onboarding-serialization","branch":"codex/onboarding-serialization","sha":"b9ab9de","pr":14,"pushed":true},
     {"name":"backend-history","branch":"codex/persist-order-history","sha":"f83af60","pr":15,"pushed":true},
-    {"name":"backend-integrated","path":"../.worktrees/serviceability-policy-backend","branch":"codex/operations-query-repair","sha":"d17c155","pr":16,"pushed":true},
+    {"name":"backend-operations-parent","branch":"codex/operations-query-repair","sha":"d17c155","pr":16,"pushed":true},
+    {"name":"backend-integrated","path":"../.worktrees/serviceability-policy-backend","branch":"codex/mock-otp-outbox","sha":"214b4f6","pr":17,"pushed":true},
     {"name":"frontend-onboarding","branch":"codex/onboarding-review-ui","sha":"cd21694","pr":5,"pushed":true},
     {"name":"frontend-browser-parent","branch":"codex/browser-e2e","sha":"cf6ed49","pr":6,"pushed":true},
     {"name":"frontend-payment","branch":"codex/payment-retry-ui","sha":"6044a8f","pr":7,"pushed":true},
-    {"name":"frontend-integrated","path":"../.worktrees/serviceability-policy-frontend-fresh","branch":"codex/persona-browser-acceptance","sha":"2782bc4","pr":8,"pushed":true}
+    {"name":"frontend-persona-parent","branch":"codex/persona-browser-acceptance","sha":"2782bc4","pr":8,"pushed":true},
+    {"name":"frontend-integrated","path":"../.worktrees/serviceability-policy-frontend-fresh","branch":"codex/auth-onboarding-browser","sha":"ca48c0c","pr":9,"pushed":true}
   ],
   "repository_inventory_below_is_historical": true,
   "repositories": [
@@ -74,11 +76,13 @@
     "OPS-003_audit_visibility_ac237de_45b52ce"
   ],
   "pending_actions": [
-    "browser_OTP_login_actual_document_upload_rejection_resubmission",
+    "auth_lifecycle_logout_refresh_expired_session_browser_coverage",
     "independent_final_review_when_available",
     "protected_main_merge_after_authorized_approval"
   ],
   "test_evidence": [
+    "2026-09-12 e7aa016/f376818: real browser OTP login/incorrect OTP/MinIO upload/reject/replace/resubmit/approve passed twice (8.4s each); frontend 112 unit tests, lint/build; full Go race/vet pass",
+    "2026-09-12 implementation CI backend 34683579267 and frontend 34683628795 pass; latest doc-only commits 214b4f6/ca48c0c await CI",
     "2026-09-11 final backend d17c155 / frontend 2782bc4: combined real Chromium customer/persona run 5 passed in 53.4s, four screenshots inspected; external providers mocked, auth/document preconditions seeded",
     "2026-09-11 frontend final CI 34626351667 PASS: 16 network-mocked Chromium tests, 110 unit tests, lint, production audit, build",
     "2026-09-11 backend final CI 34626348649 PASS: race/vet, real PostGIS migration/onboarding/serviceability/payment/delivery/operations suites, Docker build",
@@ -108,10 +112,10 @@
     "frontend: operations audit traceability section and filtered audit service test PASS at 45b52ce (CI run 34316843986)",
     "infra: terraform fmt -check, init -backend=false -input=false, validate PASS"
   ],
-  "known_failures": ["Independent agent final rereview stopped by usage limit; no final independent approval claimed"],
+  "known_failures": ["Historical final rereview stopped by usage limit; current feature independent reviews requested and pending", "Existing frontend Sass/PostCSS and bundle-size warnings"],
   "blockers": ["PROTECTED_MAIN_REQUIRES_AUTHORIZED_APPROVAL"],
-  "next_exact_action": "Read current_checkpoint first; backend PR16 and frontend PR8 combined browser/CI gates passed. Implement browser OTP/login and actual document upload/rejection/resubmission in a new feature PR. GitHub/browser work locally; no provider credentials needed. Never reset original dirty worktrees or bypass main protection.",
-  "synchronization": {"github": "gh_working_backend_PRs_11_to_16_frontend_PRs_3_to_8_docs_PR1", "connector": "optional_not_needed", "local_checkpoint": "written"},
+  "next_exact_action": "Read current_checkpoint. Finish current feature independent review and documentation-head CI for PR17/9, fix findings, then start remaining auth lifecycle coverage on a separate feature branch. Never reset original dirty worktrees or bypass main protection.",
+  "synchronization": {"github": "gh_working_backend_PRs_11_to_17_frontend_PRs_3_to_9_docs_PR1", "connector": "optional_not_needed", "local_checkpoint": "written"},
   "scheduler": {"status": "unverified", "task_id": null, "cadence": null, "timezone": "Asia/Kolkata"},
   "quota_visibility": "quota visibility unavailable"
 }
