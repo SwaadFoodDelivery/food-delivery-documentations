@@ -47,13 +47,14 @@ Do not claim separate human/agent approvals or bypass main protection.
 
 ## Active ticket and gate
 
-`ORDER-GRPC-001`: typed owned GetOrder integration implemented, paired PostGIS
-and current-scope reviews pass; all CI green, ready and unmerged.
+`ORDER-GRPC-002`: paginated client list over gRPC is in implementation/review.
+See [current checkpoint](checkpoints/2026-09-13-order-list-handoff.md) for active
+branches and worker ownership. ORDER-GRPC-001 remains CI-green, ready and unmerged.
 
 ## Next exact action
 
 1. Read the current checkpoint's final test/CI evidence and preserve the listed branches.
-2. Begin ORDER-GRPC-002 client order-list read scope with a bounded architecture/contract review and separate feature branches. Current owned service15051 uses the disposable `swaad_grpc_test_20260912`; backend retains write/migration authority.
+2. Continue ORDER-GRPC-002 on its existing separate feature branches. Coordinate with the active service implementation agent; complete paired pagination tests and independent reviews. Current owned service15051 remains unchanged; list validation should use a separate15052 runtime and SELECT-only role in the disposable `swaad_grpc_test_20260912` database. Backend retains write/migration authority.
 3. Keep final independent review and protected-main approval distinct from test evidence. Scheduling/quota telemetry remains optional and unverified.
 
 ## Evidence and limitations

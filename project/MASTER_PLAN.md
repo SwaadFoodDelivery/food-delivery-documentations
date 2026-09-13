@@ -1,12 +1,35 @@
 # Swaad recovery and delivery plan
 
-Status: audit complete for the initial baseline; implementation planning is active.
+Status (2026-09-13): core local demo journeys have browser/CI evidence; auth and
+first real order-service read PRs are ready but unmerged. This is not completion
+of every persona, reliability, deployment or handover requirement.
 
 ## Evidence-based current state
 
-The local workspace is a macOS Darwin arm64 machine at `/Users/rishabhjain/Documents/food-delivery/food-delivery-app`. Six repositories are now present locally, with the documentation repository freshly cloned because it was absent. The expected GitHub organization is not connected to the GitHub app in this session: the connector returned no installed accounts, installations, organizations, or repositories. Public Git fetch/clone works; push and issue/project permissions remain unverified.
+The local workspace is macOS at `/Users/rishabhjain/Documents/food-delivery/food-delivery-app`.
+Six repositories are available; authenticated GitHub CLI push/PR/CI access works.
+The optional in-product connector is not required. Original dirty worktrees are
+preserved and feature development uses isolated checkouts in `.worktrees`.
 
-The backend is a Go/Gin monolith with Postgres, Redis, NATS, and gRPC seams. User authentication, onboarding, profile, address, upload, catalog, cart, order, mock payment, and mock delivery routes are wired. The notification package and separate order service gRPC implementation remain stubs. The frontend currently contains landing, auth, onboarding, profile, and mock delivery tracking; customer discovery/menu/cart/checkout UI is the next implementation slice. Infrastructure is Terraform-managed and validates locally, but cloud credentials and deployment reachability were not tested.
+The Go/Gin backend uses Postgres, Redis and NATS. Customer checkout, mocked payment
+and delivery, owner/driver/operations workspaces, in-app notifications and history
+have implementation and local browser evidence. Actual OTP login, MinIO upload
+and rejected-onboarding recovery are tested. The separate order-service now
+implements an authenticated owned GetOrder RPC; all order writes still belong to
+the backend. List/tracking/write extraction must not be reported complete from
+that first read. Infrastructure code validation is not a verified deployment.
+
+Current tested versions, reviews and limitations are in STATE.json and the
+checkpoint it names. Earlier backlog/traceability rows are historical audit
+snapshots, not reliable completion percentages. Remaining full-scope gates include
+authentication/session negatives, profile/address acceptance, remaining persona
+requirements, write-ownership integration, recovery/security/performance checks,
+reproducible release and consolidated documentation. Real providers are explicitly
+out of scope for the learning demo.
+
+Agent Staff/Architecture/QA reviews supply technical evidence. They cannot satisfy
+the separate author-independent GitHub approval rule using the PR author's account.
+No branch protection changes are implied by autonomous development authorization.
 
 ## Delivery phases
 
