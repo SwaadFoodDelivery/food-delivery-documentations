@@ -1,5 +1,28 @@
 # ORDER-GRPC-002 — active checkpoint, 2026-09-13
 
+## 2026-09-14 01:18 IST — resumed and saved
+
+Manual user continuation recovered another worker usage-limit interruption.
+Both workers first committed and pushed all recovered changes:
+frontend `24a613b` (implementation57c1e01, mocked browser WIP) and backend identity
+guard `448e835` (WIP pending verification). Current branches unchanged. Workers
+resumed finishing tests/PRs; Hubble reviewing identity diff, Mill reviewing UI
+read-only. Do not confuse WIP snapshots with passed release gates.
+
+Root actual Chromium baseline now passes **5 scenarios in54.3s** using stable
+frontend e660318 from `/tmp/swaad-browser-remote-20260911`, backendad30cf7 on18081,
+service4d5fdd9 on15053 and the new dedicated browser DB, gRPC enabled. Customer
+checkout→delivery, outside-radius rejection, declined-order cancellation through
+history, same-order payment retry, owner/driver/operations workflows pass. Auth
+is seeded through existing guarded helpers; external providers are backend mocks,
+no API responses intercepted. This proves existing journeys with delegation,
+not the unfinished pagination UI. Node22.23.2, E2E_PORT4175; server exited normally.
+
+Browser DB/runtime handed to frontend worker for targeted live pagination tests;
+serialize further root changes. Fastclone remains clean e660318 but worker is
+allowed to switch it to the published UI branch for faster testing; verify state
+before reuse. Existing source checkouts and original user changes remain intact.
+
 ## Latest active work — 19:42 IST (takes precedence)
 
 API subtask gates now pass: backend CI34761457655 (all4), service CI34761365147

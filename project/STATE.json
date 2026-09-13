@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-13T19:42:00+05:30",
+  "updated_at": "2026-09-14T01:18:00+05:30",
   "timezone": "Asia/Kolkata",
   "phase": "first_vertical_journey",
   "active_ticket": "ORDER-GRPC-002",
@@ -43,7 +43,9 @@
   "current_feature_branches": [
     {"repo":"proto","branch":"codex/order-list-contract","sha":"dc2e8c6","pr":2,"pushed":true},
     {"repo":"food-delivery-backend","branch":"codex/order-list-read","sha":"ad30cf7","pr":19,"dirty":false,"pushed":true},
-    {"repo":"order-service","branch":"codex/order-list-service","sha":"4d5fdd9","pr":2,"dirty":false,"pushed":true}
+    {"repo":"order-service","branch":"codex/order-list-service","sha":"4d5fdd9","pr":2,"dirty":false,"pushed":true},
+    {"repo":"food-delivery-frontend","branch":"codex/order-history-pagination","sha":"24a613b","dirty":false,"pushed":true,"gate":"WIP tests finishing"},
+    {"repo":"food-delivery-backend","branch":"codex/order-identity-guard","sha":"448e835","dirty":false,"pushed":true,"gate":"WIP tests and review finishing"}
   ],
   "completed_actions": [
     "environment_and_remote_inventory",
@@ -95,6 +97,7 @@
     "protected_main_merge_after_authorized_approval"
   ],
   "test_evidence": [
+    "2026-09-14 root actual browser baseline: frontend e660318/backendad30cf7/service4d5fdd9 gRPCenabled, new dedicated browserDB, Node22.23.2. chromium-live + chromium-personas 5PASS in54.3s: checkout-delivery, radiusblock, decline-cancel-history, same-orderretry, owner-driver-operations. Seeded authentication; external providers mocked in actual backend, no API interception. New paginationUI/identityguard remain separate final gates.",
     "2026-09-13 ORDER-GRPC-002: backend ad30cf7 and service4d5fdd9 fullrace/vet PASS; service realPostGISGetOrder/GetUserOrders PASS; actual pairedHTTP→service15052→PostGIS pagination PASS. Proto dc2e8c6 CI34749001931PASS. Staff/Architecture final source review no blocking P1/P2; QA and final implementation CI pending. Temporary agent usage-limit errors recorded; reviewers resumed after a later manual continuation, quota percentage remains unavailable.",
     "2026-09-13 final gRPC: backend a27ee6e fullrace/vet and pairedHTTP→actualservice05f99a6→PostGIS PASS; CI34733448062 all4jobsPASS. Service3808d06 adds QAregressions paymentcompositeisolation and independent writeprivilege denial; realPostGIS PASS; CI34733579490 alljobsPASS. Independent Staff/Architecture andQA scope reviews no remaining blockers. Frontend docshead e660318 CI34733482349PASS.",
     "2026-09-13: proto f946f9d CI34708461039 pass; backend31f210b fullrace/vet and HTTP typed RPC tests pass, CI34708780724 pass; new dedicated swaad_grpc_test_20260912 migrated and seeded schema29 successfully",
