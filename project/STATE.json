@@ -4,7 +4,7 @@
   "timezone": "Asia/Kolkata",
   "phase": "first_vertical_journey",
   "active_ticket": "ORDER-GRPC-002",
-  "gate": "list_API_CI_and_reviews_pass_UI_and_identity_guard_implementation",
+  "gate": "frontend_changes_requested_two_QA_P2_identity_PR21_CI_and_QA_pending",
   "current_checkpoint": "project/checkpoints/2026-09-13-order-list-handoff.md",
   "active_checkouts": [
     {"name":"backend-parent","path":"../.worktrees/dependency-backend-pr11","branch":"codex/vert-001-catalog","sha":"7cccda8","pr":11,"pushed":true},
@@ -44,8 +44,8 @@
     {"repo":"proto","branch":"codex/order-list-contract","sha":"dc2e8c6","pr":2,"pushed":true},
     {"repo":"food-delivery-backend","branch":"codex/order-list-read","sha":"ad30cf7","pr":19,"dirty":false,"pushed":true},
     {"repo":"order-service","branch":"codex/order-list-service","sha":"4d5fdd9","pr":2,"dirty":false,"pushed":true},
-    {"repo":"food-delivery-frontend","branch":"codex/order-history-pagination","sha":"24a613b","dirty":false,"pushed":true,"gate":"WIP tests finishing"},
-    {"repo":"food-delivery-backend","branch":"codex/order-identity-guard","sha":"448e835","dirty":false,"pushed":true,"gate":"WIP tests and review finishing"}
+    {"repo":"food-delivery-frontend","branch":"codex/order-history-pagination","sha":"d7b25b2","pr":10,"pushed":true,"gate":"Changes Requested UI-QA-01/02; worker may have newer uncommitted fixes"},
+    {"repo":"food-delivery-backend","branch":"codex/order-identity-guard","sha":"776638c","pr":21,"dirty":false,"pushed":true,"gate":"fullrace/vet and6actualPG scenarios pass; finalQA/CI pending"}
   ],
   "completed_actions": [
     "environment_and_remote_inventory",

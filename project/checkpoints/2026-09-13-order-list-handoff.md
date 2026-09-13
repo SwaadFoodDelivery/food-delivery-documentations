@@ -1,5 +1,29 @@
 # ORDER-GRPC-002 — active checkpoint, 2026-09-13
 
+## Latest gate — 2026-09-14 identity PR21 and UI changes requested
+
+- Identity fix final `776638c` is pushed in [draft backend PR21](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/21), base19, issue20.
+  Tesla reports full race/vet/diff checks and all6 real PostGIS scenarios PASS,
+  including deterministic insertion after selection. Worktree clean. Hubble's
+  source review found no blocking issue at448e835; final diff/review applicability
+  being confirmed. Mill independently checking final API/repository/realPG.
+  CI pending at this checkpoint. Root built a separate backend-identity binary
+  in `/tmp/swaad-order-list.kzEcmO/`; browser runtime still oldad30cf7 until safe
+  coordinated restart, not assumed upgraded.
+- UI published in [draft frontend PR10](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/10), head d7b25b2, base9.
+  QA independently passed30 focused tests but found2P2: **UI-QA-01** Refresh
+  during cancellation discards result/unlocks a second Cancel; **UI-QA-02**
+  successful cursor Restart loses keyboard focus. Worker Herschel fixing both;
+  keep draft and rerun affected tests/browser plus independent reviews. No P1
+  in preliminary UI review. These findings are not accepted/deferred.
+- Root asked frontend worker to coordinate live-test pause before restarting
+  ONLY owned backend18081 to the identity binary. Do not interrupt a live run.
+  Existing service15053 and browserDB remain unchanged. Other runtimes untouched.
+
+This section supersedes earlier WIP heads. Further cutoff recovery must inspect
+both active git states/worker handoffs and PR checks; never infer that pending
+reviews or processes completed from elapsed time.
+
 ## 2026-09-14 01:18 IST — resumed and saved
 
 Manual user continuation recovered another worker usage-limit interruption.
