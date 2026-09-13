@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "status": "grpc_paired_CI_and_scope_review_passed_ready_unmerged",
+  "updated_at": "2026-09-13T08:15:00+05:30",
+  "current_checkpoint": "project/checkpoints/2026-09-13-order-grpc-handoff.md",
+  "tested_compatibility": {
+    "backend": {
+      "repository": "SwaadFoodDelivery/food-delivery-backend",
+      "branch": "codex/order-grpc-read",
+      "commit": "a27ee6e",
+      "ci_run": "34733448062"
+    },
+    "frontend": {
+      "repository": "SwaadFoodDelivery/food-delivery-frontend",
+      "branch": "codex/auth-onboarding-browser",
+      "commit": "e660318",
+      "ci_run": "34733482349"
+    },
+    "documentation": {
+      "repository": "SwaadFoodDelivery/food-delivery-documentations",
+      "branch": "codex/docs-checkpoint",
+      "checkpoint": "project/checkpoints/2026-09-13-order-grpc-handoff.md"
+    },
+    "infra": {
+      "repository": "SwaadFoodDelivery/food-delivery-infra",
+      "branch": "alignment_with_backend_and_frontend",
+      "commit": "6b75b4f",
+      "verification": "terraform fmt -check, init -backend=false -input=false, validate passed"
+    },
+    "order_service": {
+      "repository": "SwaadFoodDelivery/order-service",
+      "branch": "codex/order-grpc-foundation",
+      "commit": "3808d06",
+      "ci_run": "34733579490",
+      "paired_runtime_commit": "05f99a6",
+      "paired_runtime_note": "3808d06 only adds test assertions; production code identical"
+    },
+    "proto": {
+      "repository": "SwaadFoodDelivery/proto",
+      "branch": "codex/order-grpc-contract",
+      "commit": "f946f9d",
+      "ci_run": "34708461039"
+    }
+  },
+  "implemented_journeys": [
+    "owned client order read via real authenticated backend HTTP -> order-service gRPC -> PostGIS, explicit local-only transport",
+    "actual browser OTP login via private mock SMS, real MinIO document upload, reject/replace/resubmit/approve and driver access",
+    "customer discovery, menu, cart, checkout, mock payment, tracking, notifications, order history, cancellation",
+    "restaurant owner order queue and status transitions",
+    "driver availability, current assignment, and sequential delivery actions",
+    "operations manager order visibility, audited intervention, driver coverage, failed-payment and stalled-delivery counters",
+    "operations manager onboarding review queue with applicant feedback, access-state changes, notifications, audit history, and audit visibility"
+  ],
+  "explicit_mocks": [
+    "OTP and email providers",
+    "payment provider",
+    "delivery provider and synthetic driver progression",
+    "in-app notification fixtures and event persistence"
+  ],
+  "not_released_or_not_verified": [
+    "order-service write extraction, client list/tracking RPCs and TLS/shared-service deployment",
+    "real delivery adapter and courier onboarding",
+    "reachable shared development deployment",
+    "browser registration, email verification, OTP expiry/resend, logout/session renewal/expired-session recovery",
+    "formal protected-main approval and merged release",
+    "supported four-hour scheduler task",
+    "programmatic quota telemetry",
+    "external email/SMS/NATS consumer delivery"
+  ],
+  "verification_matrix": [
+    "grpc paired: backend a27ee6e with service05f99a6/protof946f9d; CI34733448062",
+    "auth browser: backend214b4f6 with frontend7e5ba6b; later fd122c7 CI-only ande660318 docs-only; independent synthetic artifact cleanup also passes",
+    "previous full customer/persona browser: backendd17c155/frontend2782bc4; not rerun against the newer opt-in gRPC runtime"
+  ],
+  "rollback": {
+    "application": "Revert the feature branch commits through the PR after review; do not reset local dirty work.",
+    "database": "Schema 29 required. Migration 29 down removes its history triggers but preserves histories. Migration 28 down intentionally does not regrant legacy unapproved access.",
+    "provider": "Keep DELIVERY_PROVIDER=mock and PAYMENT_PROVIDER=mock for this demo; real mode is intentionally not enabled."
+  }
+}
