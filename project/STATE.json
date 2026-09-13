@@ -4,7 +4,7 @@
   "timezone": "Asia/Kolkata",
   "phase": "first_vertical_journey",
   "active_ticket": "ORDER-GRPC-001",
-  "gate": "grpc_paired_tests_and_independent_scope_review_passed_final_service_CI_pending",
+  "gate": "grpc_paired_CI_and_independent_scope_review_passed_ready_unmerged",
   "current_checkpoint": "project/checkpoints/2026-09-13-order-grpc-handoff.md",
   "active_checkouts": [
     {"name":"backend-parent","path":"../.worktrees/dependency-backend-pr11","branch":"codex/vert-001-catalog","sha":"7cccda8","pr":11,"pushed":true},
@@ -76,17 +76,18 @@
     "OPS-001_payment_delivery_reconciliation_71e6cf5_30d99a3",
     "PHASE-006_css_3d_accessibility_8fae408",
     "OPS-002_authorized_onboarding_review_a47f5b4_f8179e1",
-    "OPS-003_audit_visibility_ac237de_45b52ce"
+    "OPS-003_audit_visibility_ac237de_45b52ce",
+    "AUTH-BROWSER-002_real_OTP_upload_review_offline_recovery_and_secure_reporting",
+    "ORDER-GRPC-001_real_owned_GetOrder_backend_service_proto_PRs_CI_and_review_passed"
   ],
   "pending_actions": [
-    "confirm_final_service_CI_and_PR_readiness",
     "next_order_service_client_order_list_read_scope",
     "future_auth_lifecycle_logout_refresh_expired_session_browser_coverage",
     "independent_final_review_when_available",
     "protected_main_merge_after_authorized_approval"
   ],
   "test_evidence": [
-    "2026-09-13 final gRPC: backend a27ee6e fullrace/vet and pairedHTTP→actualservice05f99a6→PostGIS PASS; CI34733448062 all4jobsPASS. Service3808d06 adds QAregressions paymentcompositeisolation and independent writeprivilege denial; realPostGIS PASS; finalCI pendingDocker. Independent Staff/Architecture andQA scope reviews no remaining blockers. Frontend docshead e660318 CI34733482349PASS.",
+    "2026-09-13 final gRPC: backend a27ee6e fullrace/vet and pairedHTTP→actualservice05f99a6→PostGIS PASS; CI34733448062 all4jobsPASS. Service3808d06 adds QAregressions paymentcompositeisolation and independent writeprivilege denial; realPostGIS PASS; CI34733579490 alljobsPASS. Independent Staff/Architecture andQA scope reviews no remaining blockers. Frontend docshead e660318 CI34733482349PASS.",
     "2026-09-13: proto f946f9d CI34708461039 pass; backend31f210b fullrace/vet and HTTP typed RPC tests pass, CI34708780724 pass; new dedicated swaad_grpc_test_20260912 migrated and seeded schema29 successfully",
     "AUTH-BROWSER-002 final: frontend fd122c7 CI34708366551 pass with118unit/16mockedbrowser, actual OTP/storage/review/offline replacement flow pass at7e5ba6b; independent Staff/Architecture andQA/Product resolved all current-scope blocking findings, synthetic credential cleanup verified. Backend214b4f6 CI34683839651 pass. PR17/9 ready, unmerged.",
     "2026-09-12 e7aa016/f376818: real browser OTP login/incorrect OTP/MinIO upload/reject/replace/resubmit/approve passed twice (8.4s each); frontend 112 unit tests, lint/build; full Go race/vet pass",
@@ -122,7 +123,7 @@
   ],
   "known_failures": ["Earlier agent usage-limit interruption recovered; current-scope independent grpc rereviews completed without remaining blockers", "Existing frontend Sass/PostCSS and bundle-size warnings"],
   "blockers": ["PROTECTED_MAIN_REQUIRES_AUTHORIZED_APPROVAL"],
-  "next_exact_action": "Read current_checkpoint; confirm service finalCI34733579490 and mark PRs ready afterpassing. Sync docs then begin next bounded order-service read scope. No orderwriteextraction without transaction ownership plan. Preserve dirty original worktrees and protectedmain.",
+  "next_exact_action": "Read current_checkpoint. ORDER-GRPC-001 is implemented/tested/reviewed with all CI green and PRs ready, unmerged. Begin ORDER-GRPC-002 client order-list read contract/implementation on separate feature branches; obtain bounded architecture review first. No orderwriteextraction without transaction ownership plan. Preserve dirty original worktrees and protectedmain.",
   "synchronization": {"github": "backend_PR18_order_service_PR1_proto_PR1_frontend_PR9_docs_PR1_pushed", "connector": "optional_not_needed", "local_checkpoint": "written"},
   "scheduler": {"status": "unverified", "task_id": null, "cadence": null, "timezone": "Asia/Kolkata"},
   "quota_visibility": "quota visibility unavailable"

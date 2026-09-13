@@ -10,7 +10,7 @@ It supersedes the historical entries below. Latest backend is PR #17
 `codex/auth-onboarding-browser` / `e660318`. Backend PR18 `a27ee6e`, order-service
 PR1 `3808d06`, proto PR1 `f946f9d` are published. Actual paired HTTP→service→PostGIS
 passes; independent Staff/Architecture and QA rereviews resolved all current
-blocking findings. Final service CI is finishing; other final CI gates pass.
+blocking findings. All final CI gates pass; proto1/service1/backend18 are ready.
 PRs are stacked and unmerged.
 GitHub CLI and real local Chromium work. No real provider credentials are needed.
 Do not claim separate human/agent approvals or bypass main protection.
@@ -48,12 +48,12 @@ Do not claim separate human/agent approvals or bypass main protection.
 ## Active ticket and gate
 
 `ORDER-GRPC-001`: typed owned GetOrder integration implemented, paired PostGIS
-and current-scope reviews pass; final service CI/readiness confirmation remains.
+and current-scope reviews pass; all CI green, ready and unmerged.
 
 ## Next exact action
 
 1. Read the current checkpoint's final test/CI evidence and preserve the listed branches.
-2. Confirm final service CI34733579490 and PR readiness. Then choose next bounded order-service client-list read scope. Current owned service15051 uses the disposable `swaad_grpc_test_20260912`; backend retains write/migration authority.
+2. Begin ORDER-GRPC-002 client order-list read scope with a bounded architecture/contract review and separate feature branches. Current owned service15051 uses the disposable `swaad_grpc_test_20260912`; backend retains write/migration authority.
 3. Keep final independent review and protected-main approval distinct from test evidence. Scheduling/quota telemetry remains optional and unverified.
 
 ## Evidence and limitations

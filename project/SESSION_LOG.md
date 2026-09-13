@@ -1,5 +1,44 @@
 # Session log
 
+## 2026-09-13 — actual order-service integration
+
+Confirmed the missing order-service PR was a real implementation gap, not hidden
+GitHub work: service/proto only had bootstrap commits and backend checkout bypassed
+the gRPC echo stubs. Agreed an incremental read-only boundary with independent
+architecture review, preserving backend write and migration authority.
+
+Published proto1/f946f9d, order-service1/3808d06 and backend18/a27ee6e. Real owned
+GetOrder RPC now connects HTTP to the separate service and the single PostgreSQL
+order record. Private service auth, ownership, partitioned composite snapshots,
+exact integer paise, loopback/dev-only transport, read-only/SELECT-only SQL,
+deadlines and fail-closed errors are implemented. Unimplemented mutations remain
+explicitly Unimplemented. No real provider or additional message broker is used.
+
+Created only disposable swaad_grpc_test_20260912 and its SELECT-only demo login;
+ordinary development data/worktrees were preserved. Agent usage interruption was
+recovered; root completed the service/tests. Full race/vet, real PostGIS and
+paired HTTP→actual service→PostGIS pass. Independent QA found two test gaps;
+payment composite isolation and explicit write-privilege denial assertions were
+added and rereviewed. Staff/Architecture review had no blocking implementation
+finding. CI34733579490(service),34733448062(backend),34708461039(proto) pass.
+All three PRs are ready; formal main approval is still separate and required.
+
+Saved current checkpoint, release matrix, runtime handoff and backend/frontend
+walkthroughs. Next feature is bounded client order-list RPC, not unplanned writer
+extraction. No quota percentage or automatic scheduler claim.
+
+## 2026-09-12 — actual auth, storage and recovery browser acceptance
+
+Backend17/214b4f6 adds private development-only random mock OTP delivery outbox.
+Frontend9/e660318 adds actual browser login, MinIO upload/rejection/replacement/
+resubmission/approval and offline failure recovery. Independent reviews surfaced
+and resolved unfinished replacement submission and OTP reporting leaks. Auth uses
+counts-only reporting with private transient artifacts discarded normally;
+independent synthetic Chromium failure verified cleanup. Removed the older unsafe
+generated HTML report rather than retaining credentials. 118 unit tests,16 mocked
+Chromium scenarios, actual auth/storage journey and CI pass. Final frontend CI
+34733482349, backend auth CI34683839651. Both PRs ready and unmerged.
+
 ## 2026-09-11 — integrated persona acceptance and durable recovery
 
 Recovered quota-interrupted work without altering original user changes. Published

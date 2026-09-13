@@ -55,8 +55,8 @@ duplicate the database or split checkout atomicity by moving only an insert.
   05f99a6; latest service3808d06 only strengthens tests, no production-code change.
 - Proto CI [34708461039](https://github.com/SwaadFoodDelivery/proto/actions/runs/34708461039) passes.
 - Service initial CI [34733371050](https://github.com/SwaadFoodDelivery/order-service/actions/runs/34733371050)
-  passes all jobs; final-head CI34733579490 passes Go/PostGIS, Docker pending at
-  initial write of this checkpoint. Confirm it before changing readiness.
+  passes all jobs; final-head CI34733579490 also passes Go/PostGIS and Docker.
+  Proto1, order-service1 and backend18 are all marked ready for review.
 - Independent Staff/Architecture rereview found no blocking P1/P2 in the current
   integration. QA ran unit/race checks and found two regression gaps; both were
   fixed in3808d06 and independently rereviewed without remaining blockers.
@@ -97,8 +97,8 @@ names; no private credentials, OTPs or JWTs are saved in this checkpoint.
 
 ## Next action and remaining limitations
 
-Confirm final service CI, post final review evidence and PR readiness, and sync
-this checkpoint/manifest. Next bounded order-service scope: design and implement
+Final CI, review evidence, PR readiness and this checkpoint are saved. Next
+bounded order-service scope: design and implement
 client order-list reads through gRPC with explicit cursor/ownership contracts,
 or begin the reviewed write-ownership extraction plan. Do not claim PlaceOrder
 has moved yet. Preserve current backend checkout regression gates.
