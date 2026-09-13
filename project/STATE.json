@@ -4,8 +4,8 @@
   "timezone": "Asia/Kolkata",
   "phase": "first_vertical_journey",
   "active_ticket": "ORDER-GRPC-001",
-  "gate": "grpc_contract_and_backend_passed_order_service_in_progress",
-  "current_checkpoint": "project/checkpoints/2026-09-12-order-grpc-wip.md",
+  "gate": "grpc_paired_tests_and_independent_scope_review_passed_final_service_CI_pending",
+  "current_checkpoint": "project/checkpoints/2026-09-13-order-grpc-handoff.md",
   "active_checkouts": [
     {"name":"backend-parent","path":"../.worktrees/dependency-backend-pr11","branch":"codex/vert-001-catalog","sha":"7cccda8","pr":11,"pushed":true},
     {"name":"backend-serviceability-parent","branch":"codex/serviceability-policy","sha":"5f253ed","pr":12,"pushed":true},
@@ -18,10 +18,10 @@
     {"name":"frontend-browser-parent","branch":"codex/browser-e2e","sha":"cf6ed49","pr":6,"pushed":true},
     {"name":"frontend-payment","branch":"codex/payment-retry-ui","sha":"6044a8f","pr":7,"pushed":true},
     {"name":"frontend-persona-parent","branch":"codex/persona-browser-acceptance","sha":"2782bc4","pr":8,"pushed":true},
-    {"name":"frontend-integrated","path":"../.worktrees/serviceability-policy-frontend-fresh","branch":"codex/auth-onboarding-browser","sha":"fd122c7","pr":9,"pushed":true},
-    {"name":"backend-grpc","path":"../.worktrees/order-grpc-backend","branch":"codex/order-grpc-read","sha":"31f210b","pr":18,"pushed":true},
+    {"name":"frontend-integrated","path":"../.worktrees/serviceability-policy-frontend-fresh","branch":"codex/auth-onboarding-browser","sha":"e660318","pr":9,"pushed":true},
+    {"name":"backend-grpc","path":"../.worktrees/order-grpc-backend","branch":"codex/order-grpc-read","sha":"a27ee6e","pr":18,"pushed":true},
     {"name":"proto-grpc","path":"../.worktrees/order-grpc-proto","branch":"codex/order-grpc-contract","sha":"f946f9d","pr":1,"pushed":true},
-    {"name":"order-service-grpc","path":"../.worktrees/order-grpc-service","branch":"codex/order-grpc-foundation","sha":"ce30cf2","dirty":true,"pushed":false}
+    {"name":"order-service-grpc","path":"../.worktrees/order-grpc-service","branch":"codex/order-grpc-foundation","sha":"3808d06","pr":1,"dirty":false,"pushed":true}
   ],
   "repository_inventory_below_is_historical": true,
   "repositories": [
@@ -79,13 +79,14 @@
     "OPS-003_audit_visibility_ac237de_45b52ce"
   ],
   "pending_actions": [
-    "finish_order_service_GetOrder_implementation_and_publish_PR",
-    "paired_HTTP_grpc_PostGIS_verification",
+    "confirm_final_service_CI_and_PR_readiness",
+    "next_order_service_client_order_list_read_scope",
     "future_auth_lifecycle_logout_refresh_expired_session_browser_coverage",
     "independent_final_review_when_available",
     "protected_main_merge_after_authorized_approval"
   ],
   "test_evidence": [
+    "2026-09-13 final gRPC: backend a27ee6e fullrace/vet and pairedHTTP→actualservice05f99a6→PostGIS PASS; CI34733448062 all4jobsPASS. Service3808d06 adds QAregressions paymentcompositeisolation and independent writeprivilege denial; realPostGIS PASS; finalCI pendingDocker. Independent Staff/Architecture andQA scope reviews no remaining blockers. Frontend docshead e660318 CI34733482349PASS.",
     "2026-09-13: proto f946f9d CI34708461039 pass; backend31f210b fullrace/vet and HTTP typed RPC tests pass, CI34708780724 pass; new dedicated swaad_grpc_test_20260912 migrated and seeded schema29 successfully",
     "AUTH-BROWSER-002 final: frontend fd122c7 CI34708366551 pass with118unit/16mockedbrowser, actual OTP/storage/review/offline replacement flow pass at7e5ba6b; independent Staff/Architecture andQA/Product resolved all current-scope blocking findings, synthetic credential cleanup verified. Backend214b4f6 CI34683839651 pass. PR17/9 ready, unmerged.",
     "2026-09-12 e7aa016/f376818: real browser OTP login/incorrect OTP/MinIO upload/reject/replace/resubmit/approve passed twice (8.4s each); frontend 112 unit tests, lint/build; full Go race/vet pass",
@@ -119,10 +120,10 @@
     "frontend: operations audit traceability section and filtered audit service test PASS at 45b52ce (CI run 34316843986)",
     "infra: terraform fmt -check, init -backend=false -input=false, validate PASS"
   ],
-  "known_failures": ["ORDER-GRPC-001 implementation and review agents returned usage-limit errors on September13; root taking over preserved uncommitted service code. No final independent grpc approval claimed.", "Existing frontend Sass/PostCSS and bundle-size warnings"],
+  "known_failures": ["Earlier agent usage-limit interruption recovered; current-scope independent grpc rereviews completed without remaining blockers", "Existing frontend Sass/PostCSS and bundle-size warnings"],
   "blockers": ["PROTECTED_MAIN_REQUIRES_AUTHORIZED_APPROVAL"],
-  "next_exact_action": "Read current_checkpoint and grpc ADR. Finish preserved order-service work in isolated checkout, publish feature PR, run realPostGIS/HTTP-grpc pairedtests and review. Do not redo completed auth feature or move order writes without transaction ownership plan.",
-  "synchronization": {"github": "gh_working_backend_PRs_11_to_17_frontend_PRs_3_to_9_docs_PR1", "connector": "optional_not_needed", "local_checkpoint": "written"},
+  "next_exact_action": "Read current_checkpoint; confirm service finalCI34733579490 and mark PRs ready afterpassing. Sync docs then begin next bounded order-service read scope. No orderwriteextraction without transaction ownership plan. Preserve dirty original worktrees and protectedmain.",
+  "synchronization": {"github": "backend_PR18_order_service_PR1_proto_PR1_frontend_PR9_docs_PR1_pushed", "connector": "optional_not_needed", "local_checkpoint": "written"},
   "scheduler": {"status": "unverified", "task_id": null, "cadence": null, "timezone": "Asia/Kolkata"},
   "quota_visibility": "quota visibility unavailable"
 }

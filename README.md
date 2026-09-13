@@ -10,6 +10,8 @@ The customer, restaurant-owner, driver and operations demo journeys have local b
 
 ## Historical inputs
 
+The first actual order-service integration is now published: [order-service PR1](https://github.com/SwaadFoodDelivery/order-service/pull/1), [backend PR18](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/18), and [proto PR1](https://github.com/SwaadFoodDelivery/proto/pull/1). Owned reads cross real gRPC and PostgreSQL; checkout/write ownership remains with the backend during staged extraction. See the [backend walkthrough](walkthroughs/backend/order-service-grpc.md) and [auth/onboarding walkthrough](walkthroughs/frontend/auth-onboarding.md).
+
 - [`FoodDelivery_LLD_Final _review.pdf`](FoodDelivery_LLD_Final%20_review.pdf)
 - [`food_delivery_app_db_design_final_review .pdf`](food_delivery_app_db_design_final_review%20.pdf)
 - [`flowcharts/`](flowcharts/)

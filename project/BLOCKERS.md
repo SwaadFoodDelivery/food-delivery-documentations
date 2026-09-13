@@ -25,6 +25,7 @@
 ## Protected-main approval
 
 - Both app repositories require one authorized approval and enforce this for admins (verified by GitHub API on 2026-09-11).
+- The same one-approval/admin-enforced protection is present on order-service and proto (verified September13). Current agent code/QA reviews do not replace that required separate account approval.
 - Agent-role comments are not separate GitHub identities or formal approvals. The connected author account cannot supply its own required independent approval.
 - Feature branches and testing can proceed. Main merges must wait for a permitted reviewer; no protection changes or bypass were attempted.
 

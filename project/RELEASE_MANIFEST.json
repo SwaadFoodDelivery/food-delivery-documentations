@@ -1,27 +1,25 @@
 {
   "schema_version": 1,
-  "status": "auth_browser_passed_independent_review_pending_unmerged",
-  "updated_at": "2026-09-12T14:15:00+05:30",
-  "current_checkpoint": "project/checkpoints/2026-09-12-auth-onboarding.md",
+  "status": "grpc_paired_and_scope_review_passed_final_service_CI_pending_unmerged",
+  "updated_at": "2026-09-13T08:15:00+05:30",
+  "current_checkpoint": "project/checkpoints/2026-09-13-order-grpc-handoff.md",
   "tested_compatibility": {
     "backend": {
       "repository": "SwaadFoodDelivery/food-delivery-backend",
-      "branch": "codex/mock-otp-outbox",
-      "commit": "e7aa016",
-      "documentation_only_head": "214b4f6",
-      "ci_run": "34683579267"
+      "branch": "codex/order-grpc-read",
+      "commit": "a27ee6e",
+      "ci_run": "34733448062"
     },
     "frontend": {
       "repository": "SwaadFoodDelivery/food-delivery-frontend",
       "branch": "codex/auth-onboarding-browser",
-      "commit": "f376818",
-      "documentation_only_head": "ca48c0c",
-      "ci_run": "34683628795"
+      "commit": "e660318",
+      "ci_run": "34733482349"
     },
     "documentation": {
       "repository": "SwaadFoodDelivery/food-delivery-documentations",
       "branch": "codex/docs-checkpoint",
-      "checkpoint": "project/checkpoints/2026-09-12-auth-onboarding.md"
+      "checkpoint": "project/checkpoints/2026-09-13-order-grpc-handoff.md"
     },
     "infra": {
       "repository": "SwaadFoodDelivery/food-delivery-infra",
@@ -31,14 +29,21 @@
     },
     "order_service": {
       "repository": "SwaadFoodDelivery/order-service",
-      "commit": "ce30cf2"
+      "branch": "codex/order-grpc-foundation",
+      "commit": "3808d06",
+      "ci_run": "34733579490",
+      "paired_runtime_commit": "05f99a6",
+      "paired_runtime_note": "3808d06 only adds test assertions; production code identical"
     },
     "proto": {
       "repository": "SwaadFoodDelivery/proto",
-      "commit": "c26b9ac"
+      "branch": "codex/order-grpc-contract",
+      "commit": "f946f9d",
+      "ci_run": "34708461039"
     }
   },
   "implemented_journeys": [
+    "owned client order read via real authenticated backend HTTP -> order-service gRPC -> PostGIS, explicit local-only transport",
     "actual browser OTP login via private mock SMS, real MinIO document upload, reject/replace/resubmit/approve and driver access",
     "customer discovery, menu, cart, checkout, mock payment, tracking, notifications, order history, cancellation",
     "restaurant owner order queue and status transitions",
@@ -53,6 +58,7 @@
     "in-app notification fixtures and event persistence"
   ],
   "not_released_or_not_verified": [
+    "order-service write extraction, client list/tracking RPCs and TLS/shared-service deployment",
     "real delivery adapter and courier onboarding",
     "reachable shared development deployment",
     "browser registration, email verification, OTP expiry/resend, logout/session renewal/expired-session recovery",
@@ -60,6 +66,11 @@
     "supported four-hour scheduler task",
     "programmatic quota telemetry",
     "external email/SMS/NATS consumer delivery"
+  ],
+  "verification_matrix": [
+    "grpc paired: backend a27ee6e with service05f99a6/protof946f9d; CI34733448062",
+    "auth browser: backend214b4f6 with frontend7e5ba6b; later fd122c7 CI-only ande660318 docs-only; independent synthetic artifact cleanup also passes",
+    "previous full customer/persona browser: backendd17c155/frontend2782bc4; not rerun against the newer opt-in gRPC runtime"
   ],
   "rollback": {
     "application": "Revert the feature branch commits through the PR after review; do not reset local dirty work.",

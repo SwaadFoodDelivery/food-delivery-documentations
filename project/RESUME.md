@@ -4,12 +4,13 @@ Last checkpoint: 2026-09-13. Auth/upload/review feature passed browser, 118 unit
 tests, CI and independent current-scope agent review; PR17/9 ready, unmerged.
 Active work is ORDER-GRPC-001: actual order-service integration (first owned read).
 
-Read [the current checkpoint](checkpoints/2026-09-12-order-grpc-wip.md) first.
+Read [the current checkpoint](checkpoints/2026-09-13-order-grpc-handoff.md) first.
 It supersedes the historical entries below. Latest backend is PR #17
 `codex/mock-otp-outbox` / `214b4f6`; latest frontend is PR #9
-`codex/auth-onboarding-browser` / `fd122c7`. New backend PR18 `31f210b` and proto
-PR1 `f946f9d` pass CI; order-service work is preserved in its isolated checkout.
-Implementation/review agents hit usage limits; root has taken over unfinished work.
+`codex/auth-onboarding-browser` / `e660318`. Backend PR18 `a27ee6e`, order-service
+PR1 `3808d06`, proto PR1 `f946f9d` are published. Actual paired HTTP→service→PostGIS
+passes; independent Staff/Architecture and QA rereviews resolved all current
+blocking findings. Final service CI is finishing; other final CI gates pass.
 PRs are stacked and unmerged.
 GitHub CLI and real local Chromium work. No real provider credentials are needed.
 Do not claim separate human/agent approvals or bypass main protection.
@@ -46,13 +47,13 @@ Do not claim separate human/agent approvals or bypass main protection.
 
 ## Active ticket and gate
 
-`ORDER-GRPC-001`: typed owned GetOrder integration. Contract/backend tests and CI
-pass; service implementation and real paired PostGIS gate pending.
+`ORDER-GRPC-001`: typed owned GetOrder integration implemented, paired PostGIS
+and current-scope reviews pass; final service CI/readiness confirmation remains.
 
 ## Next exact action
 
 1. Read the current checkpoint's final test/CI evidence and preserve the listed branches.
-2. Finish order-service in `../.worktrees/order-grpc-service`, publish its feature PR and verify HTTP→RPC→PostGIS against the new disposable `swaad_grpc_test_20260912`. Keep backend checkout/write/migration authority intact; consult the ADR before extraction.
+2. Confirm final service CI34733579490 and PR readiness. Then choose next bounded order-service client-list read scope. Current owned service15051 uses the disposable `swaad_grpc_test_20260912`; backend retains write/migration authority.
 3. Keep final independent review and protected-main approval distinct from test evidence. Scheduling/quota telemetry remains optional and unverified.
 
 ## Evidence and limitations

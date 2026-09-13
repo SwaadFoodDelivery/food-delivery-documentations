@@ -13,7 +13,8 @@ Stable local IDs remain the planning reference; GitHub PRs are connected through
 | OPS-READ-REPAIR | Implemented/real-browser-tested; unmerged | Backend 16; overview and audit SQL repairs |
 | PERSONA-001 | Local happy-path acceptance passed; unmerged | Frontend 8: owner, driver, manager, pending/approved applicant; customer cases also pass |
 | AUTH-BROWSER-002 | Implemented; browser/CI/independent scope review pass; unmerged | Backend17; frontend9; actual OTP and MinIO, offline replacement recovery, secure reporter |
-| ORDER-GRPC-001 | In progress, M | Proto1/backend18 and new order-service branch; actual owned read first, backend retains write/migration authority |
+| ORDER-GRPC-001 | Implemented; real paired/QA/Staff checks pass, final service CI pending | Proto1/backend18/order-service1; owned read, backend retains writes/migrations |
+| ORDER-GRPC-002 | Next, M | Client-owned order-list reads with bounded cursor/identity contract, followed by explicit order-write extraction design |
 | AUTH-LIFECYCLE-003 | Later, M | Logout/session renewal/expired-session browser recovery; preserve security boundaries and avoid fixture token leakage |
 
 ## Historical feature inventory
