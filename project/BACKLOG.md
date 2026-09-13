@@ -14,7 +14,9 @@ Stable local IDs remain the planning reference; GitHub PRs are connected through
 | PERSONA-001 | Local happy-path acceptance passed; unmerged | Frontend 8: owner, driver, manager, pending/approved applicant; customer cases also pass |
 | AUTH-BROWSER-002 | Implemented; browser/CI/independent scope review pass; unmerged | Backend17; frontend9; actual OTP and MinIO, offline replacement recovery, secure reporter |
 | ORDER-GRPC-001 | Implemented; paired/QA/Staff/CI pass; ready, unmerged | Proto1/backend18/order-service1; owned read, backend retains writes/migrations |
-| ORDER-GRPC-002 | Next, M | Client-owned order-list reads with bounded cursor/identity contract, followed by explicit order-write extraction design |
+| ORDER-GRPC-002 | API implemented/reviewed/CI-green; ready, unmerged | Proto2 dc2e8c6 / service2 4d5fdd9 / backend19 ad30cf7; actual paired PostGIS pagination passed |
+| ORDER-GRPC-002-UI | In progress, M | codex/order-history-pagination from frontend e660318; cursor append/retry/refresh, stale-response guards, unit/mocked and real browser checks |
+| ORDER-IDENTITY-001 | P1 Changes required, M | [Backend issue20](https://github.com/SwaadFoodDelivery/food-delivery-backend/issues/20); separate codex/order-identity-guard worktree; reject owner-scoped ambiguous UUIDs before history/cancel and use composite UPDATE; prerequisite for final pagination UI action safety |
 | AUTH-LIFECYCLE-003 | Later, M | Logout/session renewal/expired-session browser recovery; preserve security boundaries and avoid fixture token leakage |
 
 ## Historical feature inventory

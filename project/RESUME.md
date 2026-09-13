@@ -2,16 +2,21 @@
 
 Last checkpoint: 2026-09-13. Auth/upload/review feature passed browser, 118 unit
 tests, CI and independent current-scope agent review; PR17/9 ready, unmerged.
-Active work is ORDER-GRPC-001: actual order-service integration (first owned read).
+Active work is ORDER-GRPC-002-UI and its discovered prerequisite ORDER-IDENTITY-001.
 
-Read [the current checkpoint](checkpoints/2026-09-13-order-grpc-handoff.md) first.
+Read [the current checkpoint](checkpoints/2026-09-13-order-list-handoff.md) first.
 It supersedes the historical entries below. Latest backend is PR #17
 `codex/mock-otp-outbox` / `214b4f6`; latest frontend is PR #9
 `codex/auth-onboarding-browser` / `e660318`. Backend PR18 `a27ee6e`, order-service
 PR1 `3808d06`, proto PR1 `f946f9d` are published. Actual paired HTTP→service→PostGIS
 passes; independent Staff/Architecture and QA rereviews resolved all current
 blocking findings. All final CI gates pass; proto1/service1/backend18 are ready.
-PRs are stacked and unmerged.
+ORDER-GRPC-002 API subtask is also ready/unmerged: proto2 `dc2e8c6`, service2
+`4d5fdd9`, backend19 `ad30cf7`; full CI, actual paired PostGIS and independent
+Staff/QA scope reviews pass. Frontend worker owns `codex/order-history-pagination`
+in the existing frontend worktree; backend identity worker owns the NEW
+`.worktrees/order-identity-backend` / `codex/order-identity-guard`. Root owns docs
+and runtime integration. PRs are stacked and unmerged.
 GitHub CLI and real local Chromium work. No real provider credentials are needed.
 Do not claim separate human/agent approvals or bypass main protection.
 
@@ -47,14 +52,15 @@ Do not claim separate human/agent approvals or bypass main protection.
 
 ## Active ticket and gate
 
-`ORDER-GRPC-002`: paginated client list over gRPC is in implementation/review.
+`ORDER-GRPC-002`: API scopes pass; customer pagination UI is in implementation,
+with separate backend ambiguous-ID safety fix required before its final gate.
 See [current checkpoint](checkpoints/2026-09-13-order-list-handoff.md) for active
 branches and worker ownership. ORDER-GRPC-001 remains CI-green, ready and unmerged.
 
 ## Next exact action
 
 1. Read the current checkpoint's final test/CI evidence and preserve the listed branches.
-2. Continue ORDER-GRPC-002 on its existing separate feature branches. Coordinate with the active service implementation agent; complete paired pagination tests and independent reviews. Current owned service15051 remains unchanged; list validation should use a separate15052 runtime and SELECT-only role in the disposable `swaad_grpc_test_20260912` database. Backend retains write/migration authority.
+2. Coordinate with frontend and identity-fix implementation workers; do not edit their files. API paired list tests already passed on ownedservice15052. Root is preparing a separate browser database `swaad_e2e_order_list_20260913` and runtime15053/18081; verify actual state in the checkpoint before launching. Existing15051/15052/18080 remain unchanged. Backend retains write/migration authority.
 3. Keep final independent review and protected-main approval distinct from test evidence. Scheduling/quota telemetry remains optional and unverified.
 
 ## Evidence and limitations

@@ -1,5 +1,50 @@
 # ORDER-GRPC-002 — active checkpoint, 2026-09-13
 
+## Latest active work — 19:42 IST (takes precedence)
+
+API subtask gates now pass: backend CI34761457655 (all4), service CI34761365147
+(all3), proto CI34749001931. Independent Staff/Architecture and QA/Product no
+blocking current-scope findings; QA independently ran service race suite and
+backend client/API race tests. Root verified runtime grants on all5 tables:
+SELECT true, INSERT/UPDATE/DELETE/TRUNCATE/REFERENCES/TRIGGER false. Labeled agent
+evidence comments posted; proto2/service2/backend19 ready, NOT merged/released.
+
+Two implementation writers now own isolated scopes:
+
+- Herschel: frontend `.worktrees/serviceability-policy-frontend-fresh`, branch
+  `codex/order-history-pagination`, basee660318. Pagination UI/service/tests:
+  append/retry/restart, no stale refresh/timeline writes, preserve loaded rows,
+  composite raw-timestamp keys, accessible status and duplicate-ID action guard.
+  Also asked for safe real browser acceptance with seeded sessions, no response
+  interception, trace/token artifacts disabled. Root does not edit this scope.
+- Tesla: NEW backend `.worktrees/order-identity-backend`, branch
+  `codex/order-identity-guard`, basead30cf7. [Issue20](https://github.com/SwaadFoodDelivery/food-delivery-backend/issues/20).
+  P1 discovered by Staff: old cancellation UPDATE can affect multiple same-owner
+  UUID partitions. Approved bounded fix rejects owner-scoped LIMIT2 ambiguity
+  with409 before mutation, uses selected composite UPDATE with exactly1 affected
+  row, and keeps history anchored to selected identity. Actual PostGIS and
+  deterministic concurrent-insert regressions required. This is not accepted
+  debt or a claim of global UUID uniqueness. Root does not edit this scope.
+
+Root created a NEW dedicated browser database `swaad_e2e_order_list_20260913`;
+backend migration/seed test passes at schema29. Read-only service15053 is session
+31715, same4d5fdd9 binary `/tmp/swaad-order-list.kzEcmO/order-service`, using
+SELECT-only login `swaad_grpc_list_reader_20260913` with grants in this new DB.
+Backend18081 is session40026, binary `/tmp/swaad-order-list.kzEcmO/backend` from
+ad30cf7, RPC enabled pointing15053, dev/mock providers and REDIS_DB=0 on dedicated
+16379, NATS14222, MinIO9000. GET `/api/v1/health` passes (`/health` was a harmless404).
+Fictional development config follows scripts/run-e2e-backend.sh but overrides
+port/database/RPC settings; no production secrets used. Do not run that script
+unmodified: it hardcodes18080, olderE2EDB and RPCfalse.
+
+Next root action: verify both worker handoffs, tests and draft PRs; independent
+reviews; rebuild/restart ONLY owned backend18081 to identity fix; run combined
+frontend real list acceptance against18081/15053. Use E2E_DATABASE above and
+existing guarded seed-session RedisDB0 helper. Existing15051/15052/18080 and
+normal app DB are untouched. New backend's workers can mutate only this new
+disposable browser DB. Service/identity unit-PG tests remain in separate
+`swaad_grpc_test_20260912` to avoid fixture races.
+
 ## Latest verified state — 19:35 IST
 
 All list source is committed and pushed. Backend

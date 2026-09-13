@@ -1,5 +1,24 @@
 # Session log
 
+## 2026-09-13 — paginated order list and next safety/UI scopes
+
+Published separate proto2 dc2e8c6, order-service2 4d5fdd9, backend19 ad30cf7.
+All CI green; root full race/vet and actual paired HTTP/service/PostGIS pagination
+pass. Independent Staff/Architecture and QA/Product find no blocking API-scope
+issue; evidence posted as labeled comments, not formal GitHub approval. Ready,
+unmerged; protected main still requires an eligible separate reviewer identity.
+Forecast saved: 18–30 active days full mock scope, 2–4 local-demo consolidation;
+scope estimates rather than measured velocity, approval/access waits additional.
+
+Continued same vertical feature with frontend pagination and separate P1 identity
+guard discovered in existing cancellation during plan review. Backend issue20
+tracks ambiguity rejection and composite updates with real concurrent-insert
+regression. Two isolated implementation workers; exact ownership and runtime
+details in current order-list checkpoint. Root provisioned new disposable browser
+DB schema29 and actual backend18081/service15053; health passes, browser gate still
+pending. Existing user work and runtimes preserved. Checkpointing frequently;
+quota percentage unavailable, no scheduler creation or paid fallback claimed.
+
 ## 2026-09-13 — actual order-service integration
 
 Confirmed the missing order-service PR was a real implementation gap, not hidden

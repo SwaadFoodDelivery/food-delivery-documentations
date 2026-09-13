@@ -1,10 +1,10 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-13T19:35:00+05:30",
+  "updated_at": "2026-09-13T19:42:00+05:30",
   "timezone": "Asia/Kolkata",
   "phase": "first_vertical_journey",
   "active_ticket": "ORDER-GRPC-002",
-  "gate": "paginated_list_local_paired_pass_Staff_pass_QA_and_CI_pending",
+  "gate": "list_API_CI_and_reviews_pass_UI_and_identity_guard_implementation",
   "current_checkpoint": "project/checkpoints/2026-09-13-order-list-handoff.md",
   "active_checkouts": [
     {"name":"backend-parent","path":"../.worktrees/dependency-backend-pr11","branch":"codex/vert-001-catalog","sha":"7cccda8","pr":11,"pushed":true},
@@ -37,7 +37,8 @@
     "frontend: .github/workflows/frontend-ci.yml and README.md"
   ],
   "workers": [
-    {"id":"01a08cb8-3c9d-7540-ad8b-96ea582a8b8e","role":"QA/Product review","scope":"read-only backend/service list final scope"}
+    {"id":"01a08cb4-5ee2-72f0-9748-726a8b1aec76","role":"frontend implementation","scope":"only .worktrees/serviceability-policy-frontend-fresh codex/order-history-pagination basee660318"},
+    {"id":"01a08cb5-8608-7603-95f9-43bb09fe3379","role":"identity guard implementation","scope":"only .worktrees/order-identity-backend codex/order-identity-guard basead30cf7"}
   ],
   "current_feature_branches": [
     {"repo":"proto","branch":"codex/order-list-contract","sha":"dc2e8c6","pr":2,"pushed":true},
@@ -131,8 +132,8 @@
   ],
   "known_failures": ["Earlier agent usage-limit interruption recovered; current-scope independent grpc rereviews completed without remaining blockers", "Existing frontend Sass/PostCSS and bundle-size warnings"],
   "blockers": ["PROTECTED_MAIN_REQUIRES_AUTHORIZED_APPROVAL"],
-  "next_exact_action": "Read current_checkpoint. ORDER-GRPC-001 is implemented/tested/reviewed with all CI green and PRs ready, unmerged. Begin ORDER-GRPC-002 client order-list read contract/implementation on separate feature branches; obtain bounded architecture review first. No orderwriteextraction without transaction ownership plan. Preserve dirty original worktrees and protectedmain.",
-  "synchronization": {"github": "backend_PR18_order_service_PR1_proto_PR1_frontend_PR9_docs_PR1_pushed", "connector": "optional_not_needed", "local_checkpoint": "written"},
+  "next_exact_action": "Read current_checkpoint latest section and verify worker states. ORDER-GRPC-002 API scopes pass all CI and agent reviews, ready/unmerged. Coordinate frontend pagination worker and separate backend identity-guard worker; root verify real browser on dedicated backend18081/service15053, updating owned backend to identity fix only after reviewed tests. Preserve existing15051/15052/18080 and original dirty worktrees. No order-write extraction without transaction plan.",
+  "synchronization": {"github": "backend_PR19_service_PR2_proto_PR2_ready_pushed_frontend_UI_and_identity_fix_in_progress_docs_PR1", "connector": "optional_not_needed", "local_checkpoint": "written"},
   "scheduler": {"status": "unverified", "task_id": null, "cadence": null, "timezone": "Asia/Kolkata"},
   "quota_visibility": "quota visibility unavailable"
 }
