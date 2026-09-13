@@ -1,5 +1,45 @@
 # ORDER-GRPC-002 — active checkpoint, 2026-09-13
 
+## Latest verified state — 19:35 IST
+
+All list source is committed and pushed. Backend
+[PR19](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/19) `ad30cf7`,
+service [PR2](https://github.com/SwaadFoodDelivery/order-service/pull/2) `4d5fdd9`,
+proto PR2 `dc2e8c6`; drafts while final gates complete. Backend paired CI pins
+the immutable service commit and all five SELECT-only table grants.
+
+Root verification: full `go test -race ./...` and `go vet ./...` pass in both
+implementation repositories. Service suite with ORDER_RPC_TEST_DATABASE_URL
+passed actual GetOrder/GetUserOrders PostGIS tests. Backend
+TestPairedOrderServicePostgres passed with a separately running real list service:
+ties, exact microseconds, new insert between pages, final and empty lists,
+foreign/tampered cursors, role denial and dependency-key failure. Test identity
+is explicitly seeded middleware context, not browser authentication.
+
+Final independent Staff/Architecture review at these commits found no blocking
+P1/P2; source inspected, test results supplied by root. Its nil-client fallback
+hardening is fixed and has a registered-route regression test. Final QA/Product
+review and backend/service CI still pending. Proto CI34749001931 is green.
+
+The new owned process is session53719, binary
+`/tmp/swaad-order-list.kzEcmO/order-service`, loopback15052. Database is the existing
+disposable `swaad_grpc_test_20260912`, schema29. Dedicated login
+`swaad_grpc_list_reader_20260913` has SELECT only on all five tables. No private
+credentials are persisted in these docs. Old service15051 remains untouched.
+Tests added fictional records only in the disposable DB. Temporary test roles
+were removed by test cleanup; the new runtime login remains for continued testing.
+
+Implementation/QA workers temporarily returned usage-limit errors before root
+verification. Tesla's service commit was recovered and pushed by root. Later
+manual continuation resumed reviewers; there is no numeric quota telemetry or
+guaranteed automated reset. Current source is saved remotely even if cut off.
+No feature is merged/released and no GitHub formal approval is fabricated.
+
+The detailed implementation snapshot below is historical to the first save;
+this latest section takes precedence. Next: complete CI/QA evidence, post labeled
+agent review comments, then the bounded customer pagination UI within this same
+vertical feature. Do not start unrelated work or transfer order writes yet.
+
 Prior feature remains complete, CI-green, ready and unmerged: see
 [GetOrder handoff](2026-09-13-order-grpc-handoff.md). This checkpoint supersedes
 its next-action instructions, not its evidence.
