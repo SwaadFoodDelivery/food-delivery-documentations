@@ -2,6 +2,20 @@
 
 This is the initial audit slice. “Observed” means verified in the local checkout; “gap” means not found in the inspected code, not a claim that no remote work exists.
 
+## Current superseding evidence — 2026-09-14
+
+The table below updates only the affected scope; the older audit table is historical,
+not a current list of missing features. Full evidence/remaining gates are in the
+[current checkpoint](checkpoints/2026-09-13-order-list-handoff.md).
+
+| Requirement | Source | Implemented/tested evidence | Remaining gate | Ticket / walkthrough |
+| --- | --- | --- | --- | --- |
+| Typed owned order reads and pagination | Master §§9,11; prior reviewed order lifecycle requirements | proto dc2e8c6, service4d5fdd9, backendad30cf7; generated gRPC, signed owner cursor, exact money, real PostGIS/paired CI and agent scope reviews pass | Ready/unmerged; UI continuation separate | ORDER-GRPC-001/002; backend/order-service-grpc.md |
+| Existing customer/persona flows with delegated lists | Master §§7–8 | frontende660318/backendad30cf7/service4d5fdd9 actual Chromium5PASS, no API interception; seeded session, backend providers mocked | New UI/identityfix not included in this baseline | ORDER-GRPC-002-UI; frontend/order-history.md |
+| Safe partitioned order identity for cancellation/history | Master §9 ownership/transaction rules; current composite DB identity | Staff observed broad UUID UPDATE; bounded identity guard in backend448e835 WIP, ownertwo-row detection and composite mutation | Actual test/review/CI gate pending; P1 not accepted as deferred debt | ORDER-IDENTITY-001; backend issue20 |
+
+## Historical initial audit
+
 | Requirement | Design evidence | Current implementation evidence | Gap / contradiction | Initial ticket | Verification target |
 |---|---|---|---|---|---|
 | OTP auth with expiry, attempts, session invalidation | LLD §5.1, §7.1; `auth_otp_verified.svg` | Backend users routes, Redis/session middleware, OTP tests; router registers users | Integration coverage and end-to-end evidence are limited | AUTH-001 | API integration tests + seeded demo login |

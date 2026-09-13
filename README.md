@@ -10,6 +10,8 @@ The customer, restaurant-owner, driver and operations demo journeys have local b
 
 The first actual order-service integration is now published: [order-service PR1](https://github.com/SwaadFoodDelivery/order-service/pull/1), [backend PR18](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/18), and [proto PR1](https://github.com/SwaadFoodDelivery/proto/pull/1). Owned reads cross real gRPC and PostgreSQL; checkout/write ownership remains with the backend during staged extraction. See the [backend walkthrough](walkthroughs/backend/order-service-grpc.md) and [auth/onboarding walkthrough](walkthroughs/frontend/auth-onboarding.md).
 
+The follow-up paginated list APIs are ready/unmerged in [order-service PR2](https://github.com/SwaadFoodDelivery/order-service/pull/2), [backend PR19](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/19), and [proto PR2](https://github.com/SwaadFoodDelivery/proto/pull/2), with green CI, paired PostGIS checks and agent scope reviews. Five existing customer/persona browser scenarios also pass with delegation enabled. The new pagination UI and discovered [ambiguous-ID cancellation safety fix](https://github.com/SwaadFoodDelivery/food-delivery-backend/issues/20) are still completing their gates. See the [scope-based delivery forecast](project/DELIVERY_FORECAST.md); no completion date, formal reviewer identity or production readiness is implied.
+
 ## Historical inputs
 
 - [`FoodDelivery_LLD_Final _review.pdf`](FoodDelivery_LLD_Final%20_review.pdf)

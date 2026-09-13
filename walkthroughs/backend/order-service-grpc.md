@@ -55,14 +55,14 @@ Graceful shutdown has a three-second cap.
 
 Checkout still validates cart, prices, address and serviceability, inserts
 order/items/notification and converts the cart within its current transaction.
-Payment, restaurant transitions, cancellation, history, delivery and migrations
+Payment, restaurant transitions, cancellation, timeline history, delivery and migrations
 remain backend-owned. Other order-service RPCs explicitly return Unimplemented.
 Do not run the service's historical copied migration tree. Before moving writes,
 resolve the transaction and ownership handover described in the linked ADR.
 
 ## Evidence and reproducibility
 
-Proto PR1, order-service PR1 and backend PR18 contain the source/tests and setup
+Proto PR2, order-service PR2 and backend PR19 contain the current source/tests and setup
 commands. Each consumer pins the exact generated module commit. See
 `project/RELEASE_MANIFEST.json` and the current checkpoint for tested heads/CI.
 
@@ -80,6 +80,35 @@ commands. Each consumer pins the exact generated module commit. See
   `swaad_grpc_test_*` databases. Fixture records are retained only in those
   disposable databases; temporary test roles are revoked and removed.
 
-Rollback: disable the new read route and stop the service. No migration or order
-rewrite is needed. Existing checkout remains available. Next writer extraction
+## Owned paginated lists (ORDER-GRPC-002 API)
+
+Implemented at proto dc2e8c6, service4d5fdd9 and backendad30cf7; ready/unmerged.
+The enabled backend also delegates `GET /api/v1/orders?limit=20&cursor=...` through
+GetUserOrders. It keeps the existing `data.orders` summary fields and adds
+`data.next_cursor`. Missing/empty cursor starts a first page; empty returned cursor
+means no next page. Limits are strict1–50, with HTTP default20. No global count,
+item hydration or payment lookup is performed for each summary.
+
+Service `business/cursor.go` signs a versioned owner UUID, creation timestamp and
+order UUID with a domain-separated HMAC key. Tokens are opaque to clients, not
+encrypted, at most1024 bytes; malformed/foreign/tampered tokens produce400 before
+SQL. Key rotation invalidates outstanding cursors. PostgreSQL independently
+filters owner and selects `(created_at,order_id)` descending with a strict tuple
+boundary and limit+1 lookahead. A cursor comes from the last returned row only
+when an extra row exists. UTC microseconds are preserved. Newer orders appear on
+a refreshed first page; this is ordered pagination, not a cross-request snapshot.
+
+`repository/list.go` joins current restaurant names without filtering inactive
+restaurants, and delivery by both order ID and creation timestamp. Missing delivery
+remains valid. The SELECT-only role now needs restaurants/deliveries plus
+orders/order_items/payments; all write privileges remain denied. Both the service
+and paired HTTP/PostGIS suites verify ties, microseconds, inserted rows, terminal
+and empty pages, ownership/cursors and exact paise. Existing customer/persona
+browser baseline passes with delegation enabled (5 scenarios); pagination UI and
+the newly discovered ambiguous-ID action fix have separate pending gates.
+
+Deploy service and grants first, then the enabled backend. Roll back backend first,
+then service/grants. Disabled mode keeps its local first page but rejects any
+nonempty cursor with400; clients must explicitly restart rather than silently
+duplicate page one. No migration or order rewrite is needed. Next writer extraction
 must preserve these boundaries rather than copying a second orders database.
