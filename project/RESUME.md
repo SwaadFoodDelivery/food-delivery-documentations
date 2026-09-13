@@ -1,13 +1,16 @@
 # Resume Swaad
 
-Last checkpoint: 2026-09-12, actual OTP login, MinIO upload, reject/replace/resubmit
-and approve browser flow passed twice. 112 frontend unit tests, lint/build,
-backend race/vet and implementation CI pass. Independent review is pending.
+Last checkpoint: 2026-09-13. Auth/upload/review feature passed browser, 118 unit
+tests, CI and independent current-scope agent review; PR17/9 ready, unmerged.
+Active work is ORDER-GRPC-001: actual order-service integration (first owned read).
 
-Read [the current checkpoint](checkpoints/2026-09-12-auth-onboarding.md) first.
+Read [the current checkpoint](checkpoints/2026-09-12-order-grpc-wip.md) first.
 It supersedes the historical entries below. Latest backend is PR #17
 `codex/mock-otp-outbox` / `214b4f6`; latest frontend is PR #9
-`codex/auth-onboarding-browser` / `ca48c0c`. PRs are stacked and unmerged.
+`codex/auth-onboarding-browser` / `fd122c7`. New backend PR18 `31f210b` and proto
+PR1 `f946f9d` pass CI; order-service work is preserved in its isolated checkout.
+Implementation/review agents hit usage limits; root has taken over unfinished work.
+PRs are stacked and unmerged.
 GitHub CLI and real local Chromium work. No real provider credentials are needed.
 Do not claim separate human/agent approvals or bypass main protection.
 
@@ -43,13 +46,13 @@ Do not claim separate human/agent approvals or bypass main protection.
 
 ## Active ticket and gate
 
-`AUTH-BROWSER-002` / phase 4 persona completeness. Gate: actual auth and storage
-browser acceptance passed; documentation-head CI and independent review pending.
+`ORDER-GRPC-001`: typed owned GetOrder integration. Contract/backend tests and CI
+pass; service implementation and real paired PostGIS gate pending.
 
 ## Next exact action
 
 1. Read the current checkpoint's final test/CI evidence and preserve the listed branches.
-2. Finish PR17/9 review and readiness, then begin logout/refresh/expired-session coverage as a separate feature. The running auth backend uses dedicated Redis DB 1; legacy customer/persona helpers use DB 0.
+2. Finish order-service in `../.worktrees/order-grpc-service`, publish its feature PR and verify HTTP→RPC→PostGIS against the new disposable `swaad_grpc_test_20260912`. Keep backend checkout/write/migration authority intact; consult the ADR before extraction.
 3. Keep final independent review and protected-main approval distinct from test evidence. Scheduling/quota telemetry remains optional and unverified.
 
 ## Evidence and limitations

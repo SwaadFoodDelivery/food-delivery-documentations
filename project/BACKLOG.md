@@ -12,8 +12,9 @@ Stable local IDs remain the planning reference; GitHub PRs are connected through
 | HISTORY-029 | Implemented/transaction-tested; unmerged | Backend 15; actual history emitters/current state |
 | OPS-READ-REPAIR | Implemented/real-browser-tested; unmerged | Backend 16; overview and audit SQL repairs |
 | PERSONA-001 | Local happy-path acceptance passed; unmerged | Frontend 8: owner, driver, manager, pending/approved applicant; customer cases also pass |
-| AUTH-BROWSER-002 | Implemented; browser and CI pass; independent review pending | Backend 17; frontend 9; actual OTP login and MinIO upload/reject/replace/resubmit/approve |
-| AUTH-LIFECYCLE-003 | Next, M | Logout/session renewal/expired-session browser recovery; preserve security boundaries and avoid fixture token leakage |
+| AUTH-BROWSER-002 | Implemented; browser/CI/independent scope review pass; unmerged | Backend17; frontend9; actual OTP and MinIO, offline replacement recovery, secure reporter |
+| ORDER-GRPC-001 | In progress, M | Proto1/backend18 and new order-service branch; actual owned read first, backend retains write/migration authority |
+| AUTH-LIFECYCLE-003 | Later, M | Logout/session renewal/expired-session browser recovery; preserve security boundaries and avoid fixture token leakage |
 
 ## Historical feature inventory
 
