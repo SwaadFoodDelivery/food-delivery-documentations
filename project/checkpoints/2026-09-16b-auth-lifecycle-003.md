@@ -93,11 +93,13 @@ new worktrees/branches only, which never had that WIP in their history.
   commit `6983be3` (full repo, not just new files).
 - Frontend: lint clean, 159/159 unit tests pass, production build clean, at
   commit `6dbe5f8`.
-- CI status for both new PRs (backend #22, frontend #11) was still running
-  when this checkpoint was written -- verify with `gh pr checks 22 --repo
-  SwaadFoodDelivery/food-delivery-backend` and `gh pr checks 11 --repo
-  SwaadFoodDelivery/food-delivery-frontend` before treating either as a
-  passed gate. Neither has had independent Staff/QA review yet.
+- CI confirmed green for both: backend PR22 all 4 checks pass at `19400c0`
+  (go-checks, docker-build, migration-integration, paired-order-service --
+  the first push at `89cc17f` failed go-checks on a gofmt import-ordering
+  issue in the new test file, fixed in the same PR); frontend PR11 all 5
+  checks pass at `eeb6aed` (lint, unit-tests, production-audit, build,
+  Chromium UI E2E). Neither has had independent Staff/QA review yet --
+  automated verification only.
 
 ## Next exact action
 
