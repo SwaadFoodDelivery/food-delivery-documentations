@@ -1,10 +1,23 @@
 # Resume Swaad
 
-Last checkpoint: 2026-09-13. Auth/upload/review feature passed browser, 118 unit
+Last checkpoint: 2026-09-16 (Claude Code session, continuing the same master
+prompt Codex has been executing). Read
+[the 2026-09-16 checkpoint](checkpoints/2026-09-16-claude-audit-and-lint-fix.md)
+first — it supersedes only the next-exact-action of the 2026-09-13 checkpoint
+below; that checkpoint's detailed evidence is still accurate. Key facts from
+2026-09-16: nothing new merged to any `main`; a CI-blocking lint bug on
+frontend PR #10 was found and fixed (`248017a`, verify it went green before
+trusting it); the real blocker to ALL further merges across
+backend/frontend/order-service/proto is GitHub branch protection requiring a
+non-author approval — the user needs to approve the bottom-of-stack PR in each
+repo (or add a second reviewer, or consciously relax protection) before any of
+this stacked work can land, no matter how much more gets implemented.
+
+Last checkpoint before that: 2026-09-13. Auth/upload/review feature passed browser, 118 unit
 tests, CI and independent current-scope agent review; PR17/9 ready, unmerged.
 Active work is ORDER-GRPC-002-UI and its discovered prerequisite ORDER-IDENTITY-001.
 
-Read [the current checkpoint](checkpoints/2026-09-13-order-list-handoff.md) first.
+Read [the 2026-09-13 checkpoint](checkpoints/2026-09-13-order-list-handoff.md) next for detail.
 It supersedes the historical entries below. Latest backend is PR #17
 `codex/mock-otp-outbox` / `214b4f6`; latest frontend is PR #9
 `codex/auth-onboarding-browser` / `e660318`. Backend PR18 `a27ee6e`, order-service
