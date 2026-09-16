@@ -31,10 +31,14 @@ that file's detailed evidence remains historically accurate and is not repeated 
   behind an error overlay, which would explain the broad, unrelated timeout
   failures (nothing rendered, so no test could click anything).
 - Fix pushed at `248017a` (one-line: removed the stray semicolon). `npx eslint`
-  on the file passes locally. Full CI re-run was in flight when this checkpoint
-  was written; verify actual status with `gh pr checks 10 --repo
-  SwaadFoodDelivery/food-delivery-frontend` before assuming it is green — do not
-  infer completion from elapsed time.
+  on the file passes locally. CI re-run confirmed at run `35096783197`: all 5
+  checks pass (`lint`, `build`, `unit-tests`, `production-audit`, and
+  `Chromium UI (supplemental network mocks)` — all 21 previously-failing E2E
+  tests now pass), confirming the lint-overlay diagnosis. PR #10 is CI-green
+  and still a draft; it still needs its own QA/Staff re-review pass before
+  being marked ready (the prior UI-QA-01/02 findings were addressed by
+  `82ab2e5`, which this fix sits on top of, but that fix's own review was
+  still pending as of the 2026-09-13 checkpoint — verify, don't assume).
 - Found (via `food-delivery-infra/.pipeline/BUG_LEDGER.md`, entry
   `BACKEND-LEAK-001`) that a live SendGrid API key and a personal email address
   are present in the user's local uncommitted working tree at
