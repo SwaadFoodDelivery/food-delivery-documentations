@@ -1,17 +1,31 @@
 # Resume Swaad
 
-Last checkpoint: 2026-09-16 (Claude Code session, continuing the same master
-prompt Codex has been executing). Read
-[the 2026-09-16 checkpoint](checkpoints/2026-09-16-claude-audit-and-lint-fix.md)
-first — it supersedes only the next-exact-action of the 2026-09-13 checkpoint
-below; that checkpoint's detailed evidence is still accurate. Key facts from
-2026-09-16: nothing new merged to any `main`; a CI-blocking lint bug on
-frontend PR #10 was found and fixed (`248017a`, verify it went green before
-trusting it); the real blocker to ALL further merges across
-backend/frontend/order-service/proto is GitHub branch protection requiring a
-non-author approval — the user needs to approve the bottom-of-stack PR in each
-repo (or add a second reviewer, or consciously relax protection) before any of
-this stacked work can land, no matter how much more gets implemented.
+Last checkpoint: 2026-09-16, second entry (Claude Code session, continuing the
+same master prompt Codex has been executing). Read
+[the 2026-09-16b checkpoint](checkpoints/2026-09-16b-auth-lifecycle-003.md)
+first, then [the 2026-09-16a checkpoint](checkpoints/2026-09-16-claude-audit-and-lint-fix.md)
+it supersedes only the next-exact-action of — that one's audit findings (branch-
+protection blocker, security finding) still stand. Key facts as of 2026-09-16b:
+- The user chose to self-approve PRs on GitHub directly and asked to keep
+  implementing regardless of the merge backlog — this is a standing decision,
+  not just for that session.
+- AUTH-LIFECYCLE-003 is implemented and unit-tested: backend
+  [PR22](https://github.com/SwaadFoodDelivery/food-delivery-backend/pull/22)
+  (`POST /auth/refresh`), frontend
+  [PR11](https://github.com/SwaadFoodDelivery/food-delivery-frontend/pull/11)
+  (silent renewal + forced redirect on terminal mid-use expiry). Stacked on
+  the existing order-grpc/order-history stack tips.
+- Found and fixed a structural CI bug: both repos' `pull_request.branches`
+  trigger was a manually-maintained per-branch allowlist that silently drops
+  CI on any PR based on a branch not yet added to it — this had already
+  happened to the two newest stack tips before this session started. Fixed
+  with a `codex/**` glob on both new branches; verify this glob doesn't need
+  reapplying if a future session finds CI silently absent on a new PR again
+  (it shouldn't, but the fix only lives on `codex/auth-refresh` /
+  `codex/auth-session-recovery` and their descendants, not on the older
+  branches beneath them in the stack).
+- Nothing is merged to any `main` yet. Branch protection still requires the
+  user's own approval — see the 2026-09-16a checkpoint for full detail.
 
 Last checkpoint before that: 2026-09-13. Auth/upload/review feature passed browser, 118 unit
 tests, CI and independent current-scope agent review; PR17/9 ready, unmerged.
