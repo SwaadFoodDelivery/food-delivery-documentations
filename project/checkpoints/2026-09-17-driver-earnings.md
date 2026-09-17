@@ -68,6 +68,40 @@ prior divergence, not new). Earnings was the real, unimplemented half.
   against `codex/order-identity-guard` if picking this up cold, as a sanity
   check that the recovery was complete.
 
+## Real live-server verification (both PR22 and PR23)
+
+Beyond the repository-level integration test, ran the actual `codex/driver-earnings`
+commit as a live server (`go run ./cmd/server`, dedicated disposable Postgres
+database `swaad_e2e_driver_earnings_20260917`, isolated Redis DB index 3 on the
+shared Redis instance rather than a separate container, port 18099) and drove
+the real HTTP flow with no mocks: seeded a driver + a `delivered` order directly
+in Postgres, logged in through the real OTP flow (init-session -> send-otp ->
+read the mock OTP from server logs, stripping ANSI color codes with `sed` since
+a naive grep initially missed it -> verify-otp) to get a genuine signed access
+token, then called `GET /driver/earnings` and got back exactly
+`{"total_earnings_minor":3000,"delivered_count":1,"currency":"INR","demo_label":
+"SIMULATED EARNINGS..."}` -- matching the seeded ₹30.00 delivery fee precisely.
+Also live-verified PR22's `/auth/refresh` in the same session: `X-Client-Type:
+web` correctly set the HttpOnly cookie and omitted the token from the body;
+refresh-then-logout-then-refresh-again correctly failed `SESSION_NOT_FOUND`;
+a *different*, still-active session's access token correctly still worked
+against `/driver/earnings` afterward (confirms logout revokes only the
+session it's called on, not every session for that user -- correct multi-
+session semantics, not a bug, though it briefly looked like one mid-test).
+Disposable database dropped and test server process killed afterward; posted
+as PR comments on #22 and #23 rather than just this file, so the evidence is
+visible where a reviewer would look. First `docker exec ... <<'SQL'` attempt
+silently did nothing (no error, no output) because it was missing `-i` --
+worth remembering if seeding via heredoc into a container again.
+
+This does NOT cover actual browser rendering of the new `DriverView.vue`
+earnings section -- the API contract is now proven correct end-to-end and the
+field names match the Vue template exactly (`total_earnings_minor`,
+`delivered_count`, `demo_label`), and the production build compiles clean,
+but nobody has looked at the rendered page in a real browser. That gap is
+smaller and more precisely stated than the original "no E2E coverage" note,
+not fully closed.
+
 ## Evidence
 
 - Backend PR23 CI confirmed green: all 4 checks (`go-checks`, `docker-build`,
