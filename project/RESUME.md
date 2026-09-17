@@ -1,11 +1,14 @@
 # Resume Swaad
 
-Last checkpoint: 2026-09-16, second entry (Claude Code session, continuing the
-same master prompt Codex has been executing). Read
+Last checkpoint: 2026-09-17 (Claude Code session, continuing the same master
+prompt Codex has been executing). Read
+[the 2026-09-17 checkpoint](checkpoints/2026-09-17-driver-earnings.md) first
+(DRIVER-EARNINGS-001: backend PR23 + frontend PR12), then
 [the 2026-09-16b checkpoint](checkpoints/2026-09-16b-auth-lifecycle-003.md)
-first, then [the 2026-09-16a checkpoint](checkpoints/2026-09-16-claude-audit-and-lint-fix.md)
-it supersedes only the next-exact-action of — that one's audit findings (branch-
-protection blocker, security finding) still stand. Key facts as of 2026-09-16b:
+it supersedes only the next-exact-action of, then
+[the 2026-09-16a checkpoint](checkpoints/2026-09-16-claude-audit-and-lint-fix.md)
+— that one's audit findings (branch-protection blocker, security finding)
+still stand. Key facts as of 2026-09-16b:
 - The user chose to self-approve PRs on GitHub directly and asked to keep
   implementing regardless of the merge backlog — this is a standing decision,
   not just for that session.

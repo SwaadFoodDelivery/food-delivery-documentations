@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-09-16T19:15:00+05:30",
+  "updated_at": "2026-09-17T08:15:00+05:30",
   "timezone": "Asia/Kolkata",
   "phase": "persona_completeness",
-  "active_ticket": "AUTH-LIFECYCLE-003",
-  "gate": "backend_PR22_frontend_PR11_implemented_unit_tested_CI_running_no_independent_review_yet",
-  "current_checkpoint": "project/checkpoints/2026-09-16b-auth-lifecycle-003.md",
-  "previous_checkpoint": "project/checkpoints/2026-09-16-claude-audit-and-lint-fix.md",
+  "active_ticket": "DRIVER-EARNINGS-001",
+  "gate": "backend_PR23_CI_green_frontend_PR12_CI_running_no_independent_review_yet",
+  "current_checkpoint": "project/checkpoints/2026-09-17-driver-earnings.md",
+  "previous_checkpoint": "project/checkpoints/2026-09-16b-auth-lifecycle-003.md",
   "active_checkouts": [
     {"name":"backend-parent","path":"../.worktrees/dependency-backend-pr11","branch":"codex/vert-001-catalog","sha":"7cccda8","pr":11,"pushed":true},
     {"name":"backend-serviceability-parent","branch":"codex/serviceability-policy","sha":"5f253ed","pr":12,"pushed":true},
@@ -23,8 +23,10 @@
     {"name":"backend-grpc","path":"../.worktrees/order-grpc-backend","branch":"codex/order-grpc-read","sha":"a27ee6e","pr":18,"pushed":true},
     {"name":"proto-grpc","path":"../.worktrees/order-grpc-proto","branch":"codex/order-grpc-contract","sha":"f946f9d","pr":1,"pushed":true},
     {"name":"order-service-grpc","path":"../.worktrees/order-grpc-service","branch":"codex/order-grpc-foundation","sha":"3808d06","pr":1,"dirty":false,"pushed":true},
-    {"name":"backend-auth-refresh","path":"../.worktrees/auth-lifecycle-backend","branch":"codex/auth-refresh","sha":"89cc17f","base":"codex/order-identity-guard","pr":22,"pushed":true},
-    {"name":"frontend-auth-session-recovery","path":"../.worktrees/auth-lifecycle-frontend","branch":"codex/auth-session-recovery","sha":"eeb6aed","base":"codex/order-history-pagination","pr":11,"pushed":true}
+    {"name":"backend-auth-refresh","path":"../.worktrees/auth-lifecycle-backend","branch":"codex/auth-refresh","sha":"19400c0","base":"codex/order-identity-guard","pr":22,"pushed":true},
+    {"name":"frontend-auth-session-recovery","path":"../.worktrees/auth-lifecycle-frontend","branch":"codex/auth-session-recovery","sha":"eeb6aed","base":"codex/order-history-pagination","pr":11,"pushed":true},
+    {"name":"backend-driver-earnings","path":"../.worktrees/driver-earnings-backend","branch":"codex/driver-earnings","sha":"9134fe4","base":"codex/auth-refresh","pr":23,"pushed":true},
+    {"name":"frontend-driver-earnings-ui","path":"../.worktrees/driver-earnings-frontend","branch":"codex/driver-earnings-ui","sha":"fdfbe05","base":"codex/auth-session-recovery","pr":12,"pushed":true}
   ],
   "repository_inventory_below_is_historical": true,
   "repositories": [
@@ -138,8 +140,8 @@
   ],
   "known_failures": ["Earlier agent usage-limit interruption recovered; current-scope independent grpc rereviews completed without remaining blockers", "Existing frontend Sass/PostCSS and bundle-size warnings"],
   "blockers": ["PROTECTED_MAIN_REQUIRES_AUTHORIZED_APPROVAL_user_has_chosen_to_self_approve_going_forward_2026-09-16"],
-  "next_exact_action": "Verify backend PR22 and frontend PR11 CI actually went green (gh pr checks 22 --repo SwaadFoodDelivery/food-delivery-backend; gh pr checks 11 --repo SwaadFoodDelivery/food-delivery-frontend) -- both were in_progress when this state was last written after a codex/** CI-trigger-glob fix on both branches. Neither PR has had independent Staff/QA review yet, only automated build/lint/test. After confirming CI, re-check BACKLOG.md and gh pr list fresh for the next ready item -- do not assume this stack is still the deepest tip without checking, since the user may merge PRs between sessions now that they've chosen to self-approve.",
-  "synchronization": {"github": "backend_PR11-22_stacked_unmerged_frontend_PR3-11_stacked_unmerged_orderservice_PR1-2_unmerged_proto_PR1-2_unmerged_docs_PR1_unmerged_infra_PR2_unmerged_user_will_self_approve_going_forward", "connector": "optional_not_needed", "local_checkpoint": "written"},
+  "next_exact_action": "Verify frontend PR12 CI went green (gh pr checks 12 --repo SwaadFoodDelivery/food-delivery-frontend) -- backend PR23 already confirmed CI-green including a real local-Postgres integration test. Neither PR22/23 nor PR11/12 have independent Staff/QA review yet, only automated build/lint/test. Then re-check gh pr list fresh across all repos before picking the next work unit -- the user may merge PRs between sessions now that they've chosen to self-approve. Next gap-finding method: grep the domain noun for a master-prompt persona requirement across the backend before assuming it's unimplemented (this is how DRIVER-EARNINGS-001 was found).",
+  "synchronization": {"github": "backend_PR11-23_stacked_unmerged_frontend_PR3-12_stacked_unmerged_orderservice_PR1-2_unmerged_proto_PR1-2_unmerged_docs_PR1_unmerged_infra_PR2_unmerged_user_will_self_approve_going_forward", "connector": "optional_not_needed", "local_checkpoint": "written"},
   "scheduler": {"status": "unverified", "task_id": null, "cadence": null, "timezone": "Asia/Kolkata"},
   "quota_visibility": "quota visibility unavailable"
 }
