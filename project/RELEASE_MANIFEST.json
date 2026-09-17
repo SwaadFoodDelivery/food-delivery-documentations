@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "grpc_list_API_and_existing_browser_baseline_pass_UI_identity_guard_pending_unmerged",
+  "updated_at": "2026-09-14T01:20:00+05:30",
+  "current_checkpoint": "project/checkpoints/2026-09-13-order-list-handoff.md",
+  "tested_compatibility": {
+    "backend": {
+      "repository": "SwaadFoodDelivery/food-delivery-backend",
+      "branch": "codex/order-list-read",
+      "commit": "ad30cf7",
+      "ci_run": "34761457655"
+    },
+    "frontend": {
+      "repository": "SwaadFoodDelivery/food-delivery-frontend",
+      "branch": "codex/auth-onboarding-browser",
+      "commit": "e660318",
+      "ci_run": "34733482349"
+    },
+    "documentation": {
+      "repository": "SwaadFoodDelivery/food-delivery-documentations",
+      "branch": "codex/docs-checkpoint",
+      "checkpoint": "project/checkpoints/2026-09-13-order-list-handoff.md"
+    },
+    "infra": {
+      "repository": "SwaadFoodDelivery/food-delivery-infra",
+      "branch": "alignment_with_backend_and_frontend",
+      "commit": "6b75b4f",
+      "verification": "terraform fmt -check, init -backend=false -input=false, validate passed"
+    },
+    "order_service": {
+      "repository": "SwaadFoodDelivery/order-service",
+      "branch": "codex/order-list-service",
+      "commit": "4d5fdd9",
+      "ci_run": "34761365147",
+      "paired_runtime_commit": "4d5fdd9"
+    },
+    "proto": {
+      "repository": "SwaadFoodDelivery/proto",
+      "branch": "codex/order-list-contract",
+      "commit": "dc2e8c6",
+      "ci_run": "34749001931"
+    }
+  },
+  "implemented_journeys": [
+    "owned keyset-paginated client order summaries through real gRPC with signed owner-bound cursors; existing first-page browser consumers remain compatible",
+    "owned client order read via real authenticated backend HTTP -> order-service gRPC -> PostGIS, explicit local-only transport",
+    "actual browser OTP login via private mock SMS, real MinIO document upload, reject/replace/resubmit/approve and driver access",
+    "customer discovery, menu, cart, checkout, mock payment, tracking, notifications, order history, cancellation",
+    "restaurant owner order queue and status transitions",
+    "driver availability, current assignment, and sequential delivery actions",
+    "operations manager order visibility, audited intervention, driver coverage, failed-payment and stalled-delivery counters",
+    "operations manager onboarding review queue with applicant feedback, access-state changes, notifications, audit history, and audit visibility"
+  ],
+  "explicit_mocks": [
+    "OTP and email providers",
+    "payment provider",
+    "delivery provider and synthetic driver progression",
+    "in-app notification fixtures and event persistence"
+  ],
+  "not_released_or_not_verified": [
+    "customer pagination UI and P1 ambiguous-order-ID history/cancellation guard final gates",
+    "order-service write extraction, tracking/history RPCs and TLS/shared-service deployment",
+    "real delivery adapter and courier onboarding",
+    "reachable shared development deployment",
+    "browser registration, email verification, OTP expiry/resend, logout/session renewal/expired-session recovery",
+    "formal protected-main approval and merged release",
+    "supported four-hour scheduler task",
+    "programmatic quota telemetry",
+    "external email/SMS/NATS consumer delivery"
+  ],
+  "verification_matrix": [
+    "grpc list paired: backend ad30cf7 with service4d5fdd9/protodc2e8c6; CI34761457655; actual local HTTP-service-PostGIS ties/microseconds/inserts/end/empty/cursor security PASS",
+    "auth browser: backend214b4f6 with frontend7e5ba6b; later fd122c7 CI-only ande660318 docs-only; independent synthetic artifact cleanup also passes",
+    "2026-09-14 full existing customer/persona browser baseline: backendad30cf7/frontende660318/service4d5fdd9 with gRPCenabled; 5PASS in54.3s; seeded authentication and backend external-provider mocks; no API interception; unfinished UI/identityfix are not included"
+  ],
+  "rollback": {
+    "application": "Revert the feature branch commits through the PR after review; do not reset local dirty work.",
+    "grpc_reads": "Deploy list-capable service and five-table SELECT-only grants before enabled backend. Roll back backend before service/grants; disabled list rejects nonempty cursors. Never restore broad ambiguous-ID cancellation once the identity guard is accepted.",
+    "database": "Schema 29 required. Migration 29 down removes its history triggers but preserves histories. Migration 28 down intentionally does not regrant legacy unapproved access.",
+    "provider": "Keep DELIVERY_PROVIDER=mock and PAYMENT_PROVIDER=mock for this demo; real mode is intentionally not enabled."
+  }
+}
