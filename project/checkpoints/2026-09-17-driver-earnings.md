@@ -72,9 +72,9 @@ prior divergence, not new). Earnings was the real, unimplemented half.
 
 - Backend PR23 CI confirmed green: all 4 checks (`go-checks`, `docker-build`,
   `migration-integration`, `paired-order-service`) pass at commit `9134fe4`.
-- Frontend PR12 CI was still running when this checkpoint was written --
-  verify with `gh pr checks 12 --repo SwaadFoodDelivery/food-delivery-frontend`
-  before assuming green.
+- Frontend PR12 CI confirmed green: all 5 checks (`lint`, `unit-tests`,
+  `production-audit`, `build`, `Chromium UI (supplemental network mocks)`)
+  pass at commit `fdfbe05`.
 - Neither PR has had independent Staff/QA review -- automated verification
   only, same caveat as every other PR in the current stack.
 
